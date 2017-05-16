@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <h2>Essential <span>Links</span></h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
       <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
@@ -17,7 +17,19 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+
+    <ul>
+      <li v-for="user in users">
+        {{user.firstname}}
+      </li>
+    </ul>
+
+    <input type="text" v-model="input_val">
+    <span v-text="input_val"></span>
+    <button class="btn btn-primary" v-on:click="counter++">You've clicked this button {{counter}} times!</button>
+
   </div>
+
 </template>
 
 <script>
@@ -25,16 +37,27 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      users: [
+      { firstname:'jane', lastname:'harris' },
+      { firstname:'bob', lastname:'harris' },
+      { firstname:'bill', lastname:'bobert' }
+      ],
+      input_val: 'hey!',
+      counter:0
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<!-- Add "lang" attribute to use scss instead -->
+<style scoped lang="scss">
 h1, h2 {
   font-weight: normal;
+  span {
+    font-weight: bold;
+  }
 }
 
 ul {
