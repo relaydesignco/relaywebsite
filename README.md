@@ -23,6 +23,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 See also:
 - [Vue.js 2 Quickstart Tutorial 2017](https://medium.com/codingthesmartway-com-blog/vue-js-2-quickstart-tutorial-2017-246195cfbdd2)
 - [Vue Component Spec](http://vue-loader.vuejs.org/en/start/spec.html)
+- https://css-tricks.com/intro-to-vue-5-animations/
 
 Some notes on the setup:
 - JavaScript inside Vue components are processed by babel-loader by default
