@@ -65,19 +65,38 @@ export default {
 <!-- Add "lang" attribute to use scss instead -->
 <style scoped lang="scss">
 
-$brand-primary: #0A9EE7;
-$nav-color: #7C7C7C;
+@import "../assets/_variables.scss";
 
 .navbar {
-    display: block;
-    position: relative;
-    max-width: 400px;
-    margin: 1em auto;
+    background: $brand-primary;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 0;
+    top: 0;
+
+    @media only screen and (min-width: $screen-md-min) {
+       position: relative;
+       height: auto;
+       width: auto;
+       background: none;
+       float: right;
+       position: relative;
+    }
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+  display: none;
+  width: auto;
+  margin: 0;
+  padding: 0;
+
+  @media only screen and (min-width: $screen-md-min) {
+    width: 400px;
+    display: block;
+  }
 }
 
 li {
@@ -86,13 +105,21 @@ li {
   text-align: left;
   padding: 0;
   margin: 0;
+  letter-spacing: .05em;
+  
+  @media only screen and (min-width: $screen-md-min) {
+    font-size: 14px;
+    width: 23%;
+    margin-right: 2%;
+  }
 
   a {
     display: block;
     text-decoration: none;
-    color: $nav-color;
-    transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-    padding: 20px 0;
+    font-weight: bold;
+    color: $text-color;
+    transition: color .2s;
+    padding: 30px 0;
 
     &:hover {
       color: $brand-primary;
@@ -106,7 +133,7 @@ li {
   height: 3px;
   background: $brand-primary;
   position: absolute;
-  bottom: 0;
+  bottom: 12px;
   left: 0;
 }
 
