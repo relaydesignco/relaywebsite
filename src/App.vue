@@ -1,18 +1,21 @@
 <template>
   <div id="app">
+    <header class="wrapper">
+        <img src="/static/logo.svg" class="logo" alt="Relay Design Co." />
+    </header>
     <navbar></navbar>
-    <homepage></homepage>
+    <router-link to="/">Home</router-link>
+    <router-link to="/page">Company</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Homepage from './components/Homepage'
 import Navbar from './components/Navbar'
 
 export default {
   name: 'app',
   components: {
-    Homepage,
     Navbar
   }
 }
@@ -22,3 +25,4 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Karla');
   @import "./assets/base.scss";
 </style>
+

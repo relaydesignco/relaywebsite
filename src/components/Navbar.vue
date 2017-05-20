@@ -21,10 +21,10 @@ export default {
       active: false,
       activeLinkIndex: NaN,
       links: [
-        { title:'projects', url:'http://google.com', active: false },
-        { title:'services', url:'http://google.com', active: false },
-        { title:'company', url:'http://google.com', active: false },
-        { title:'contact', url:'http://google.com', active: false }
+        { title:'projects', url:'/', active: false },
+        { title:'services', url:'/company', active: false },
+        { title:'company', url:'/company', active: false },
+        { title:'contact', url:'/company', active: false }
       ],
       barLeft: 0,
       animQueue: "custom"

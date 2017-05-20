@@ -1,10 +1,6 @@
 <template>
   <div class="home">
 
-        <header class="wrapper">
-            <img src="/static/logo.svg" class="logo" alt="Relay Design Co." />
-        </header>
-
         <article class="wrapper">
           <header class="fadein">
               <h2>Design that works.</h2>
@@ -38,7 +34,7 @@
 
 <script>
 export default {
-  name: 'homepage',
+  name: 'hello',
   data () {
     return {
       // msg: 'Welcome to Your Vue.js App',
