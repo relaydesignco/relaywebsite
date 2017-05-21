@@ -1,5 +1,8 @@
 @import "./_variables";
 
+html, body {
+    height: 100.1%; // force a scrollbar so page doesn't jump
+}
 #app {
   font-family: 'Karla', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -33,17 +36,6 @@ a:link, a:hover, a:visited, a:active {
     text-decoration: none;
     // color: $text-color;
     // border-bottom: 2px solid $brand-primary;
-}
-
-.logo {
-    margin: 2em 0 0; 
-    width: 140px;
-    height: auto;
-
-    @media only screen and (min-width: $screen-md-min) {
-        width: 160px;
-    }
-
 }
 
 .wrapper {

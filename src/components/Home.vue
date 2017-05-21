@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  name: 'hello',
+  name: 'home',
   data () {
     return {
       // msg: 'Welcome to Your Vue.js App',
@@ -55,14 +55,6 @@ export default {
 <style scoped lang="scss">
 
   @import "../assets/_variables.scss";
-
- .logo { 
-    @media only screen and (min-width: $screen-md-min) {
-      margin-top: 11em;
-      margin-bottom: 1.6em;
-      width: 180px;
-    }
- }
 
   article {
     max-width: 540px;

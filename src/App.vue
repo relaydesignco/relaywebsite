@@ -1,12 +1,9 @@
 <template>
-  <div id="app">
-    <header class="wrapper">
-        <img src="/static/logo.svg" class="logo" alt="Relay Design Co." />
-    </header>
+  <div id="app" :class="this.$route.name">
     <navbar></navbar>
-    <router-link to="/">Home</router-link>
-    <router-link to="/page">Company</router-link>
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -24,5 +21,18 @@ export default {
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css?family=Karla');
   @import "./assets/base.scss";
+
+  .fade-enter-active, .fade-leave-active {
+    transition-property: opacity;
+    transition-duration: .25s;
+  }
+
+  .fade-enter-active {
+    transition-delay: .25s;
+  }
+
+  .fade-enter, .fade-leave-active {
+    opacity: 0
+  } 
 </style>
 
