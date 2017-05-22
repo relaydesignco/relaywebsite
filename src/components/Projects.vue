@@ -1,8 +1,8 @@
 <template>
-  <div class="page">
+  <div class="projects">
 
         <header class="wrapper">
-            PAGE! {{msg}}
+            Projects! {{msg}}
         </header>
 
         <article class="wrapper">
@@ -20,10 +20,10 @@
 
 <script>
 export default {
-  name: 'page',
+  name: 'projects',
   data () {
     return {
-      msg: 'COMPANY',
+      msg: 'projects',
       // users: [
       // { firstname:'jane', lastname:'harris' },
       // { firstname:'bob', lastname:'harris' },

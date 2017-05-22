@@ -6,7 +6,7 @@
 		<div class="navbar">
 			<ul id="navlist" ref="navlist">
 				<li v-for="link in links" v-on:mouseover="mouseover" v-bind:class="{ active: link.active }">
-				<router-link :to="{ path: link.url }">{{link.title}}</router-link>
+					<router-link :to="{ path: link.url }">{{link.title}}</router-link>
 				</li>
 			</ul>
 			<transition v-on:enter="enter">
@@ -28,7 +28,9 @@ export default {
 	  activeLinkIndex: NaN,
 	  links: [
 			{ title:'home', url:'/', active: false },
-			{ title:'page', url:'/company', active: false }
+			{ title:'company', url:'/company', active: false },
+			{ title:'projects', url:'/projects', active: false },
+			{ title:'contact', url:'/contact', active: false }
 	  ],
 	  barLeft: 0,
 	  animQueue: "custom"
@@ -83,16 +85,18 @@ export default {
 
 }
 
-.Home .logo {
-    @media only screen and (min-width: $screen-sm-min) {
-      margin-top: 11em;
-      margin-bottom: 1.6em;
-      width: 180px;
-    }
-}
+// .Home .logo {
+//     @media only screen and (min-width: $screen-sm-min) {
+//       margin-top: 11em;
+//       margin-bottom: 1.6em;
+//       width: 180px;
+//     }
+// }
 
 .site-header {
 	position: relative;
+	max-width: $page-max-width;
+	margin: 0 auto;
 }
 
 .navbar {

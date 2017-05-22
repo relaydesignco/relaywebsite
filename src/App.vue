@@ -1,9 +1,13 @@
 <template>
   <div id="app" :class="this.$route.name">
     <navbar></navbar>
-    <transition name="fade">
-      <router-view></router-view>
-    </transition>
+
+    <div class="page-content">
+      <transition name="custom">
+        <router-view></router-view>
+      </transition>
+    </div>
+    
   </div>
 </template>
 
@@ -21,18 +25,40 @@ export default {
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css?family=Karla');
   @import "./assets/base.scss";
-
-  .fade-enter-active, .fade-leave-active {
+  
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  .custom-enter-active, .custom-leave-active {
     transition-property: opacity;
     transition-duration: .25s;
+    animation: .5s ease-out 0s 1 slideInFromLeft;
   }
 
-  .fade-enter-active {
+  .custom-enter-active {
     transition-delay: .25s;
   }
 
-  .fade-enter, .fade-leave-active {
+  .custom-enter, .custom-leave-active {
     opacity: 0
   } 
+
+  // .fade-enter-active, .fade-leave-active {
+  //   transition-property: opacity;
+  //   transition-duration: .25s;
+  // }
+
+  // .fade-enter-active {
+  //   transition-delay: .25s;
+  // }
+
+  // .fade-enter, .fade-leave-active {
+  //   opacity: 0
+  // } 
 </style>
 
