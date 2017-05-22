@@ -25,12 +25,12 @@
     data () {
     	return {
     	  active: false,
-    	  activeLinkIndex: NaN,
     	  links: [
-    			{ title:'home', url:'/', active: false },
-    			{ title:'company', url:'/company', active: false },
-    			{ title:'projects', url:'/projects', active: false },
-    			{ title:'contact', url:'/contact', active: false }
+    			{ title:'Home', url:'/', active: false },
+          { title:'Projects', url:'/projects', active: false },
+          { title:'Services', url:'/services', active: false },
+    			{ title:'Company', url:'/company', active: false },
+    			{ title:'Contact', url:'/contact', active: false }
     	  ],
     	  barLeft: 0,
     	  animQueue: "custom"
@@ -50,15 +50,17 @@
     	  for (var i = 0; i < this.links.length; i++) {
       		if (this.links[i].title == e.target.innerHTML) {
       		  this.links[i].active = true;
-      		  this.activeLinkIndex = i;
       		}
     	  }
     	},
     	enter: function (el, done) {
     	  // on entering the transition, left the left position of the bar
     	  // and queue its animation (use queue to prevent stutter)
-    	  if (this.activeLinkIndex != NaN) {
-      		let leftPos = this.activeLinkIndex * 25;
+
+        let activeLink = this.$el.querySelector('.active');
+
+    	  if (activeLink) {
+      		let leftPos = activeLink.offsetLeft/activeLink.parentElement.clientWidth * 100;
       		Velocity(el, { left: leftPos + '%' }, { queue: this.animQueue, complete:done });
       		Velocity.Utilities.dequeue(el, this.animQueue);
     	  };
@@ -98,52 +100,40 @@
   }
 
   .navbar {
-  	background: $brand-primary;
-  	position: fixed;
-  	width: 50px;
-  	height: 50px;
-  	right: 0;
-  	top: 0;
 
   	@media only screen and (min-width: $screen-md-min) {
       position: absolute;
-      height: auto;
-      width: auto;
-      background: none;
       top: 0;
       right: 0;
+      width: 50%;
   	}
 
   	ul {
-  		list-style-type: none;
-  		padding: 0;
-  		display: none;
-  		width: auto;
-  		margin: 0;
-  		padding: 0;
+      display: none;
+      margin: 0;
+      padding: 0;
+      list-style: none;
 
   		@media only screen and (min-width: $screen-md-min) {
-        width: 400px;
         display: block;
+        text-align: right;
   		}
   	}
 
   	li {
   		display: inline-block;
-  		width: 25%;
   		text-align: left;
   		padding: 0;
-  		margin: 0;
+  		margin: 0 0 0 1.5em;
   		letter-spacing: .05em;
 
   		@media only screen and (min-width: $screen-md-min) {
     		font-size: 14px;
-    		width: 23%;
     		margin-right: 2%;
   		}
 
   		a {
-    		display: block;
+    		display: inline-block;
     		text-decoration: none;
     		font-weight: bold;
     		color: $text-color;
