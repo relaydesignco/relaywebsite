@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home'
 import Projects from '@/components/Projects'
+import Services from '@/components/Services'
 import Company from '@/components/Company'
 import Contact from '@/components/Contact'
 
@@ -21,6 +22,11 @@ export default new Router({
       component: Projects
     },
     {
+      path: '/services',
+      name: 'Services',
+      component: Services
+    },
+    {
       path: '/company',
       name: 'Company',
       component: Company
@@ -29,6 +35,6 @@ export default new Router({
       path: '/contact',
       name: 'contact',
       component: Contact
-    }    
+    }
   ]
 })
