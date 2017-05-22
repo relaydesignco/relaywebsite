@@ -1,5 +1,5 @@
 <template>
-    <footer class="wrapper">
+    <footer>
       <h3>Say hello.</h3>
       <p>hello@relaydesign.co<br />
           502.337.7309

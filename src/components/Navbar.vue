@@ -4,6 +4,7 @@
 			<img src="/static/logo.svg" class="logo" alt="Relay Design Co." />
 		</header>
 		<div class="navbar">
+      <button class="toggle">-</button>
 			<ul id="navlist" ref="navlist">
 				<li v-for="link in links" v-on:mouseover="mouseover" v-bind:class="{ active: link.active }">
 					<router-link :to="{ path: link.url }">{{link.title}}</router-link>
@@ -94,8 +95,38 @@
 
   .site-header {
   	position: relative;
+    width: 85%;
   	max-width: $page-max-width;
   	margin: 0 auto;
+
+    @media only screen and (min-width: $screen-md-min) {
+      width: 100%;
+    }
+  }
+
+  .toggle {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    color: white;
+    background-color: $brand-primary;
+    border: 0;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: 6px;
+      width: 38px;
+      height: 6px;
+      background-color: white;
+    }
+
+    @media only screen and (min-width: $screen-md-min) {
+      display: none;
+    }
   }
 
   .navbar {
@@ -145,12 +176,17 @@
   	}
 
   	#bar {
-  		width: 20px;
-  		height: 3px;
-  		background: $brand-primary;
-  		position: absolute;
-  		bottom: 12px;
-  		left: 0;
+      display: none;
+
+      @media only screen and (min-width: $screen-md-min) {
+        display: block;
+        width: 20px;
+        height: 3px;
+        background: $brand-primary;
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+      }
   	}
   }
 
