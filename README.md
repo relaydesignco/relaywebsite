@@ -35,3 +35,4 @@ Some notes on the setup:
 - Static assets in 'static' folder won't be vue-loaded; use root-relative urls (/static/asdf.jpg)
 - To simulate production, run `python -m SimpleHTTPServer 8888` inside the dist folder
 - Uses [Prerendering SPA plugin](https://github.com/chrisvfritz/prerender-spa-plugin)
+- Don't forget to add endpoints for pre-rendering to webpack.prod.conf.js

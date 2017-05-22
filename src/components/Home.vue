@@ -13,12 +13,18 @@
               Take a <a href="#">break</a>.</p>
       </section>
     </article>
+    <sitefooter></sitefooter>
   </div>
 </template>
 
 <script>
+import Sitefooter from '../components/Sitefooter'
+
 export default {
   name: 'home',
+  components: {
+    Sitefooter
+  },
   data () {
     return {
       // msg: 'Welcome to Your Vue.js App',
