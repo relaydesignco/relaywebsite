@@ -4,6 +4,7 @@
 			<img src="/static/logo.svg" class="logo" alt="Relay Design Co." />
 		</header>
 		<div class="navbar">
+      <button class="toggle">-</button>
 			<ul id="navlist" ref="navlist">
 				<li v-for="link in links" v-on:mouseover="mouseover" v-bind:class="{ active: link.active }">
 					<router-link :to="{ path: link.url }">{{link.title}}</router-link>
@@ -25,14 +26,13 @@
     data () {
     	return {
     	  active: false,
-    	  activeLinkIndex: NaN,
     	  links: [
-    			{ title:'home', url:'/', active: false },
-    			{ title:'company', url:'/company', active: false },
-    			{ title:'projects', url:'/projects', active: false },
-    			{ title:'contact', url:'/contact', active: false }
+    			{ title:'Home', url:'/', active: false },
+          { title:'Projects', url:'/projects', active: false },
+          { title:'Services', url:'/services', active: false },
+    			{ title:'Company', url:'/company', active: false },
+    			{ title:'Contact', url:'/contact', active: false }
     	  ],
-    	  barLeft: 0,
     	  animQueue: "custom"
     	}
     },
@@ -50,16 +50,18 @@
     	  for (var i = 0; i < this.links.length; i++) {
       		if (this.links[i].title == e.target.innerHTML) {
       		  this.links[i].active = true;
-      		  this.activeLinkIndex = i;
       		}
     	  }
     	},
     	enter: function (el, done) {
     	  // on entering the transition, left the left position of the bar
     	  // and queue its animation (use queue to prevent stutter)
-    	  if (this.activeLinkIndex != NaN) {
-      		let leftPos = this.activeLinkIndex * 25;
-      		Velocity(el, { left: leftPos + '%' }, { queue: this.animQueue, complete:done });
+
+        let activeLink = this.$el.querySelector('.active') || this.$el.querySelector('.navbar li:first-child');
+
+    	  if (activeLink) {
+      		let leftPos = activeLink.offsetLeft + 16;
+      		Velocity(el, { left: leftPos + 'px' }, { queue: this.animQueue, complete:done });
       		Velocity.Utilities.dequeue(el, this.animQueue);
     	  };
     	}
@@ -69,7 +71,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
-<style scoped lang="scss">
+<style lang="scss">
 
   @import "../assets/_variables.scss";
 
@@ -78,9 +80,9 @@
     width: 140px;
     height: auto;
 
-    @media only screen and (min-width: $screen-md-min) {
-      width: 160px;
-    }
+    // @media only screen and (min-width: $screen-md-min) {
+    //   width: 160px;
+    // }
   }
 
   // .Home .logo {
@@ -93,57 +95,74 @@
 
   .site-header {
   	position: relative;
+    width: 85%;
   	max-width: $page-max-width;
   	margin: 0 auto;
+
+    @media only screen and (min-width: $screen-md-min) {
+      width: 100%;
+    }
+  }
+
+  .toggle {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    color: white;
+    background-color: $brand-primary;
+    border: 0;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: 6px;
+      width: 38px;
+      height: 6px;
+      background-color: white;
+    }
+
+    @media only screen and (min-width: $screen-md-min) {
+      display: none;
+    }
   }
 
   .navbar {
-  	background: $brand-primary;
-  	position: fixed;
-  	width: 50px;
-  	height: 50px;
-  	right: 0;
-  	top: 0;
 
   	@media only screen and (min-width: $screen-md-min) {
       position: absolute;
-      height: auto;
-      width: auto;
-      background: none;
       top: 0;
       right: 0;
+      width: 50%;
   	}
 
   	ul {
-  		list-style-type: none;
-  		padding: 0;
-  		display: none;
-  		width: auto;
-  		margin: 0;
-  		padding: 0;
+      display: none;
+      margin: 0;
+      padding: 0;
+      list-style: none;
 
   		@media only screen and (min-width: $screen-md-min) {
-        width: 400px;
         display: block;
+        text-align: right;
   		}
   	}
 
   	li {
   		display: inline-block;
-  		width: 25%;
   		text-align: left;
-  		padding: 0;
+  		padding: 0 16px;
   		margin: 0;
   		letter-spacing: .05em;
 
   		@media only screen and (min-width: $screen-md-min) {
     		font-size: 14px;
-    		width: 23%;
-    		margin-right: 2%;
   		}
 
   		a {
-    		display: block;
+    		display: inline-block;
     		text-decoration: none;
     		font-weight: bold;
     		color: $text-color;
@@ -157,12 +176,17 @@
   	}
 
   	#bar {
-  		width: 20px;
-  		height: 3px;
-  		background: $brand-primary;
-  		position: absolute;
-  		bottom: 12px;
-  		left: 0;
+      display: none;
+
+      @media only screen and (min-width: $screen-md-min) {
+        display: block;
+        width: 20px;
+        height: 3px;
+        background: $brand-primary;
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+      }
   	}
   }
 
