@@ -32,7 +32,6 @@
     			{ title:'Company', url:'/company', active: false },
     			{ title:'Contact', url:'/contact', active: false }
     	  ],
-    	  barLeft: 0,
     	  animQueue: "custom"
     	}
     },
@@ -57,11 +56,11 @@
     	  // on entering the transition, left the left position of the bar
     	  // and queue its animation (use queue to prevent stutter)
 
-        let activeLink = this.$el.querySelector('.active');
+        let activeLink = this.$el.querySelector('.active') || this.$el.querySelector('.navbar li:first-child');
 
     	  if (activeLink) {
-      		let leftPos = activeLink.offsetLeft/activeLink.parentElement.clientWidth * 100;
-      		Velocity(el, { left: leftPos + '%' }, { queue: this.animQueue, complete:done });
+      		let leftPos = activeLink.offsetLeft + 16;
+      		Velocity(el, { left: leftPos + 'px' }, { queue: this.animQueue, complete:done });
       		Velocity.Utilities.dequeue(el, this.animQueue);
     	  };
     	}
@@ -71,7 +70,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
-<style scoped lang="scss">
+<style lang="scss">
 
   @import "../assets/_variables.scss";
 
@@ -80,9 +79,9 @@
     width: 140px;
     height: auto;
 
-    @media only screen and (min-width: $screen-md-min) {
-      width: 160px;
-    }
+    // @media only screen and (min-width: $screen-md-min) {
+    //   width: 160px;
+    // }
   }
 
   // .Home .logo {
@@ -123,13 +122,12 @@
   	li {
   		display: inline-block;
   		text-align: left;
-  		padding: 0;
-  		margin: 0 0 0 1.5em;
+  		padding: 0 16px;
+  		margin: 0;
   		letter-spacing: .05em;
 
   		@media only screen and (min-width: $screen-md-min) {
     		font-size: 14px;
-    		margin-right: 2%;
   		}
 
   		a {
