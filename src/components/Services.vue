@@ -7,11 +7,13 @@
 
     <article class="wrapper">
       <header>
-        <h1>Relay designs and builds the brands, digital interactions, and physical spaces that shape how people experience your company. </h1>
-        <h2>We are focused on the total experience people have with your company, from when they first search for your product, to when they rave about it to their friends.</h2>
+        <h2>Relay designs and builds the brands, digital interactions, and physical spaces that shape how people experience your company. </h2>
+        <h3>We are focused on the total experience people have with your company, from when they first search for your product, to when they rave about it to their friends.</h3>
       </header>
       <section class="service">
-        <header>Experience Design</header>
+        <header>
+          <h3>Experience Design</h3>
+        </header>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quasi officiis nostrum recusandae aut iste, nihil aliquam ea et. Quam, repellendus explicabo omnis in fugiat voluptatem suscipit corporis nihil soluta!</p>
         <ul>
           <li>Consulting</li>
@@ -19,7 +21,9 @@
         </ul>
       </section>
       <section class="service">
-        <header>Brand Development</header>
+        <header>
+          <h3>Brand Development</h3>
+        </header>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quasi officiis nostrum recusandae aut iste, nihil aliquam ea et. Quam, repellendus explicabo omnis in fugiat voluptatem suscipit corporis nihil soluta!</p>
         <ul>
           <li>Naming</li>
@@ -28,7 +32,9 @@
         </ul>
       </section>
       <section class="service">
-        <header>Product, Service, and Space Design</header>
+        <header>
+          <h3>Product, Service, and Space Design</h3>
+        </header>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quasi officiis nostrum recusandae aut iste, nihil aliquam ea et. Quam, repellendus explicabo omnis in fugiat voluptatem suscipit corporis nihil soluta!</p>
         <ul>
           <li>Interaction Design</li>
@@ -42,6 +48,9 @@
       </section>
 
       <section class="work-with-us">
+        <header>
+          <h3>Working with Us</h3>
+        </header>
         <p>We work with forward-thinking companies of all sizes, in all stages.</p>
         <p>We partner with entrepreneurs to launch new companies, acting as the design and technology team, to help design and build initial offerings and support operations until an internal team is ready.</p>
         <p>We work with growing brands, addressing challenges of scale as the number of customers, employees, and vendors increase dramatically. How do you maintain a consistent brand? How do you visualize the ever-growing stream of data? How do you communicate with a decentralized team? We work with you to identify the biggest pain points and help design tools and systems to manage growth.  </p>
@@ -49,6 +58,9 @@
       </section>
 
       <section class="client-list">
+        <header>
+          <h3>Client List</h3>
+        </header>
         [client list]
       </section>
     </article>
@@ -67,6 +79,13 @@ export default {
       page_title: 'Services',
       feature_image_filename: ''
     }
+  },
+  head: {
+    title: function () {
+      return {
+        inner: this.page_title
+      }
+    },
   }
 }
 </script>

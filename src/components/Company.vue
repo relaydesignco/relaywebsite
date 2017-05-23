@@ -130,6 +130,13 @@ export default {
       page_title: 'Company',
       feature_image_filename: '/static/company-large.jpg'
     }
+  },
+  head: {
+    title: function () {
+      return {
+        inner: this.page_title
+      }
+    },
   }
 }
 </script>

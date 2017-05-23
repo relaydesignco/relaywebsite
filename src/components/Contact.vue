@@ -32,6 +32,13 @@ export default {
       // input_val: 'hey!',
       // counter:0
     }
+  },
+  head: {
+    title: function () {
+      return {
+        inner: "Contact"
+      }
+    },
   }
 }
 </script>
@@ -39,6 +46,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
 <style>
-  
+
 
 </style>
