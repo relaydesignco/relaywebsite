@@ -8,7 +8,7 @@
         <p>We help companies use design and technology to grow and innovate through <a href="#">branding</a>, <a href="#">marketing</a> and <a href="#">digital applications</a>.</p>
       </section>
       <section class="fadein" id="home-projects">
-        <p>See past <a href="#">projects</a>.<br />
+        <p>See past <router-link :to="'projects'">projects</router-link>.<br />
           Meet the <a href="#">team</a>.<br />
           Take a <a href="#">break</a>.</p>
       </section>
