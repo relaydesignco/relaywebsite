@@ -38,22 +38,29 @@ export default {
     			{
               verb:'Re-inventing',
               title:'PSA Airlines',
-              url:'/project-psa',
-              feature_image_filename:'/static/fpo_large.png',
+              url:'/project/psa',
+              feature_image_filename:'/static/project-psa-feature.jpg',
               excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
           },
           {
               verb:'Growing to scale',
               title:'21c Museum Hotels',
-              url:'/projects/psa-airlines',
-              feature_image_filename:'/static/fpo_large.png',
+              url:'/project/21c',
+              feature_image_filename:'/static/project-21c-feature.jpg',
               excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
           },
           {
               verb:'Introducing',
               title:'Waterfront Botanical Gardens',
-              url:'/projects/psa-airlines',
-              feature_image_filename:'/static/fpo_large.png',
+              url:'/project/waterfront-botanical-gardens',
+              feature_image_filename:'/static/project-wbg-feature.jpg',
+              excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
+          },
+          {  
+              verb:'Envisioning',
+              title:'Garage Bar',
+              url:'/project/garage-bar',
+              feature_image_filename:'/static/project-garage-feature.jpg',
               excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
           },
           {
