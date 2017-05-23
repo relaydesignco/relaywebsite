@@ -72,6 +72,13 @@ export default {
           }
     	  ]
     }
+  },
+  head: {
+    title: function () {
+      return {
+        inner: this.page_title
+      }
+    },
   }
 }
 </script>

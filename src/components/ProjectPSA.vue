@@ -83,6 +83,13 @@ export default {
     return {
       page_title: 'Projects',
     }
+  },
+  head: {
+    title: function () {
+      return {
+        inner: this.page_title
+      }
+    },
   }
 }
 </script>

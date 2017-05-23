@@ -32,6 +32,15 @@
         // input_val: 'hey!',
         // counter:0
       }
+    },
+    head: {
+      title: function () {
+        return {
+          inner: "Relay Design Co.",
+          separator: '',
+          complement: ''
+        }
+      },
     }
   }
 </script>

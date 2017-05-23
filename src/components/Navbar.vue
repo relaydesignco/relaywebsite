@@ -1,9 +1,9 @@
 <template>
-  <div class="site-header" v-on:mouseover="active=true" v-on:mouseout="endNav">
+  <div class="site-header">
 		<header>
-			<img src="/static/logo.svg" class="logo" alt="Relay Design Co." />
+			<router-link to="/"><img src="/static/logo.svg" class="logo" alt="Relay Design Co." /></router-link>
 		</header>
-		<div class="navbar" v-bind:class="{ 'flyout': flyout, 'scrolled': scrolled }">
+		<div class="navbar" v-bind:class="{ 'flyout': flyout, 'scrolled': scrolled }"  v-on:mouseover="active=true" v-on:mouseout="endNav">
       <button type="button" class="toggle tcon tcon-plus tcon-plus--minus" v-bind:class="{ 'tcon-transform': flyout }" v-on:click="toggleFlyout" aria-label="add item">
         <span class="tcon-visuallyhidden">add item</span>
       </button>
@@ -121,7 +121,7 @@
     color: white;
     background-color: $brand-primary;
     border: 0;
-    z-index: 100;
+    z-index: 9100;
     transition: .3s;
 
     @media only screen and (min-width: $screen-md-min) {
@@ -272,6 +272,7 @@
         padding: 2em;
         background: $brand-primary;
         text-align: left;
+        z-index: 9000;
 
         @media only screen and (min-width: $screen-md-min) {
           width: 50%;
