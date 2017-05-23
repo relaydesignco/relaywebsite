@@ -28,27 +28,27 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Karla');
   @import "./assets/base.scss";
 
-  @keyframes slideInFromLeft {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-  .custom-enter-active, .custom-leave-active {
-    transition-property: opacity;
-    transition-duration: .25s;
-    animation: .5s ease-out 0s 1 slideInFromLeft;
-  }
+  // @keyframes slideInFromLeft {
+  //   0% {
+  //     transform: translateX(0);
+  //   }
+  //   100% {
+  //     transform: translateX(100%);
+  //   }
+  // }
+  // .custom-enter-active, .custom-leave-active {
+  //   transition-property: opacity;
+  //   transition-duration: .25s;
+  //   animation: .5s ease-out 0s 1 slideInFromLeft;
+  // }
 
-  .custom-enter-active {
-    transition-delay: .25s;
-  }
+  // .custom-enter-active {
+  //   transition-delay: .25s;
+  // }
 
-  .custom-enter, .custom-leave-active {
-    opacity: 0
-  }
+  // .custom-enter, .custom-leave-active {
+  //   opacity: 0
+  // }
 
   // .fade-enter-active, .fade-leave-active {
   //   transition-property: opacity;

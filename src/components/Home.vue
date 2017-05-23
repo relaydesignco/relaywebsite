@@ -9,8 +9,8 @@
       </section>
       <section class="fadein" id="home-projects">
         <p>See past <router-link :to="'projects'">projects</router-link>.<br />
-          Meet the <a href="#">team</a>.<br />
-          Take a <a href="#">break</a>.</p>
+          Meet the <router-link :to="'company'">team</router-link>.<br />
+        </p>
       </section>
     </article>
   </div>
