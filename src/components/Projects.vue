@@ -41,14 +41,14 @@ export default {
     			{  
               verb:'Re-inventing',
               title:'PSA Airlines',
-              url:'/project-psa',
+              url:'/project/psa',
               feature_image_filename:'/static/fpo_large.png',
               excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
           },
           {  
               verb:'Growing to scale',
               title:'21c Museum Hotels',
-              url:'/projects/psa-airlines',
+              url:'/project/21c',
               feature_image_filename:'/static/fpo_large.png',
               excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
           },
