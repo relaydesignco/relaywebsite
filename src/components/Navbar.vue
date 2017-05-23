@@ -116,8 +116,8 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     color: white;
     background-color: $brand-primary;
     border: 0;
@@ -163,11 +163,11 @@
       content: "";
       border-radius: 1px;
       display: block;
-      width: 70%;
-      height: 20%;
+      width: 60%;
+      height: 14%;
       position: absolute;
-      top: 37%;
-      left: 15%;
+      top: 43%;
+      left: 20%;
       transition: .3s;
       background: white;
     }
@@ -283,8 +283,9 @@
 
           a {
             padding: .5em 1em;
-            font-size: 2em;
+            font-size: 3em;
             color: white;
+            font-weight: bold;
           }
         }
       }
