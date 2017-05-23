@@ -47,7 +47,7 @@ export default {
               title:'21c Museum Hotels',
               url:'/project/21c',
               feature_image_filename:'/static/project-21c-feature.jpg',
-              excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
+              excerpt:'Over the past nine years, the Relay team has served as creative partners to 21c\'s marketing team, helping their brand adapt to new technologies, trends and markets.'
           },
           {
               verb:'Introducing',

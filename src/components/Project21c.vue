@@ -7,7 +7,7 @@
 
         <section class="wrapper">
           <h2 class="project_title"><span>Growing to scale</span> 21c Museum Hotels</h2>
-          <p class="intro">Long term partner. Challenge is to help an existing brand grow to scale while preserving brand integrity and adapting to new markets, new tech, changes in hosplitality trends.  We helped them by serving as partners to their creative team, providing design and tech services and brand consulting.</p>
+          <p class="intro">Over the past nine years, the Relay team has helped the 21c brand grow rapidly while maintaining brand integrity. We've served as creative partners to their marketing team, providing design and technology services and consulting, as well as helping them adapt to new technologies, trends and markets.</p>
         </section>
         
         <img src="/static/project-21c-feature.jpg" class="feature" />
@@ -16,7 +16,8 @@
           <div class="slat">
             <div class="column-half">
               <h3>Adapting to rapid growth</h3>
-              <p>Talk about how 21c grew from 1 to X locations in XX years, and we’ve been with them for X. Talk about need to adapt quickly when going into new markets, and the need to respond to changes in the industry, new marketing channels. How we provided team with design tools like templates, standards, etc to use themselves.</p>
+              <p>When a company grows rapidly, it can be a challenge to maintain consistency in branding efforts. The team at Relay helped 21c Museum Hotels maintain the integrity of their brand while expanding from one location to six. As 21c's in-house capabilities have grown, our role has shifted to include providing more standards, templates and tools that 21c staff can edit directly, as well as providing full-service design and technology capabilities. 
+              </p>
             </div>
             <div class="column-half">
               <img src="/static/project-21c-ad.jpg" />
@@ -29,8 +30,8 @@
         <section class="wrapper">
           <div class="slat">
             <div class="column-half">
-              <h3>Driving revenue through digital</h3>
-              <p>Talk about success of marketing site, how many bookings are direct, important for revenue. How we did user testing and rely on analytics to ensure usability. Scale of multi-site installation and size of team involved, the CMS requirements for that… </p>
+              <h3>Digital drives revenue</h3>
+              <p>For any hospitality business, a well-designed and user-friendly website is vital to revenue, as hotels now have to compete with discounted or commission-based travel websites for bookings. The Relay team did extensive user testing and design research prior to creating the design for the new website to ensure it met customers' expectations and increased the ease of booking direct. 21c now enjoys a higher-than-average rate of direct bookings compared to the industry average, an important factor in the hotels' bottom line.</p>
             </div>
             <div class="column-half">
               <img src="/static/fpo_large.png" />
@@ -38,11 +39,11 @@
           </div>
         </section>      
 
-        <img src="/static/fpo_large.png" class="feature" />
+        <img src="/static/project-21c-web.jpg" class="feature" />
 
         <section class="wrapper text-center">
           <h3>A family of distinctive brands</h3>
-          <p class="intro">Talk about how each location has at least one restaurant, so they all need id’s. Try to represent local flavors in cuisine and design. Always paying reference to history of buildings, city, etc.</p>
+          <p class="intro">21c Museum Hotels is more than just a hotel and museum – each location also features a distinctive restaurant that incorporates local flavors and design elements. The Relay team worked with 21c's marketing and food and beverage teams to create unique identities that reflects the local influences of the menus and interiors. Each restaurant brand is unique, but they're all part of the 21c family.</p>
           <div class="flex-grid">
             <div class="column-third">
               <img src="/static/project-21c-graydudley.jpg" />
