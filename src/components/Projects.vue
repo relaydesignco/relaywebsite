@@ -21,52 +21,49 @@
             </router-link>
           </section>
       </article>
-      <sitefooter></sitefooter>
   </div>
 
 </template>
 
 <script>
-import Sitefooter from '../components/Sitefooter'
 
 export default {
   name: 'projects',
   components: {
-    Sitefooter
   },
   data () {
     return {
       page_title: 'Projects',
       projects: [
-    			{  
+    			{
               verb:'Re-inventing',
               title:'PSA Airlines',
               url:'/project-psa',
               feature_image_filename:'/static/fpo_large.png',
               excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
           },
-          {  
+          {
               verb:'Growing to scale',
               title:'21c Museum Hotels',
               url:'/projects/psa-airlines',
               feature_image_filename:'/static/fpo_large.png',
               excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
           },
-          {  
+          {
               verb:'Introducing',
               title:'Waterfront Botanical Gardens',
               url:'/projects/psa-airlines',
               feature_image_filename:'/static/fpo_large.png',
               excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
           },
-          {  
+          {
               verb:'Visualizing data with',
               title:'The Hub',
               url:'/projects/psa-airlines',
               feature_image_filename:'/static/fpo_large.png',
               excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
           },
-          {  
+          {
               verb:'Envisioning',
               title:'Garage Bar',
               url:'/projects/psa-airlines',
@@ -82,14 +79,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
 <style scoped lang="scss">
-  
+
   @import "../assets/_variables.scss";
 
   section { position: relative; }
 
   .project_preview {
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
 
     img {
       display: block;
@@ -127,7 +124,7 @@ export default {
           box-shadow: 1px 1px 5px rgba(0,0,0,.2);
         }
       }
-      
+
     }
   }
 
