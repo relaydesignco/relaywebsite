@@ -95,7 +95,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     // prerender pages for SEO
     new PrerenderSpaPlugin(
       path.join(__dirname, '../dist'), // Path to compiled app
-      [ '/', '/company', '/projects', '/contact' ] // List of endpoints you wish to prerender
+      [ '/', '/company', '/services', '/projects', '/project-psa', '/contact' ] // List of endpoints you wish to prerender
     )
   ]
 })

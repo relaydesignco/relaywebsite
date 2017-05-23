@@ -1,0 +1,58 @@
+@import "./_variables";
+
+
+h3 {
+  font-size: 1.7em;
+  margin-top: .7em;
+}
+
+.project_title {
+    font-size: 1.4em;
+    span { color: #ccc; }
+}
+
+section { 
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.project-navigation {
+  display: flex;
+  margin: 5em auto;
+
+  a.btn {
+    width: 50%;
+    font-size: 1.4em;
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+    transition: color .2s;
+
+    &:hover {
+      color: $brand-primary;
+    }
+
+    span {
+      border-bottom: 2px solid $brand-primary;
+    }
+  }
+
+  .prev-btn::before {
+    content: "‹ ";
+    color: $brand-primary;
+    font-size: 1.4em;
+    border-bottom: none !important;
+  }
+
+  .next-btn {
+   text-align: right;
+   
+    &::after {
+      content: " ›";
+      color: $brand-primary;
+      font-size: 1.4em;
+    }
+
+  }
+
+}

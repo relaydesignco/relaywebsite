@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home'
 import Projects from '@/components/Projects'
+import ProjectPSA from '@/components/ProjectPSA'
 import Services from '@/components/Services'
 import Company from '@/components/Company'
 import Contact from '@/components/Contact'
@@ -15,6 +16,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/project-psa',
+      name: 'Projects: PSA',
+      component: ProjectPSA
     },
     {
       path: '/projects',

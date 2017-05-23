@@ -7,7 +7,7 @@
 
         <article class="wrapper">
           <section v-for="project in projects">
-            <a :href="project.url">
+            <router-link :to="{ path: project.url }">
               <h3 class="project_title"><span>{{project.verb}}</span> {{project.title}}</h3>
               <div class="project_preview">
                 <div class="preview_text">
@@ -18,7 +18,7 @@
                 </div>
                 <img :src="project.feature_image_filename" class="feature" />
               </div>
-            </a>
+            </router-link>
           </section>
       </article>
       <sitefooter></sitefooter>
@@ -41,7 +41,7 @@ export default {
     			{  
               verb:'Re-inventing',
               title:'PSA Airlines',
-              url:'/projects/psa-airlines',
+              url:'/project-psa',
               feature_image_filename:'/static/fpo_large.png',
               excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
           },
