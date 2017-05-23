@@ -1,8 +1,16 @@
 @import "./_variables";
+@import "./_normalize";
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
 html, body {
     height: 100.1%; // force a scrollbar so page doesn't jump
 }
+
 #app {
   font-family: 'Karla', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
