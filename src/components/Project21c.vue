@@ -7,7 +7,7 @@
 
         <section class="wrapper">
           <h2 class="project_title"><span>Growing to scale</span> 21c Museum Hotels</h2>
-          <p class="intro">Over the past nine years, the Relay team has helped the 21c brand grow rapidly while maintaining brand integrity. We've served as creative partners to their marketing team, providing design and technology services and consulting, as well as helping them adapt to new technologies, trends and markets.</p>
+          <p class="intro">Over the past nine years, the Relay team has helped 21c Museum Hotels grow while maintaining brand integrity. We've served as creative partners to their marketing team, providing design and technology services to help them adapt to new technologies, trends and markets.</p>
         </section>
         
         <img src="/static/project-21c-feature.jpg" class="feature" />
@@ -34,7 +34,7 @@
               <p>For any hospitality business, a well-designed and user-friendly website is vital to revenue, as hotels now have to compete with discounted or commission-based travel websites for bookings. The Relay team did extensive user testing and design research prior to creating the design for the new website to ensure it met customers' expectations and increased the ease of booking direct. 21c now enjoys a higher-than-average rate of direct bookings compared to the industry average, an important factor in the hotels' bottom line.</p>
             </div>
             <div class="column-half">
-              <img src="/static/fpo_large.png" />
+              <img src="/static/project-21c-be.jpg" class="drop-shadow border" />
             </div>
           </div>
         </section>      
@@ -61,7 +61,7 @@
               <img src="/static/project-21c-metropole.jpg" />
             </div>
             <div class="column-third">
-              <img src="/static/project-21c-proof.jpg" />
+              <img src="/static/project-21c-cocktail.jpg" />
             </div>
           </div>
         </section>
@@ -84,6 +84,7 @@
                 <li>Website Design & Development</li>
                 <li>Intranet Design & Development</li>
                 <li>Photography Art Direction</li>
+                <li>Signage & Wayfinding</li>
               </ul>
             </div>
           </div>
@@ -102,13 +103,8 @@
 </template>
 
 <script>
-import Sitefooter from '../components/Sitefooter'
-
 export default {
   name: 'Project21c',
-  components: {
-    Sitefooter
-  },
   data () {
     return {
       page_title: 'Projects: 21c',

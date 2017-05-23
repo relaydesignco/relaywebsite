@@ -62,13 +62,6 @@ export default {
               url:'/project/garage-bar',
               feature_image_filename:'/static/project-garage-feature.jpg',
               excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
-          },
-          {
-              verb:'Visualizing data with',
-              title:'The Hub',
-              url:'/projects/psa-airlines',
-              feature_image_filename:'/static/fpo_large.png',
-              excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
           }
     	  ]
     }
