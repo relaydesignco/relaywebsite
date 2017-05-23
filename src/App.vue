@@ -7,17 +7,19 @@
         <router-view></router-view>
       </transition>
     </div>
-    
+    <sitefooter></sitefooter>
   </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar'
+import Sitefooter from './components/Sitefooter'
 
 export default {
   name: 'app',
   components: {
-    Navbar
+    Navbar,
+    Sitefooter
   }
 }
 </script>
@@ -25,7 +27,7 @@ export default {
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css?family=Karla');
   @import "./assets/base.scss";
-  
+
   @keyframes slideInFromLeft {
     0% {
       transform: translateX(0);
@@ -46,7 +48,7 @@ export default {
 
   .custom-enter, .custom-leave-active {
     opacity: 0
-  } 
+  }
 
   // .fade-enter-active, .fade-leave-active {
   //   transition-property: opacity;
@@ -59,6 +61,6 @@ export default {
 
   // .fade-enter, .fade-leave-active {
   //   opacity: 0
-  // } 
+  // }
 </style>
 

@@ -4,10 +4,10 @@
         <header class="wrapper">
             <h2 class="page_title">{{page_title}}</h2>
         </header>
-        
+
         <img :src="feature_image_filename" class="feature" />
-        
-        <article class="wrapper">  
+
+        <article class="wrapper">
           <header class="fadein">
               <h2 class="intro">We’re a team of designers and developers who help clients use design and technology to meet business challenges.</h2>
           </header>
@@ -18,7 +18,7 @@
             </div>
             <div class="column-half">
               <img src="/static/company-small-1.jpg" />
-            </div>              
+            </div>
           </section>
 
           <section class="slat">
@@ -28,7 +28,7 @@
             </div>
             <div class="column-half">
               <img src="/static/company-small-1.jpg" />
-            </div>              
+            </div>
           </section>
 
           <section class="slat">
@@ -38,7 +38,7 @@
             </div>
             <div class="column-half">
               <img src="/static/company-small-1.jpg" />
-            </div>              
+            </div>
           </section>
 
           <h2>The Team</h2>
@@ -115,18 +115,15 @@
           </section>
 
       </article>
-     <sitefooter></sitefooter>
   </div>
 
 </template>
 
 <script>
-import Sitefooter from '../components/Sitefooter'
 
 export default {
   name: 'company',
   components: {
-    Sitefooter
   },
   data () {
     return {
@@ -140,10 +137,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
 <style lang="scss">
-  
+
   .flex-grid {
-    h4 { 
-      margin-top: 0; 
+    h4 {
+      margin-top: 0;
       margin-bottom: 0;
       font-size: 18px;
     }

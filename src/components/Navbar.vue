@@ -3,8 +3,10 @@
 		<header>
 			<img src="/static/logo.svg" class="logo" alt="Relay Design Co." />
 		</header>
-		<div class="navbar" v-bind:class="{ 'flyout': flyout }">
-      <button class="toggle" v-on:click="toggleFlyout">-</button>
+		<div class="navbar" v-bind:class="{ 'flyout': flyout, 'scrolled': scrolled }">
+      <button type="button" class="toggle tcon tcon-plus tcon-plus--minus" v-bind:class="{ 'tcon-transform': flyout }" v-on:click="toggleFlyout" aria-label="add item">
+        <span class="tcon-visuallyhidden">add item</span>
+      </button>
 			<ul id="navlist" ref="navlist">
 				<li v-for="link in links" v-on:mouseover="mouseover" v-bind:class="{ active: link.active }">
 					<router-link :to="{ path: link.url }" v-on:click.native="flyout = false">{{link.title}}</router-link>
@@ -27,6 +29,7 @@
     	return {
     	  active: false,
         flyout: false,
+        scrolled: false,
     	  links: [
     			{ title:'Home', url:'/', active: false },
           { title:'Projects', url:'/projects', active: false },
@@ -72,7 +75,16 @@
       closeFlyout: function (e) {
         console.log('hello');
         this.flyout = false;
+      },
+      handleScroll () {
+        this.scrolled = window.scrollY > 50;
       }
+    },
+    created () {
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed () {
+      window.removeEventListener('scroll', this.handleScroll);
     }
   }
 </script>
@@ -87,19 +99,7 @@
     margin: 2em 0 0;
     width: 140px;
     height: auto;
-
-    // @media only screen and (min-width: $screen-md-min) {
-    //   width: 160px;
-    // }
   }
-
-  // .Home .logo {
-  //     @media only screen and (min-width: $screen-sm-min) {
-  //       margin-top: 11em;
-  //       margin-bottom: 1.6em;
-  //       width: 180px;
-  //     }
-  // }
 
   .site-header {
   	position: relative;
@@ -122,19 +122,91 @@
     background-color: $brand-primary;
     border: 0;
     z-index: 100;
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 22px;
-      left: 6px;
-      width: 38px;
-      height: 6px;
-      background-color: white;
-    }
+    transition: .3s;
 
     @media only screen and (min-width: $screen-md-min) {
-      display: none;
+      right: -100%;
+
+      .scrolled & {
+        right: 0;
+      }
+    }
+  }
+
+  .tcon {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+    user-select: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+
+    > * {
+      display: block;
+    }
+
+    &:hover,
+    &:focus {
+      outline: none; // see issue #36 https://github.com/grayghostvisuals/transformicons/issues/36
+    }
+    &::-moz-focus-inner {
+      border: 0;
+    }
+  }
+
+  .tcon-plus {
+
+    &::before,
+    &::after {
+      content: "";
+      border-radius: 1px;
+      display: block;
+      width: 70%;
+      height: 20%;
+      position: absolute;
+      top: 37%;
+      left: 15%;
+      transition: .3s;
+      background: white;
+    }
+
+    &:after {
+      // transform: rotate(90deg);
+    }
+  }
+
+  .tcon-plus--minus {
+    &.tcon-transform {
+      &::before {
+        transform: rotate(45deg) translate(0, 0);
+      }
+
+      &::after {
+        transform: rotate(135deg) translate(0, 0);
+      }
+    }
+  }
+
+  .tcon-visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    &:active,
+    &:focus {
+      clip: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      position: static;
+      width: auto;
     }
   }
 
@@ -156,6 +228,10 @@
   		@media only screen and (min-width: $screen-md-min) {
         display: block;
         text-align: right;
+
+        .scrolled & {
+          display: none;
+        }
   		}
   	}
 
@@ -185,10 +261,6 @@
   	}
 
     &.flyout {
-
-      .toggle {
-        display: block;
-      }
 
       ul {
         display: block;

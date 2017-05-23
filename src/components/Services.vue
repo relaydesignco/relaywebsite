@@ -52,19 +52,15 @@
         [client list]
       </section>
     </article>
-
-    <sitefooter></sitefooter>
   </div>
 
 </template>
 
 <script>
-import Sitefooter from '../components/Sitefooter'
 
 export default {
   name: 'services',
   components: {
-    Sitefooter
   },
   data () {
     return {
