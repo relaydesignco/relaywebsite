@@ -3,11 +3,11 @@
 		<header>
 			<img src="/static/logo.svg" class="logo" alt="Relay Design Co." />
 		</header>
-		<div class="navbar">
-      <button class="toggle">-</button>
+		<div class="navbar" v-bind:class="{ 'flyout': flyout }">
+      <button class="toggle" v-on:click="toggleFlyout">-</button>
 			<ul id="navlist" ref="navlist">
 				<li v-for="link in links" v-on:mouseover="mouseover" v-bind:class="{ active: link.active }">
-					<router-link :to="{ path: link.url }">{{link.title}}</router-link>
+					<router-link :to="{ path: link.url }" v-on:click.native="flyout = false">{{link.title}}</router-link>
 				</li>
 			</ul>
 			<transition v-on:enter="enter">
@@ -26,6 +26,7 @@
     data () {
     	return {
     	  active: false,
+        flyout: false,
     	  links: [
     			{ title:'Home', url:'/', active: false },
           { title:'Projects', url:'/projects', active: false },
@@ -64,7 +65,14 @@
       		Velocity(el, { left: leftPos + 'px' }, { queue: this.animQueue, complete:done });
       		Velocity.Utilities.dequeue(el, this.animQueue);
     	  };
-    	}
+      },
+      toggleFlyout: function (e) {
+        this.flyout = !this.flyout;
+      },
+      closeFlyout: function (e) {
+        console.log('hello');
+        this.flyout = false;
+      }
     }
   }
 </script>
@@ -113,6 +121,7 @@
     color: white;
     background-color: $brand-primary;
     border: 0;
+    z-index: 100;
 
     &:after {
       content: '';
@@ -174,6 +183,39 @@
     		}
   		}
   	}
+
+    &.flyout {
+
+      .toggle {
+        display: block;
+      }
+
+      ul {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        padding: 2em;
+        background: $brand-primary;
+        text-align: left;
+
+        @media only screen and (min-width: $screen-md-min) {
+          width: 50%;
+        }
+
+        li {
+          display: block;
+
+          a {
+            padding: .5em 1em;
+            font-size: 2em;
+            color: white;
+          }
+        }
+      }
+    }
 
   	#bar {
       display: none;
