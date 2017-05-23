@@ -7,22 +7,23 @@
 
         <section class="wrapper">
           <h2 class="project_title"><span>Re-inventing</span> PSA Airlines</h2>
-          <p class="intro">PSA Airlines is a regional airline with a storied history. After its parent company merged with American Airlines in 2013, PSA was in need of an updated brand that better reflected its evolving identity. </p>
+          <p class="intro">PSA Airlines is a regional airline with a storied history. After its parent company merged with American Airlines, PSA was in need of an updated brand that better reflected its evolving identity. In addition to re-branding PSA, the team at Relay helped the company respond to an industry-wide pilot shortage by providing design, branding, and digital support during recruitment initiatives.</p>
         </section>
 
         <img src="/static/project-psa-feature.jpg" class="feature" />
 
         <section class="wrapper text-center">
-          <h3>Joining the new American Airlines</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. onsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu</p>
-          <img src="/static/fpo_large.png" />
+          <h3>Re-branding to join the new American Airlines</h3>
+          <p>In 2003, PSA's parent company USAirways merged with American Airlines. As a subsidiary of the new American Airlines, PSA needed an updated logo and brand identity that reflected its new ownership while honoring its history. The team at Relay led the brand strategy and design process. The new logo references PSA's historical identity – the familiar smiling airplanes from the 1970s –  while bringing the overall look and feel more inline with the more modern American Airlines brand.
+          </p>
         </section>
 
         <section class="wrapper">
           <div class="slat">
             <div class="column-half">
-              <h3>Preserving brand equity while modernizing</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. onsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu</p>
+              <h3>Addressing industry challenges through design</h3>
+              <p>The team at Relay helped PSA Airlines respond to the industry-wide pilot shortage by providing design support during recruiting initiatives, including collateral design, advertising, and photography art direction. The team at Relay also provided support for digital marketing efforts, in collaboration with third-party specialists in search engine optimization and search marketing.
+              </p>
             </div>
             <div class="column-half">
               <img src="/static/project-psa-ad.jpg" />
@@ -34,7 +35,7 @@
           <div class="slat">
             <div class="column-half">
               <h3>A modern website with integrated marketing tools</h3>
-              <p>Integrated with CRM, CMS, SEO PPC… lead generation… lorem ipsum dolor sit amet, consectetur adipisicing elit, sed. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+              <p>As a regional carrier for American Airlines, PSA's focus is on operations and recruitment. The team at Relay designed and developed a website that supports PSA's business goals by focusing on generating and tracking new-hire leads. The mobile-friendly, content-managed website allows PSA staff to update content and easily make changes as marketing efforts evolve.</p>
             </div>
             <div class="column-half">
               <img src="/static/project-psa-digital-small.jpg" />

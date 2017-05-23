@@ -40,7 +40,7 @@ export default {
               title:'PSA Airlines',
               url:'/project/psa',
               feature_image_filename:'/static/project-psa-feature.jpg',
-              excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
+              excerpt:'The Relay team designed a new brand identity, marketing materials and website for PSA Airlines after their parent company\'s merger with American Airlines.'
           },
           {
               verb:'Growing to scale',
@@ -66,13 +66,6 @@ export default {
           {
               verb:'Visualizing data with',
               title:'The Hub',
-              url:'/projects/psa-airlines',
-              feature_image_filename:'/static/fpo_large.png',
-              excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
-          },
-          {
-              verb:'Envisioning',
-              title:'Garage Bar',
               url:'/projects/psa-airlines',
               feature_image_filename:'/static/fpo_large.png',
               excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
