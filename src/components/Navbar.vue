@@ -3,7 +3,7 @@
 		<header>
 			<img src="/static/logo.svg" class="logo" alt="Relay Design Co." />
 		</header>
-		<div class="navbar" v-bind:class="{ 'flyout': flyout }">
+		<div class="navbar" v-bind:class="{ 'flyout': flyout, 'scrolled': scrolled }">
       <button type="button" class="toggle tcon tcon-plus tcon-plus--minus" v-bind:class="{ 'tcon-transform': flyout }" v-on:click="toggleFlyout" aria-label="add item">
         <span class="tcon-visuallyhidden">add item</span>
       </button>
@@ -29,6 +29,7 @@
     	return {
     	  active: false,
         flyout: false,
+        scrolled: false,
     	  links: [
     			{ title:'Home', url:'/', active: false },
           { title:'Projects', url:'/projects', active: false },
@@ -74,7 +75,16 @@
       closeFlyout: function (e) {
         console.log('hello');
         this.flyout = false;
+      },
+      handleScroll () {
+        this.scrolled = window.scrollY > 50;
       }
+    },
+    created () {
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed () {
+      window.removeEventListener('scroll', this.handleScroll);
     }
   }
 </script>
@@ -89,19 +99,7 @@
     margin: 2em 0 0;
     width: 140px;
     height: auto;
-
-    // @media only screen and (min-width: $screen-md-min) {
-    //   width: 160px;
-    // }
   }
-
-  // .Home .logo {
-  //     @media only screen and (min-width: $screen-sm-min) {
-  //       margin-top: 11em;
-  //       margin-bottom: 1.6em;
-  //       width: 180px;
-  //     }
-  // }
 
   .site-header {
   	position: relative;
@@ -124,9 +122,14 @@
     background-color: $brand-primary;
     border: 0;
     z-index: 100;
+    transition: .3s;
 
     @media only screen and (min-width: $screen-md-min) {
-      display: none;
+      right: -100%;
+
+      .scrolled & {
+        right: 0;
+      }
     }
   }
 
@@ -225,6 +228,10 @@
   		@media only screen and (min-width: $screen-md-min) {
         display: block;
         text-align: right;
+
+        .scrolled & {
+          display: none;
+        }
   		}
   	}
 
