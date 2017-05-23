@@ -2,8 +2,8 @@
     <footer>
       <div class="wrapper">
         <h3>Say hello.</h3>
-        <p>hello@relaydesign.co<br />
-            502.337.7309
+        <p><a href="mailto:hello@relaydesign.co">hello@relaydesign.co</a><br />
+            <a href="tel:+5023377309">502.337.7309</a>
         </p>
         <ul class="inline-list icon-list">
             <li><a href="https://www.facebook.com/relaydesignco/" target="_blank"><img src="/static/icon_facebook.svg" class="icon" alt="Facebook" /></a></li>
