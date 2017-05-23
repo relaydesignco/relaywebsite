@@ -5,6 +5,7 @@ import Projects from '@/components/Projects'
 import ProjectPSA from '@/components/ProjectPSA'
 import Project21c from '@/components/Project21c'
 import ProjectWBG from '@/components/ProjectWBG'
+import ProjectGarage from '@/components/ProjectGarage'
 import Services from '@/components/Services'
 import Company from '@/components/Company'
 import Contact from '@/components/Contact'
@@ -23,6 +24,11 @@ export default new Router({
       path: '/project/waterfront-botanical-gardens',
       name: 'Projects: Waterfront Botanical Gardens',
       component: ProjectWBG
+    },
+    {
+      path: '/project/garage-bar',
+      name: 'Projects: Garage Bar',
+      component: ProjectGarage
     },
     {
       path: '/project/21c',
