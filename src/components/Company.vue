@@ -23,21 +23,11 @@
 
           <section class="slat">
             <div class="column-half">
-              <h3>Creative collaboration is key.</h3>
-              <p>Our creatives work closely with clients to create design-driven solutions that address branding, marketing and operational needs. There are no account managers or sales reps here – just an agile team of designers and developers who are dedicated to your project.</p>
-            </div>
-            <div class="column-half">
-              <img src="/static/company-small-1.jpg" />
-            </div>
-          </section>
-
-          <section class="slat">
-            <div class="column-half">
               <h3>Experience counts.</h3>
               <p>Relay may be the new kid on the block, but the team behind Relay has been in the industry for a good while. With over 20 years of experience, our team understands that although design trends come and go, the principles of good design are timeless. We try to reflect those principles in every project.</p>
             </div>
             <div class="column-half">
-              <img src="/static/company-small-1.jpg" />
+              <img src="/static/company-small-2.jpg" />
             </div>
           </section>
 
