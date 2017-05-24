@@ -7,7 +7,7 @@
 
         <section class="wrapper">
           <h2 class="project_title"><span>Sharing a Vision</span> Garage Bar</h2>
-          <p class="intro">Working from vision of chef and owners  – how to bring a large team (inc. interior arch., architects, owners, designers, photographers, etc) together to create a cohesive brand..</p>
+          <p class="intro">The team at Relay worked with an inspired chef and innovative restauranteur to create a brand identity that blends perfectly with the atmosphere and influences of the restaurant. </p>
         </section>
         
         <img src="/static/project-garage-feature.jpg" class="feature" />
@@ -15,8 +15,8 @@
         <section class="wrapper">
           <div class="slat">
             <div class="column-half">
-              <h3>Envisioning a brand with an inspired team</h3>
-              <p>Talk about brand id workshop process, PBR, discussions… how we got opionated people to rally around an identity and build it collaboratively from there. Lorme ipsum dolor sit amet consecteur ipsum dolor.</p>
+              <h3>Collaborating on a vision</h3>
+              <p>The team at Relay worked with the talented folks behind Garage Bar to imagine designs that complemented the chef and restauranteur's vision – from the menus on the tables to the signs on the doors, as well as marketing materials and the website.</p>
             </div>
             <div class="column-half">
               <img src="/static/project-garage-sign.jpg" />
@@ -24,13 +24,13 @@
           </div>
         </section>     
 
-        <img src="/static/fpo_large.png" class="feature" />
 
         <section class="wrapper">
           <div class="slat">
             <div class="column-half">
-              <h3>Local Flavor</h3>
-              <p>Talk about bringing history, local influence to identity design. How we did research to understand audience(s) and created a design to resonate with them. </p>
+              <h3>Timeless flavor</h3>
+              <p>Garage Bar is located in a former automotive garage. It was important for the brand to match the vibe of the space itself, which, although renovated, retains its rough-around-the-edges charm. The team from Relay took inspiration from the design of items left behind by the former tenants – mechanics' invoice slips, a vintage calendar, a typeface found on old-school ballpoint pens.
+              Collectively, these elements add up to a memorable experience for guests.</p>
             </div>
             <div class="column-half">
               <img src="/static/project-garage-coaster.jpg" />
@@ -39,18 +39,18 @@
         </section>      
 
 
-        <section class="wrapper">
-          <div class="slat">
-            <div class="column-half">
-              <h3>An analog brand in a digital world</h3>
-              <p>Talk about how digital drives revenue for restaurants now, and how we made the digital artifacts express the brand and appeal to diners. </p>
-            </div>
-            <div class="column-half">
-              <img src="/static/fpo_large.png" />
-            </div>
-          </div>
-        </section>    
 
+        <div class="flex-grid">
+          <div class="column-third">
+            <img src="/static/project-garage-etc-1.jpg" />
+          </div>
+          <div class="column-third">
+            <img src="/static/project-garage-etc-3.jpg" />
+          </div>
+          <div class="column-third">
+            <img src="/static/project-garage-etc-2.jpg" />
+          </div>
+        </div>
 
         <section class="wrapper">
           <h3>Services</h3>
@@ -64,7 +64,7 @@
             </div>
             <div class="column-half">
               <ul class="dash-list">
-                <li>Print Collateral Design</li>
+                <li>Collateral Design</li>
                 <li>Signage</li>
                 <li>Website Design & Development</li>
               </ul>
@@ -87,13 +87,8 @@
 </template>
 
 <script>
-import Sitefooter from '../components/Sitefooter'
-
 export default {
   name: 'ProjectGarage',
-  components: {
-    Sitefooter
-  },
   data () {
     return {
       page_title: 'Projects: Garage Bar',

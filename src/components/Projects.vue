@@ -61,7 +61,7 @@ export default {
               title:'Garage Bar',
               url:'/project/garage-bar',
               feature_image_filename:'/static/project-garage-feature.jpg',
-              excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
+              excerpt:'The team at Relay worked with an inspired chef and innovative restauranteur to create a brand identity that blends perfectly with the atmosphere of Garage Bar.'
           }
     	  ]
     }
