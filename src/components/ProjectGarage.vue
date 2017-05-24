@@ -19,7 +19,7 @@
               <p>The team at Relay worked with the talented folks behind Garage Bar to imagine designs that complemented the chef and restauranteur's vision – from the menus on the tables to the signs on the doors, as well as marketing materials and the website.</p>
             </div>
             <div class="column-half">
-              <img src="/static/project-garage-sign.jpg" />
+              <img src="/static/project-garage-mural.jpg" />
             </div>
           </div>
         </section>     
@@ -29,7 +29,7 @@
           <div class="slat">
             <div class="column-half">
               <h3>Timeless flavor</h3>
-              <p>Garage Bar is located in a former automotive garage. It was important for the brand to match the vibe of the space itself, which, although renovated, retains its rough-around-the-edges charm. The team from Relay took inspiration from the design of items left behind by the former tenants – mechanics' invoice slips, a vintage calendar, a typeface found on old-school ballpoint pens.
+              <p>Garage Bar is located in a former automotive garage. It was important for the brand to match the vibe of the space itself, which, although renovated, retains its rough-around-the-edges charm. The team from Relay took inspiration from the design of items left behind by the former tenants – mechanics' invoice slips, a vintage calendar, a typeface found on old-school ballpoint pens.
               Collectively, these elements add up to a memorable experience for guests.</p>
             </div>
             <div class="column-half">
