@@ -9,12 +9,12 @@
 
         <article class="wrapper">
           <header class="fadein">
-              <h2 class="intro">We’re a team of designers and developers who help clients use design and technology to meet business challenges.</h2>
+              <h2 class="intro">We&rsquo;re a cross-disciplinary team that helps clients use design and technology to meet business challenges and improve customer experiences.</h2>
           </header>
           <section class="slat">
             <div class="column-half">
               <h3>We speak digital... and analog.</h3>
-              <p>Our team understands that successful brands communicate consistently across all channels – from print to digital to environmental experiences. As a cross-disciplinary team, we help bridge the gap between channels to deliver a cohesive, compelling experience for your customers. </p>
+              <p>Our team understands that successful brands communicate consistently across all channels – from print to digital to environmental experiences. Our designers, developers, and strategists help bridge the gap between channels to deliver a cohesive, compelling experience for your customers. </p>
             </div>
             <div class="column-half">
               <img src="/static/company-small-1.jpg" />

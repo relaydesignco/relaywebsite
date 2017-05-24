@@ -5,10 +5,12 @@
         <h2>Design better experiences</h2>
       </header>
       <section class="fadein">
-        <p>We help companies use design and technology to grow and innovate through <router-link :to="'project/waterfront-botanical-gardens'">branding</router-link>, <router-link :to="'project/psa'">marketing</router-link> and <router-link :to="'project/21c'">digital applications</router-link>.</p>
+        <!-- <p>We help companies use design and technology to grow and innovate through <router-link :to="'project/waterfront-botanical-gardens'">branding</router-link>, <router-link :to="'services'">experience design</router-link> and <router-link :to="'project/21c'">digital applications</router-link>.</p>-->
+        <p>We help companies use design and technology to grow and innovate through branding, experience design, and digital applications.</p>
       </section>
       <section class="fadein" id="home-projects">
         <p>See past <router-link :to="'projects'">projects</router-link>.<br />
+          Learn about <router-link :to="'services'">our services</router-link>.<br />
           Meet the <router-link :to="'company'">team</router-link>.<br />
         </p>
       </section>

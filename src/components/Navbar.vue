@@ -73,7 +73,6 @@
         this.flyout = !this.flyout;
       },
       closeFlyout: function (e) {
-        console.log('hello');
         this.flyout = false;
       },
       handleScroll () {
