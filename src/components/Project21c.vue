@@ -91,8 +91,8 @@
         </section>      
 
         <section class="wrapper project-navigation">
-          <a class="btn prev-btn" href=""><span>Previous</span></a>
-          <a class="btn next-btn" href=""><span>Next</span></a>
+          <a class="btn prev-btn" href="/project/psa"><span>Previous</span></a>
+          <a class="btn next-btn" href="/project/waterfront-botanical-gardens"><span>Next</span></a>
         </section>
 
 
@@ -107,7 +107,7 @@ export default {
   name: 'Project21c',
   data () {
     return {
-      page_title: 'Projects: 21c',
+      page_title: 'Projects: 21c Museum Hotels',
     }
   }
 }
