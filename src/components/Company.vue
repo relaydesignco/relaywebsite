@@ -51,11 +51,11 @@
               <h4>Drew McChesney</h4>
               <p>Strategy / Operations</p>
               <ul class="inline-list icon-list">
-                <li><a href="https://www.instagram.com/dlmcchesney/" target="_blank">
-                  <img src="/static/icon_instagram.svg" class="icon" alt="Instagram" />
-                </a></li>
                 <li><a href="https://twitter.com/mcchesney" target="_blank">
                   <img src="/static/icon_twitter.svg" class="icon" alt="Twitter" />
+                </a></li>
+                <li><a href="https://www.linkedin.com/in/drewmcchesney/" target="_blank">
+                  <img src="/static/icon_linkedin.svg" class="icon" alt="Instagram" />
                 </a></li>
               </ul>
             </div>

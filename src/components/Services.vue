@@ -90,7 +90,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
-<style lang="scss">
+<style scoped lang="scss">
 
   .flex-grid {
 
