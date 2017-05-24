@@ -282,10 +282,15 @@
           display: block;
 
           a {
-            padding: .5em 1em;
-            font-size: 3em;
+            padding: .5em 0;
+            font-size: 2.5em;
             color: white;
             font-weight: bold;
+
+            @media only screen and (min-width: $screen-sm-min) {
+              padding: .5em 1em;
+              font-size: 3em;
+            }
           }
         }
       }

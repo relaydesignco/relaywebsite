@@ -181,10 +181,13 @@ img {
   justify-content: space-between;
 
   .column-third {
-    width: 28%;
     text-align: center;
     margin-bottom: 1em;
     height: auto;
+
+    @media only screen and (min-width: $screen-md-min) {
+      width: 28%;
+    }
   }
 }
 
