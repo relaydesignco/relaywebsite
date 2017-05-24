@@ -35,13 +35,6 @@ export default {
     return {
       page_title: 'Projects',
       projects: [
-    			{
-              verb:'Re-inventing',
-              title:'PSA Airlines',
-              url:'/project/psa',
-              feature_image_filename:'/static/project-psa-feature.jpg',
-              excerpt:'The Relay team designed a new brand identity, marketing materials and website for PSA Airlines after their parent company\'s merger with American Airlines.'
-          },
           {
               verb:'Growing to scale',
               title:'21c Museum Hotels',
@@ -62,7 +55,14 @@ export default {
               url:'/project/garage-bar',
               feature_image_filename:'/static/project-garage-feature.jpg',
               excerpt:'The team at Relay worked with an inspired chef and innovative restauranteur to create a brand identity that blends perfectly with the atmosphere of Garage Bar.'
-          }
+          },
+          {
+              verb:'Re-inventing',
+              title:'PSA Airlines',
+              url:'/project/psa',
+              feature_image_filename:'/static/project-psa-feature.jpg',
+              excerpt:'The Relay team designed a new brand identity, marketing materials and website for PSA Airlines after their parent company\'s merger with American Airlines.'
+          },
     	  ]
     }
   },

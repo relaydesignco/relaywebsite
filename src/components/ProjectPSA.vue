@@ -66,8 +66,8 @@
         </section>
 
         <section class="wrapper project-navigation">
-          <a class="btn prev-btn" href=""><span>Previous</span></a>
-          <a class="btn next-btn" href=""><span>Next</span></a>
+          <a class="btn prev-btn" href="/project/garage-bar"><span>Previous</span></a>
+          <a class="btn next-btn" href="/project/21c"><span>Next</span></a>
         </section>
 
   </div>
