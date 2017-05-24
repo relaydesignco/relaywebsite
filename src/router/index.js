@@ -9,6 +9,7 @@ import ProjectGarage from '@/components/ProjectGarage'
 import Services from '@/components/Services'
 import Company from '@/components/Company'
 import Contact from '@/components/Contact'
+import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
@@ -34,7 +35,7 @@ export default new Router({
       path: '/project/21c',
       name: 'Projects: 21c',
       component: Project21c
-    },    
+    },
     {
       path: '/project/psa',
       name: 'Projects: PSA',
@@ -59,6 +60,11 @@ export default new Router({
       path: '/contact',
       name: 'contact',
       component: Contact
+    },
+    {
+      path: '/hello-world',
+      name: 'hello-world',
+      component: HelloWorld
     }
   ]
 })
