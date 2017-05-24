@@ -7,15 +7,18 @@
 
         <section class="wrapper">
           <h2 class="project_title"><span>Introducing</span> Waterfront Botanical Gardens</h2>
-          <p class="intro">Create and introduce new brand that reflects community, motivates donors, and can grow as location is built out. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+          <p class="intro">When the non-profit organization Botanica began planning a botanical garden in Louisville, they tapped the team from Relay to brand the gardens and create print and digital materials to support their fundraising efforts.</p>
         </section>
         
         <img src="/static/project-wbg-feature.jpg" class="feature" />
 
         <section class="wrapper text-center">
             <h3>Communicating a Vision with a Brand</h3>
-            <p>Talk about how WBG doesn’t exist yet, so creating a shared vision and brand to rally behind is critical to motivating donors and inspiring the community. Architects led the charge, we played off their vision to arrive at the mark, which represents both local plant goldenrod and an aerial view of the future gardens themselves. Got input from community on naming, validating assumptions and testing feasability through surveys, competitive research… </p>
+            <p>Because Waterfront Botanical Gardens was still just an idea when the identity design began, it was crucial that the branding help communicate the vision and inspire the community. The team at Relay used the design of the garden itself as inspiration for the logomark, which alludes to both an aerial view of the landscape and goldenrod, Kentucky's state flower.</p>
+            <img src="/static/project-wbg-brand.jpg" class="feature" />
         </section>
+
+
 
         <section class="wrapper">
           <div class="slat">
@@ -28,19 +31,14 @@
           </div>
         </section>      
 
-      <img src="/static/fpo_large.png" class="feature" />
 
-        <section class="wrapper">
-          <div class="slat">
-            <div class="column-half">
-              <h3>Providing tools for growth</h3>
-              <p>How we provided digital tools to support business processes - donations collection, memberships, rsvps, etc.  isicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Knowing fundraising goals change, and need to accomodate different phases of development.</p>
-            </div>
-            <div class="column-half">
-              <img src="/static/fpo_large.png" />
-            </div>
-          </div>
+        <br />
+        <section class="wrapper text-center">            
+            <h3>Providing tools for growth</h3>
+            <p>The team at Relay also designed and developed a content-managed website for the Gardens. The website illustrates the vision for the future gardens, including the various phases of development and fundraising progress. The website also includes an integrated shop for donations and memberships and an event calendars to help organize volunteers.</p>
         </section>     
+
+        <img src="/static/project-wbg-web.jpg" class="feature" />
 
 
         <section class="wrapper">
@@ -49,7 +47,8 @@
             <div class="column-half">    
               <ul class="dash-list">
                 <li>Brand Strategy</li>
-                <li>Naming, Logo and Identity System Design</li>
+                <li>Naming</li>
+                <li>Logo and Identity System Design</li>
               </ul>
             </div>
             <div class="column-half">
@@ -74,13 +73,8 @@
 </template>
 
 <script>
-import Sitefooter from '../components/Sitefooter'
-
 export default {
   name: 'ProjectWBG',
-  components: {
-    Sitefooter
-  },
   data () {
     return {
       page_title: 'Projects: Waterfront Botanical Gardens',

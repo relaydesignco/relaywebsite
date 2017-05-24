@@ -54,7 +54,7 @@ export default {
               title:'Waterfront Botanical Gardens',
               url:'/project/waterfront-botanical-gardens',
               feature_image_filename:'/static/project-wbg-feature.jpg',
-              excerpt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
+              excerpt:'When the non-profit organization Botanica began planning a botanical garden in Louisville, they tapped the team from Relay to name and brand the gardens.'
           },
           {  
               verb:'Envisioning',
