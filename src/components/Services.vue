@@ -17,19 +17,19 @@
           <header>
             <h3>Experience Design</h3>
           </header>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quasi officiis nostrum recusandae aut iste, nihil aliquam ea et. Quam, repellendus explicabo omnis in fugiat voluptatem suscipit corporis nihil soluta!</p>
+          <p></p>
           <ul>
             <li>Consulting</li>
             <li>Customer Research</li>
-            <li>Customer journey mapping</li>
-            <li>Competitive audits</li>
+            <li>Customer Journey Mapping</li>
+            <li>Competitive Audits</li>
           </ul>
         </article>
         <article class="column-third">
           <header>
             <h3>Brand Development</h3>
           </header>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quasi officiis nostrum recusandae aut iste, nihil aliquam ea et. Quam, repellendus explicabo omnis in fugiat voluptatem suscipit corporis nihil soluta!</p>
+          <p></p>
           <ul>
             <li>Naming</li>
             <li>Brand Strategy</li>
@@ -41,7 +41,7 @@
           <header>
             <h3>Product, Service, and Space Design</h3>
           </header>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quasi officiis nostrum recusandae aut iste, nihil aliquam ea et. Quam, repellendus explicabo omnis in fugiat voluptatem suscipit corporis nihil soluta!</p>
+          <p></p>
           <ul>
             <li>UI/UX Design</li>
             <li>Mobile Application Development</li>

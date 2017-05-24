@@ -5,7 +5,7 @@
         <h2>Design better experiences</h2>
       </header>
       <section class="fadein">
-        <p>We help companies use design and technology to grow and innovate through <a href="#">branding</a>, <a href="#">marketing</a> and <a href="#">digital applications</a>.</p>
+        <p>We help companies use design and technology to grow and innovate through <router-link :to="'project/waterfront-botanical-gardens'">branding</router-link>, <router-link :to="'project/psa'">marketing</router-link> and <router-link :to="'project/21c'">digital applications</router-link>.</p>
       </section>
       <section class="fadein" id="home-projects">
         <p>See past <router-link :to="'projects'">projects</router-link>.<br />
@@ -47,28 +47,32 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
-<style scoped lang="scss">
+<style lang="scss">
 
   @import "../assets/_variables.scss";
 
-  article {
-    max-width: 540px;
-    margin: 0;
+  .Home {
+    .logo {
 
-    section {
       @media only screen and (min-width: $screen-md-min) {
-        margin-bottom: 6em;
-
-        p {
-          font-size: 28px;
-        }
+        margin-top: 8em;
+        margin-bottom: 2em;
       }
     }
-  }
 
-  footer p:not(.copyright) {
-    @media only screen and (min-width: $screen-md-min) {
-      font-size: 16px;
+    article {
+      max-width: 540px;
+      margin: 0;
+
+      section {
+        @media only screen and (min-width: $screen-md-min) {
+          margin-bottom: 6em;
+
+          p {
+            font-size: 28px;
+          }
+        }
+      }
     }
   }
 
