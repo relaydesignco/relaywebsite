@@ -39,6 +39,29 @@ a, a:hover, a:visited, a:active {
   text-decoration: none;
 }
 
+a.major {
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    bottom: -1px;
+    width: 0;
+    height: 3px;
+    background-color: $brand-primary;
+    transition: .2s;
+  }
+
+  &:hover {
+
+    &:after {
+      width: 100%;
+    }
+  }
+}
+
 .wrapper {
   width: 85%;
   margin: 0 auto;

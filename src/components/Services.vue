@@ -6,50 +6,59 @@
     </header>
 
     <article class="wrapper">
-      <header>
-        <h2>We design the brands, digital interactions, and physical spaces that shape how people experience your company. </h2>
+      <header class="fadein">
+          <h2 class="intro">We design the brands, digital interactions, and physical spaces that shape how people experience your company.</h2>
+      </header>
         <!--
         <h3>We are focused on the total experience people have with your company, from when they first search for your product, to when they rave about it to their friends.</h3>
         -->
-      </header>
-      <section class="services row flex-grid">
-        <article class="column-third">
-          <header>
-            <h3>Experience Design</h3>
-          </header>
-          <p></p>
-          <ul>
+      <section class="slat">
+        <div class="column-half">
+          <h3>Experience Design</h3>
+          <p>Text here</p>
+          <ul class="dash-list">
             <li>Consulting</li>
             <li>Customer Research</li>
             <li>Customer Journey Mapping</li>
             <li>Competitive Audits</li>
           </ul>
-        </article>
-        <article class="column-third">
-          <header>
-            <h3>Brand Development</h3>
-          </header>
-          <p></p>
-          <ul>
+        </div>
+        <div class="column-half">
+          <img src="/static/company-small-1.jpg" />
+        </div>
+      </section>
+
+      <section class="slat">
+        <div class="column-half">
+          <h3>Brand Development</h3>
+          <p>Text here</p>
+          <ul class="dash-list">
             <li>Naming</li>
             <li>Brand Strategy</li>
             <li>Logo and Identity System Design</li>
             <li>Print Collateral Design</li>
           </ul>
-        </article>
-        <article class="column-third">
-          <header>
-            <h3>Product, Service, and Space Design</h3>
-          </header>
-          <p></p>
-          <ul>
+        </div>
+        <div class="column-half">
+          <img src="/static/company-small-1.jpg" />
+        </div>
+      </section>
+
+      <section class="slat">
+        <div class="column-half">
+          <h3>Product, Service, and Space Design</h3>
+          <p>Text here</p>
+          <ul class="dash-list">
             <li>UI/UX Design</li>
             <li>Mobile Application Development</li>
             <li>Packaging</li>
             <li>Web Design & Development</li>
             <li>Environment & Exhibit Design</li>
           </ul>
-        </article>
+        </div>
+        <div class="column-half">
+          <img src="/static/company-small-1.jpg" />
+        </div>
       </section>
 
       <section class="work-with-us">
@@ -91,35 +100,5 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
 <style scoped lang="scss">
-
-  .flex-grid {
-
-    h4 {
-      margin-top: 0;
-      margin-bottom: 0;
-      font-size: 18px;
-    }
-
-    p {
-      margin: 0;
-      font-size: .8em;
-    }
-
-    ul {
-      padding-left: 1em;
-    }
-
-    ul li {
-      font-size: .8em;
-    }
-
-    .column-third {
-      text-align: left;
-    }
-
-    article {
-      //font-size: 16px;
-    }
-  }
 
 </style>

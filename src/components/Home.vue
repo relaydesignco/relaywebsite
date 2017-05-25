@@ -9,10 +9,10 @@
         <p>We help companies use design and technology to grow and innovate through branding, experience design, and digital applications.</p>
       </section>
       <section class="fadein" id="home-projects">
-        <p>Hello <router-link :to="'hello-world'">world</router-link>.</p>
-        <p>See past <router-link :to="'projects'">projects</router-link>.<br />
-          Learn about <router-link :to="'services'">our services</router-link>.<br />
-          Meet the <router-link :to="'company'">team</router-link>.<br />
+        <p>Hello <router-link :to="'hello-world'" class="major">world</router-link>.</p>
+        <p>See past <router-link :to="'projects'" class="major">projects</router-link>.<br />
+          Learn about <router-link :to="'services'" class="major">our services</router-link>.<br />
+          Meet the <router-link :to="'company'" class="major">team</router-link>.<br />
         </p>
 
       </section>
