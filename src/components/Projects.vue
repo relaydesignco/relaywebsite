@@ -39,28 +39,28 @@ export default {
               verb:'Growing to scale',
               title:'21c Museum Hotels',
               url:'/project/21c',
-              feature_image_filename:'/static/project-21c-feature.jpg',
+              feature_image_filename:'/static/projects-preview-21c.jpg',
               excerpt:'Over the past nine years, the Relay team has served as creative partners to 21c\'s marketing team, helping their brand adapt to new technologies, trends and markets.'
           },
           {
               verb:'Introducing',
               title:'Waterfront Botanical Gardens',
               url:'/project/waterfront-botanical-gardens',
-              feature_image_filename:'/static/project-wbg-feature.jpg',
+              feature_image_filename:'/static/projects-preview-wbg.jpg',
               excerpt:'When the non-profit organization Botanica began planning a botanical garden in Louisville, they tapped the team from Relay to name and brand the gardens.'
           },
           {  
               verb:'Envisioning',
               title:'Garage Bar',
               url:'/project/garage-bar',
-              feature_image_filename:'/static/project-garage-feature.jpg',
+              feature_image_filename:'/static/projects-preview-garage.jpg',
               excerpt:'The team at Relay worked with an inspired chef and innovative restauranteur to create a brand identity that blends perfectly with the atmosphere of Garage Bar.'
           },
           {
               verb:'Re-inventing',
               title:'PSA Airlines',
               url:'/project/psa',
-              feature_image_filename:'/static/project-psa-feature.jpg',
+              feature_image_filename:'/static/projects-preview-psa.jpg',
               excerpt:'The Relay team designed a new brand identity, marketing materials and website for PSA Airlines after their parent company\'s merger with American Airlines.'
           },
     	  ]

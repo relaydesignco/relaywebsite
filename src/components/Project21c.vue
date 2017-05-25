@@ -7,7 +7,7 @@
 
         <section class="wrapper">
           <h2 class="project_title"><span>Growing to scale</span> 21c Museum Hotels</h2>
-          <p class="intro">Over the past nine years, the Relay team has helped 21c Museum Hotels grow while maintaining brand integrity. We've served as creative partners to their marketing team, providing design and technology services to help them adapt to new technologies, trends and markets.</p>
+          <p class="intro">Over the past nine years, the Relay team has helped 21c Museum Hotels grow while maintaining brand integrity. We’ve served as creative partners with their marketing team, providing design and technology services helping them adapt to new technologies, trends and markets.</p>
         </section>
         
         <img src="/static/project-21c-feature.jpg" class="feature" />
@@ -16,7 +16,7 @@
           <div class="slat">
             <div class="column-half">
               <h3>Adapting to rapid growth</h3>
-              <p>When a company grows rapidly, it can be a challenge to maintain consistency in branding efforts. The team at Relay helped 21c Museum Hotels maintain the integrity of their brand while expanding from one location to six. As 21c's in-house capabilities have grown, our role has shifted to include providing more standards, templates and tools that 21c staff can edit directly, as well as providing full-service design and technology capabilities. 
+              <p>When a company grows rapidly, it can be a challenge to maintain consistency in branding efforts. The team at Relay helped 21c Museum Hotels maintain the integrity of their brand while expanding from one location to seven. As 21c's in-house capabilities have grown, our role has shifted to include providing more standards, templates and tools that 21c staff can edit directly, as well as providing full-service design and technology capabilities. 
               </p>
             </div>
             <div class="column-half">
@@ -31,7 +31,7 @@
           <div class="slat">
             <div class="column-half">
               <h3>Digital drives revenue</h3>
-              <p>For any hospitality business, a well-designed and user-friendly website is vital to revenue, as hotels now have to compete with discounted or commission-based travel websites for bookings. The Relay team did extensive user testing and design research prior to creating the design for the new website to ensure it met customers' expectations and increased the ease of booking direct. 21c now enjoys a higher-than-average rate of direct bookings compared to the industry average, an important factor in the hotels' bottom line.</p>
+              <p>For any hospitality business, a well-designed and user-friendly website is vital to revenue, as hotels now have to compete with discounted or commission-based travel websites for bookings. The Relay team did extensive user testing and design research prior to creating the design for the new website to ensure it met customers' expectations and increased the ease of booking direct. 21c now enjoys a higher-than-average rate of direct bookings compared to the industry average.</p>
             </div>
             <div class="column-half">
               <img src="/static/project-21c-be.jpg" class="drop-shadow border" />
