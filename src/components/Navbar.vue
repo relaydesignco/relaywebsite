@@ -98,6 +98,7 @@
     margin: 2em 0 0;
     width: 140px;
     height: auto;
+    transition: .5s;
   }
 
   .site-header {
@@ -163,9 +164,9 @@
       border-radius: 1px;
       display: block;
       width: 60%;
-      height: 14%;
+      height: 10%;
       position: absolute;
-      top: 43%;
+      top: 44%;
       left: 20%;
       transition: .3s;
       background: white;
@@ -256,6 +257,13 @@
     		&:hover {
     			color: $brand-primary;
     		}
+
+        @media only screen and (min-width: $screen-md-min) {
+
+          &.router-link-exact-active {
+            color: $brand-primary;
+          }
+        }
   		}
   	}
 
@@ -285,10 +293,12 @@
             font-size: 2.5em;
             color: white;
             font-weight: bold;
+            letter-spacing: 0;
 
             @media only screen and (min-width: $screen-sm-min) {
               padding: .5em 1em;
               font-size: 3em;
+              letter-spacing: .05em;
             }
           }
         }

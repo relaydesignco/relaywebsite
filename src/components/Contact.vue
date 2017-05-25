@@ -1,10 +1,10 @@
 <template>
   <div class="contact">
-
+        <!--
         <header class="wrapper">
             <h2 class="page_title">{{page_title}}</h2>
         </header>
-
+        -->
         <article class="wrapper">
           <section class="slat">
               <div class="column-half">

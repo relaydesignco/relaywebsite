@@ -1,22 +1,23 @@
 <template>
   <div class="projects detail">
-
+        <!--
         <header class="wrapper">
             <h1 class="page_title">{{page_title}}</h1>
         </header>
+        -->
 
         <section class="wrapper">
-          <h2 class="project_title"><span>Growing to scale</span> 21c Museum Hotels</h2>
+          <h2 class="project_title">Growing to scale <strong>21c Museum Hotels</strong></h2>
           <p class="intro">Over the past nine years, the Relay team has helped 21c Museum Hotels grow while maintaining brand integrity. We’ve served as creative partners with their marketing team, providing design and technology services helping them adapt to new technologies, trends and markets.</p>
         </section>
-        
+
         <img src="/static/project-21c-feature.jpg" class="feature" />
 
         <section class="wrapper">
           <div class="slat">
             <div class="column-half">
               <h3>Adapting to rapid growth</h3>
-              <p>When a company grows rapidly, it can be a challenge to maintain consistency in branding efforts. The team at Relay helped 21c Museum Hotels maintain the integrity of their brand while expanding from one location to seven. As 21c's in-house capabilities have grown, our role has shifted to include providing more standards, templates and tools that 21c staff can edit directly, as well as providing full-service design and technology capabilities. 
+              <p>When a company grows rapidly, it can be a challenge to maintain consistency in branding efforts. The team at Relay helped 21c Museum Hotels maintain the integrity of their brand while expanding from one location to seven. As 21c's in-house capabilities have grown, our role has shifted to include providing more standards, templates and tools that 21c staff can edit directly, as well as providing full-service design and technology capabilities.
               </p>
             </div>
             <div class="column-half">
@@ -37,7 +38,7 @@
               <img src="/static/project-21c-be.jpg" class="drop-shadow border" />
             </div>
           </div>
-        </section>      
+        </section>
 
         <img src="/static/project-21c-web.jpg" class="feature" />
 
@@ -65,13 +66,13 @@
             </div>
           </div>
         </section>
-        
-        
+
+
 
         <section class="wrapper">
           <h3>Services</h3>
-          <div class="slat">
-            <div class="column-half">    
+          <div class="slat compressed">
+            <div class="column-half">
               <ul class="dash-list">
                 <li>Brand Strategy</li>
                 <li>Logo and Identity System Design</li>
@@ -88,15 +89,12 @@
               </ul>
             </div>
           </div>
-        </section>      
+        </section>
 
         <section class="wrapper project-navigation">
           <a class="btn prev-btn" href="/project/psa"><span>Previous</span></a>
           <a class="btn next-btn" href="/project/waterfront-botanical-gardens"><span>Next</span></a>
         </section>
-
-
-      <sitefooter></sitefooter>
 
   </div>
 
@@ -116,7 +114,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
 <style scoped lang="scss">
-  
-  @import "../assets/project.scss";  
+
+  @import "../assets/project.scss";
 
 </style>

@@ -1,17 +1,16 @@
 @import "./_variables";
 
-
-h3 {
-  font-size: 1.7em;
-  margin-top: .7em;
-}
-
 .project_title {
     font-size: 1.4em;
-    span { color: #ccc; }
+    color: #ccc;
+
+    strong {
+      font-weight: normal;
+      color: $brand-primary;
+    }
 }
 
-section { 
+section {
   margin-top: 3em;
   margin-bottom: 3em;
 }
@@ -46,15 +45,13 @@ section {
 
   .next-btn {
    text-align: right;
-   
+
     &::after {
       content: " ›";
       color: $brand-primary;
       font-size: 1.4em;
     }
-
   }
-
 }
 
 

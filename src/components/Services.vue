@@ -1,10 +1,10 @@
 <template>
   <div class="services">
-
+    <!--
     <header class="wrapper">
         <h2 class="page_title">{{page_title}}</h2>
     </header>
-
+    -->
     <article class="wrapper">
       <header class="fadein">
           <h2 class="intro">We design the brands, digital interactions, and physical spaces that shape how people experience your company.</h2>
@@ -15,7 +15,7 @@
       <section class="slat">
         <div class="column-half">
           <h3>Experience Design</h3>
-          <p>Text here</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus eveniet vero totam temporibus non eos id, architecto error laborum sint ipsa excepturi dolorem accusamus illo maiores illum possimus numquam nam!</p>
           <ul class="dash-list">
             <li>Consulting</li>
             <li>Customer Research</li>
@@ -31,7 +31,7 @@
       <section class="slat">
         <div class="column-half">
           <h3>Brand Development</h3>
-          <p>Text here</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore necessitatibus fugiat accusantium assumenda quod, nesciunt, consequatur aliquid, quis voluptatem obcaecati possimus laborum. Sapiente exercitationem tenetur, nulla sunt esse, quo necessitatibus.</p>
           <ul class="dash-list">
             <li>Naming</li>
             <li>Brand Strategy</li>
@@ -47,7 +47,7 @@
       <section class="slat">
         <div class="column-half">
           <h3>Product, Service, and Space Design</h3>
-          <p>Text here</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore est explicabo tenetur non, eveniet quas iusto fugiat asperiores vitae sit recusandae ut, ab doloremque fuga! Temporibus quibusdam ipsum maxime. Pariatur?</p>
           <ul class="dash-list">
             <li>UI/UX Design</li>
             <li>Mobile Application Development</li>
@@ -100,5 +100,23 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
 <style scoped lang="scss">
+
+  .column-half {
+    p, ul {
+      font-size: .9em;
+    }
+
+    &:first-child {
+      width: 60%;
+    }
+
+    &:last-child {
+      width: 40%;
+    }
+
+    .dash-list li {
+      margin-bottom: .3em;
+    }
+  }
 
 </style>

@@ -1,9 +1,11 @@
 <template>
   <div class="company">
 
+        <!--
         <header class="wrapper">
             <h2 class="page_title">{{page_title}}</h2>
         </header>
+        -->
 
         <img :src="feature_image_filename" class="feature" />
 

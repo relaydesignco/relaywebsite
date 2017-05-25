@@ -1,79 +1,80 @@
 <template>
   <div class="projects">
+    <!--
+    <header class="wrapper">
+    <h2 class="page_title">{{page_title}}</h2>
+    </header>
+    -->
 
-        <header class="wrapper">
-            <h2 class="page_title">{{page_title}}</h2>
-        </header>
-
-        <article class="wrapper">
-          <section v-for="project in projects">
-            <router-link :to="{ path: project.url }">
-              <h3 class="project_title"><span>{{project.verb}}</span> {{project.title}}</h3>
-              <div class="project_preview">
-                <div class="preview_text">
-                  <p>
-                    {{project.excerpt}}<br />
-                    <span class="btn">View Case Study</span>
-                  </p>
-                </div>
-                <img :src="project.feature_image_filename" class="feature" />
-              </div>
-            </router-link>
-          </section>
-      </article>
+    <article class="wrapper">
+      <section v-for="project in projects">
+        <router-link :to="{ path: project.url }">
+          <h3 class="project_title">{{project.verb}} <strong>{{project.title}}</strong></h3>
+          <div class="project_preview">
+            <div class="preview_text">
+              <p>
+                {{project.excerpt}}<br />
+                <span class="btn">View Case Study</span>
+              </p>
+            </div>
+            <img :src="project.feature_image_filename" class="feature" />
+          </div>
+        </router-link>
+      </section>
+    </article>
   </div>
 
 </template>
 
 <script>
 
-export default {
-  name: 'projects',
-  components: {
-  },
-  data () {
-    return {
-      page_title: 'Projects',
-      projects: [
-          {
-              verb:'Growing to scale',
-              title:'21c Museum Hotels',
-              url:'/project/21c',
-              feature_image_filename:'/static/projects-preview-21c.jpg',
-              excerpt:'Over the past nine years, the Relay team has served as creative partners to 21c\'s marketing team, helping their brand adapt to new technologies, trends and markets.'
-          },
-          {
-              verb:'Introducing',
-              title:'Waterfront Botanical Gardens',
-              url:'/project/waterfront-botanical-gardens',
-              feature_image_filename:'/static/projects-preview-wbg.jpg',
-              excerpt:'When the non-profit organization Botanica began planning a botanical garden in Louisville, they tapped the team from Relay to name and brand the gardens.'
-          },
-          {  
-              verb:'Envisioning',
-              title:'Garage Bar',
-              url:'/project/garage-bar',
-              feature_image_filename:'/static/projects-preview-garage.jpg',
-              excerpt:'The team at Relay worked with an inspired chef and innovative restauranteur to create a brand identity that blends perfectly with the atmosphere of Garage Bar.'
-          },
-          {
-              verb:'Re-inventing',
-              title:'PSA Airlines',
-              url:'/project/psa',
-              feature_image_filename:'/static/projects-preview-psa.jpg',
-              excerpt:'The Relay team designed a new brand identity, marketing materials and website for PSA Airlines after their parent company\'s merger with American Airlines.'
-          },
-    	  ]
-    }
-  },
-  head: {
-    title: function () {
+  export default {
+    name: 'projects',
+    components: {
+    },
+    data () {
       return {
-        inner: this.page_title
+        page_title: 'Projects',
+        projects: [
+        {
+          verb:'Growing to scale',
+          title:'21c Museum Hotels',
+          url:'/project/21c',
+          feature_image_filename:'/static/projects-preview-21c.jpg',
+          excerpt:'Over the past nine years, the Relay team has served as creative partners to 21c\'s marketing team, helping their brand adapt to new technologies, trends and markets.'
+        },
+        {
+          verb:'Introducing',
+          title:'Waterfront Botanical Gardens',
+          url:'/project/waterfront-botanical-gardens',
+          feature_image_filename:'/static/projects-preview-wbg.jpg',
+          excerpt:'When the non-profit organization Botanica began planning a botanical garden in Louisville, they tapped the team from Relay to name and brand the gardens.'
+        },
+        {
+          verb:'Envisioning',
+          title:'Garage Bar',
+          url:'/project/garage-bar',
+          feature_image_filename:'/static/projects-preview-garage.jpg',
+          excerpt:'The team at Relay worked with an inspired chef and innovative restauranteur to create a brand identity that blends perfectly with the atmosphere of Garage Bar.'
+        },
+        {
+          verb:'Re-inventing',
+          title:'PSA Airlines',
+          url:'/project/psa',
+          feature_image_filename:'/static/projects-preview-psa.jpg',
+          excerpt:'The Relay team designed a new brand identity, marketing materials and website for PSA Airlines after their parent company\'s merger with American Airlines.'
+        },
+        ]
       }
     },
+    head: {
+      title: function () {
+        return {
+          inner: this.page_title
+        }
+      },
+    }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -81,6 +82,7 @@ export default {
 <style scoped lang="scss">
 
   @import "../assets/_variables.scss";
+  @import "../assets/project.scss";
 
   section { position: relative; }
 
@@ -91,32 +93,51 @@ export default {
     img {
       display: block;
     }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-color: rgba( $brand-primary, .8 );
+      transition: .3s;
+      //mix-blend-mode: multiply;
+    }
   }
 
   .preview_text {
-    display: block;
+    display: flex;
+    width: 100%;
     height: 100%;
     position: absolute;
-    transition: all .2s;
-    background: rgba(45, 155, 214, 0);
+    z-index: 100;
+    align-items: center;
 
     p {
-      font-size: 1.6em;
+      font-size: 1.4em;
       margin: 1em;
       opacity: 0;
+      transition: .5s;
       color: white;
+      font-weight: bold;
+
       @media only screen and (min-width: $screen-md-min) {
-       max-width: 70%;
+        max-width: 60%;
+        margin: 2em;
       }
 
       .btn {
         border: 1px solid white;
         padding: .5em 1em;
         display:inline-block;
-        font-size: .5em;
         line-height: 1;
         margin-top: 2em;
         transition: all .2s;
+        font-weight: 400;
+        font-size: .75em;
 
         &:hover {
           background: white;
@@ -124,19 +145,23 @@ export default {
           box-shadow: 1px 1px 5px rgba(0,0,0,.2);
         }
       }
-
     }
   }
 
-  a:hover .preview_text {
-    background: rgba(45, 155, 214, .6);
-    color: white;
-    opacity: 1;
+  a:hover {
 
-    p {
+    .project_preview:after {
+      left: 0;
+    }
+
+    .preview_text {
+      color: white;
       opacity: 1;
+
+      p {
+        opacity: 1;
+      }
     }
   }
-
 
 </style>

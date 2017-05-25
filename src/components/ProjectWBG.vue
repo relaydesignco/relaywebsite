@@ -1,15 +1,15 @@
 <template>
   <div class="projects detail">
-
+        <!--
         <header class="wrapper">
             <h1 class="page_title">{{page_title}}</h1>
         </header>
-
+        -->
         <section class="wrapper">
-          <h2 class="project_title"><span>Introducing</span> Waterfront Botanical Gardens</h2>
+          <h2 class="project_title">Introducing <strong>Waterfront Botanical Gardens</strong></h2>
           <p class="intro">When the non-profit organization Botanica began planning a botanical garden in Louisville, they tapped the team from Relay to brand the gardens and create print and digital materials to support their fundraising efforts.</p>
         </section>
-        
+
         <img src="/static/project-wbg-feature.jpg" class="feature" />
 
         <section class="wrapper text-center">
@@ -29,22 +29,22 @@
               <img src="/static/project-wbg-brand-1.jpg" />
             </div>
           </div>
-        </section>      
+        </section>
 
 
         <br />
-        <section class="wrapper text-center">            
+        <section class="wrapper text-center">
             <h3>Providing tools for growth</h3>
             <p>The team at Relay also designed and developed a content-managed website for the Gardens. The website illustrates the vision for the future gardens, including the various phases of development and fundraising progress. The website also includes an integrated shop for donations and memberships and an event calendars to help organize volunteers.</p>
-        </section>     
+        </section>
 
         <img src="/static/project-wbg-web.jpg" class="feature" />
 
 
         <section class="wrapper">
           <h3>Services</h3>
-          <div class="slat">
-            <div class="column-half">    
+          <div class="slat compressed">
+            <div class="column-half">
               <ul class="dash-list">
                 <li>Brand Strategy</li>
                 <li>Naming</li>
@@ -58,16 +58,12 @@
               </ul>
             </div>
           </div>
-        </section>      
+        </section>
 
         <section class="wrapper project-navigation">
           <a class="btn prev-btn" href="/project/21c"><span>Previous</span></a>
           <a class="btn next-btn" href="/project/garage-bar"><span>Next</span></a>
         </section>
-
-
-      <sitefooter></sitefooter>
-
   </div>
 
 </template>
@@ -86,7 +82,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
 <style scoped lang="scss">
-  
-  @import "../assets/project.scss";  
+
+  @import "../assets/project.scss";
 
 </style>

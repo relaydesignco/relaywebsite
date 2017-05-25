@@ -1,12 +1,12 @@
 <template>
   <div class="projects detail">
-
+        <!--
         <header class="wrapper">
             <h1 class="page_title">{{page_title}}</h1>
         </header>
-
+        -->
         <section class="wrapper">
-          <h2 class="project_title"><span>Re-inventing</span> PSA Airlines</h2>
+          <h2 class="project_title">Re-inventing <strong>PSA Airlines</strong></h2>
           <p class="intro">PSA Airlines is a regional airline with a storied history. After its parent company merged with American Airlines, PSA was in need of an updated brand that better reflected its evolving identity. In addition to re-branding PSA, the team at Relay helped the company respond to an industry-wide pilot shortage by providing design, branding, and digital support during recruitment initiatives.</p>
         </section>
 
@@ -46,7 +46,7 @@
 
         <section class="wrapper">
           <h3>Services</h3>
-          <div class="slat">
+          <div class="slat compressed">
             <div class="column-half">
               <ul class="dash-list">
                 <li>Brand Strategy</li>

@@ -1,15 +1,15 @@
 <template>
   <div class="projects detail">
-
+        <!--
         <header class="wrapper">
             <h1 class="page_title">{{page_title}}</h1>
         </header>
-
+        -->
         <section class="wrapper">
-          <h2 class="project_title"><span>Sharing a Vision</span> Garage Bar</h2>
+          <h2 class="project_title">Sharing a Vision <strong>Garage Bar</strong></h2>
           <p class="intro">The team at Relay worked with an inspired chef and innovative restauranteur to create a brand identity that blends perfectly with the atmosphere and influences of the restaurant. </p>
         </section>
-        
+
         <img src="/static/project-garage-feature.jpg" class="feature" />
 
         <section class="wrapper">
@@ -22,7 +22,7 @@
               <img src="/static/project-garage-mural.jpg" />
             </div>
           </div>
-        </section>     
+        </section>
 
 
         <section class="wrapper">
@@ -36,7 +36,7 @@
               <img src="/static/project-garage-coaster.jpg" />
             </div>
           </div>
-        </section>      
+        </section>
 
 
 
@@ -54,8 +54,8 @@
 
         <section class="wrapper">
           <h3>Services</h3>
-          <div class="slat">
-            <div class="column-half">    
+          <div class="slat compressed">
+            <div class="column-half">
               <ul class="dash-list">
                 <li>Brand Strategy</li>
                 <li>Logo and Identity System Design</li>
@@ -70,7 +70,7 @@
               </ul>
             </div>
           </div>
-        </section>      
+        </section>
 
 
 
@@ -78,9 +78,6 @@
           <a class="btn prev-btn" href="/project/waterfront-botanical-gardens"><span>Previous</span></a>
           <a class="btn next-btn" href="/project/psa"><span>Next</span></a>
         </section>
-
-
-      <sitefooter></sitefooter>
 
   </div>
 
@@ -100,7 +97,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
 <style scoped lang="scss">
-  
-  @import "../assets/project.scss";  
+
+  @import "../assets/project.scss";
 
 </style>
