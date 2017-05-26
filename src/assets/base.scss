@@ -82,23 +82,23 @@ a.major {
 }
 
 h2 {
-  font-weight: lighter;
   letter-spacing: -.02em;
-  margin-bottom: .25em;
+  margin-bottom: .5em;
   font-size: 1.4em;
   line-height: 1em;
   margin-top: 1.3em;
 
   @media only screen and (min-width: $screen-md-min) {
-    font-size: 2.2em;
+    font-size: 2em;
+    font-weight: 400;
   }
 
   &.intro {
-    font-size: 2em;
     margin: 2em 0;
 
     @media only screen and (min-width: $screen-md-min) {
       max-width: 80%;
+      font-size: 2em;
     }
   }
 }
@@ -149,7 +149,8 @@ img {
   // feature image on company page etc
   &.feature {
     width: 100%;
-    height: auto
+    height: auto;
+    margin-top: 2em;
   }
 }
 

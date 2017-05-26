@@ -15,7 +15,9 @@
       <section class="slat">
         <div class="column-half">
           <h3>Experience Design</h3>
+          <!--
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus eveniet vero totam temporibus non eos id, architecto error laborum sint ipsa excepturi dolorem accusamus illo maiores illum possimus numquam nam!</p>
+          -->
           <ul class="dash-list">
             <li>Consulting</li>
             <li>Customer Research</li>
@@ -23,15 +25,19 @@
             <li>Competitive Audits</li>
           </ul>
         </div>
+        <!--
         <div class="column-half">
           <img src="/static/company-small-1.jpg" />
         </div>
+        -->
       </section>
 
       <section class="slat">
         <div class="column-half">
           <h3>Brand Development</h3>
+          <!--
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore necessitatibus fugiat accusantium assumenda quod, nesciunt, consequatur aliquid, quis voluptatem obcaecati possimus laborum. Sapiente exercitationem tenetur, nulla sunt esse, quo necessitatibus.</p>
+          -->
           <ul class="dash-list">
             <li>Naming</li>
             <li>Brand Strategy</li>
@@ -39,15 +45,19 @@
             <li>Print Collateral Design</li>
           </ul>
         </div>
+        <!--
         <div class="column-half">
           <img src="/static/company-small-1.jpg" />
         </div>
+        -->
       </section>
 
       <section class="slat">
         <div class="column-half">
           <h3>Product, Service, and Space Design</h3>
+          <!--
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore est explicabo tenetur non, eveniet quas iusto fugiat asperiores vitae sit recusandae ut, ab doloremque fuga! Temporibus quibusdam ipsum maxime. Pariatur?</p>
+          -->
           <ul class="dash-list">
             <li>UI/UX Design</li>
             <li>Mobile Application Development</li>
@@ -56,9 +66,11 @@
             <li>Environment & Exhibit Design</li>
           </ul>
         </div>
+        <!--
         <div class="column-half">
           <img src="/static/company-small-1.jpg" />
         </div>
+        -->
       </section>
 
       <section class="work-with-us">
@@ -101,19 +113,22 @@ export default {
 <!-- Add "lang" attribute to use scss instead -->
 <style scoped lang="scss">
 
+  @import "../assets/_variables.scss";
+
   .column-half {
     p, ul {
       font-size: .9em;
     }
 
-    &:first-child {
-      width: 60%;
-    }
+    @media only screen and (min-width: $screen-md-min) {
+      &:first-child {
+        width: 60%;
+      }
 
-    &:last-child {
-      width: 40%;
+      &:last-child {
+        width: 40%;
+      }
     }
-
     .dash-list li {
       margin-bottom: .3em;
     }

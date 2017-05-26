@@ -17,7 +17,7 @@
                 <span class="btn">View Case Study</span>
               </p>
             </div>
-            <img :src="project.feature_image_filename" class="feature" />
+            <img :src="project.feature_image_filename" />
           </div>
         </router-link>
       </section>
@@ -81,7 +81,6 @@
 <!-- Add "lang" attribute to use scss instead -->
 <style scoped lang="scss">
 
-  @import "../assets/_variables.scss";
   @import "../assets/project.scss";
 
   section { position: relative; }
@@ -148,18 +147,20 @@
     }
   }
 
-  a:hover {
+  @media only screen and (min-width: $screen-md-min) {
+    a:hover {
 
-    .project_preview:after {
-      left: 0;
-    }
+      .project_preview:after {
+        left: 0;
+      }
 
-    .preview_text {
-      color: white;
-      opacity: 1;
-
-      p {
+      .preview_text {
+        color: white;
         opacity: 1;
+
+        p {
+          opacity: 1;
+        }
       }
     }
   }

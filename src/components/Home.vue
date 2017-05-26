@@ -53,6 +53,16 @@
         margin-top: 8em;
         margin-bottom: 2em;
       }
+
+      // .designco {
+      //   transform: rotateX(0);
+      //   fill-opacity: 1;
+      // }
+    }
+
+    h2 {
+      font-size: 2.2em;
+      margin-bottom: .25em;
     }
 
     article {
