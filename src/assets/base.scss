@@ -73,6 +73,10 @@ a.major {
   }
 }
 
+.featured {
+  margin-top: 2em;
+}
+
 .page_title {
   font-size: 1em;
   font-weight: bold;
@@ -202,7 +206,7 @@ img {
   }
 
   @media only screen and (min-width: $screen-md-min) {
-    align-items: center;
+    //align-items: center;
     flex-direction: row;
     margin: 5em 0;
 
@@ -222,6 +226,31 @@ img {
         font-size: .9em;
         line-height: 1.35em;
       }
+    }
+
+    .column-quarter {
+      width: 25%;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  margin: 2em 0;
+
+  @media only screen and (min-width: $screen-md-min) {
+    margin: 5em 0;
+
+    &.compressed {
+      margin: 1em 0;
+    }
+
+    .column-quarter {
+      width: 25%;
+    }
+
+    p {
+      font-size: .9em;
     }
   }
 }
