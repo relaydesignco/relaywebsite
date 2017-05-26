@@ -34,7 +34,7 @@
           </section>
 
           <h2>The Team</h2>
-          <section class="row flex-grid">
+          <section class="row compressed flex-grid">
             <div class="column-third">
               <img src="/static/company-headshot-brian.jpg" />
               <h4>Brian Johnson</h4>

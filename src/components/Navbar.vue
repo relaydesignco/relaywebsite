@@ -121,7 +121,7 @@
   .logo {
     display: inline-block;
     margin: 2em 0 0;
-    width: 150px;
+    width: 140px;
     height: auto;
     transition: .5s;
 
