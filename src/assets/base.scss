@@ -255,9 +255,11 @@ img {
 .row {
   display: flex;
   margin: 2em 0;
+  flex-direction: column;
 
   @media only screen and (min-width: $screen-md-min) {
     margin: 5em 0;
+    flex-direction: row;
 
     &.compressed {
       margin: 1em 0;
@@ -266,9 +268,10 @@ img {
     .column-quarter {
       width: 25%;
     }
+  }
 
-    p {
-    }
+  h3 {
+    margin-top: 0;
   }
 }
 
