@@ -23,19 +23,12 @@
 <script>
   export default {
     name: 'home',
-    components: {
-    },
-    data () {
-      return {
-        // msg: 'Welcome to Your Vue.js App',
-        // users: [
-        // { firstname:'jane', lastname:'harris' },
-        // { firstname:'bob', lastname:'harris' },
-        // { firstname:'bill', lastname:'bobert' }
-        // ],
-        // input_val: 'hey!',
-        // counter:0
-      }
+    components: {},
+    data () { return {} },
+    head: {
+      meta: [
+        { name: 'description', content: 'Relay helps companies use design and technology to grow and innovate through branding, experience design, and digital applications.'}
+      ]
     }
   }
 </script>

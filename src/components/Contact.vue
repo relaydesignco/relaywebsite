@@ -50,6 +50,9 @@
           inner: "Contact"
         }
       },
+      meta: [
+        { name: 'description', content: 'Relay is a design firm based in Louisvile, KY.'}
+      ]
     }
   }
 </script>

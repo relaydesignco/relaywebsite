@@ -129,6 +129,9 @@ export default {
         inner: this.page_title
       }
     },
+    meta: [
+      { name: 'description', content: 'Relay is a cross-disciplinary team that helps clients use design and technology to meet business challenges and improve customer experiences.'}
+    ]
   }
 }
 </script>

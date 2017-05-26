@@ -110,6 +110,9 @@ export default {
         inner: this.page_title
       }
     },
+    meta: [
+      { name: 'description', content: 'Relay designs the brands, digital interactions, and physical spaces that shape how people experience your company.'}
+    ]
   }
 }
 </script>
