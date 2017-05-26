@@ -7,7 +7,7 @@
         </header>
         -->
 
-        <img :src="feature_image_filename" class="feature" />
+        <img :src="feature_image_filename" class="featured-image" />
 
         <article class="wrapper">
           <header class="fadein">

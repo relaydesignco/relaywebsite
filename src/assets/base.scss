@@ -32,6 +32,15 @@ body, p {
 p {
   margin-top: 0;
   margin-bottom: 1.35em;
+
+  &.intro {
+    font-size: 20px;
+
+    @media only screen and (min-width: $screen-md-min) {
+      max-width: 80%;
+      margin-bottom: 0;
+    }
+  }
 }
 
 a, a:hover, a:visited, a:active {
@@ -73,7 +82,7 @@ a.major {
   }
 }
 
-.featured {
+.featured-image {
   margin-top: 2em;
 }
 
@@ -167,9 +176,13 @@ img {
   height: auto;
 
   // feature image on company page etc
-  &.feature {
+  &.feature,
+  &.featured-image {
     width: 100%;
     height: auto;
+  }
+
+  &.featured-image {
     margin-top: 2em;
   }
 }
@@ -224,7 +237,7 @@ img {
   @media only screen and (min-width: $screen-md-min) {
     align-items: center;
     flex-direction: row;
-    margin: 5em 0;
+    margin: 4.5em 0;
 
     &.compressed {
       margin: 1em 0;

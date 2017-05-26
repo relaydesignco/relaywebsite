@@ -9,18 +9,16 @@
       <header class="fadein">
           <h2 class="intro">We design the brands, digital interactions, and physical spaces that shape how people experience your company.</h2>
       </header>
-        <!--
-        <h3>We are focused on the total experience people have with your company, from when they first search for your product, to when they rave about it to their friends.</h3>
-        -->
       <section class="slat">
         <div class="column-two-thirds">
           <h3>Experience Design</h3>
-          <p></p>
+          <p>We partner with companies to design compelling and consistent customer experiences. We map existing customer interactions, address poorly performing touchpoints, and identify possible new channels.</p>
           <ul class="dash-list">
             <li>Customer Touchpoint Analysis</li>
             <li>User Research</li>
             <li>Competitive Audits</li>
             <li>Experience Strategy</li>
+            <li>Consulting</li>
           </ul>
         </div>
         <!--
@@ -33,12 +31,14 @@
       <section class="slat">
         <div class="column-two-thirds">
           <h3>Brand Development</h3>
-          <p></p>
+          <p>We work across a range of disciplines to craft distinctive brands for businesses and entrepreneurs, from naming and concept through design and implementation.</p>
           <ul class="dash-list">
+            <li>Brand Positioning &amp; Strategy</li>
+            <li>Market Research</li>
             <li>Naming</li>
-            <li>Brand Strategy</li>
             <li>Logo and Identity System Design</li>
             <li>Print Collateral Design</li>
+            <li>Packaging Design</li>
           </ul>
         </div>
         <!--
@@ -55,9 +55,10 @@
           <ul class="dash-list">
             <li>UI/UX Design</li>
             <li>Mobile Application Development</li>
-            <li>Packaging</li>
-            <li>Web Design & Development</li>
-            <li>Environment & Exhibit Design</li>
+            <li>Web Design &amp; Development</li>
+            <li>Environment &amp; Exhibit Design</li>
+            <li>Interactive Displays &amp; Kiosks</li>
+            <li>Platform Development</li>
           </ul>
         </div>
         <!--
