@@ -1,5 +1,8 @@
 <template>
   <div class="wrapper">
+
+    <breakout></breakout>
+
     <article class="home">
       <header class="fadein">
         <h2>Design better experiences</h2>
@@ -21,9 +24,11 @@
 </template>
 
 <script>
+  import Breakout from '../components/Breakout'
+
   export default {
     name: 'home',
-    components: {},
+    components: { Breakout },
     data () { return {} },
     head: {
       meta: [
