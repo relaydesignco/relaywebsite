@@ -1,5 +1,5 @@
 <template>
-  <canvas id="breakout" ref="breakout" class="game-stage" width="1920" height="800"></canvas>
+  <canvas id="breakout" ref="breakout" class="game-stage" v-bind:style="{ width: width + 'px', height: height + 'px' }"></canvas>
 </template>
 
 
@@ -69,6 +69,11 @@
     }
 
     draw() {  
+      this.ctx.beginPath();
+      this.ctx.rect(this.center.x, this.center.y, this.width, this.height);
+      this.ctx.fillStyle = this.color;
+      this.ctx.fill();
+      this.ctx.closePath();
     }
 
   }
@@ -124,20 +129,36 @@
         brickHeight: 4,
         bricks: [], 
         cvs: null,
-        ctx: null
+        ctx: null,
+        width: 0,
+        height: 0
     	}
     },
     methods: {
 
     	startGame: function(e) {
+
+        this.primaryColor = "#2d9bd6";
+
+        // easy refs for canvas and context
         this.cvs = this.$refs.breakout;
         this.ctx = this.cvs.getContext("2d");
+
+        // prep for hi-dpi display: double size of canvas, then scale to 50% w/ css
         this.pixelRatio = this.getPixelRatio(this.ctx);
-        this.brickWidth = this.cvs.width / 20;
+        let w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        let h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        this.cvs.width = w * this.pixelRatio;
+        this.cvs.height = h * this.pixelRatio;
+        this.width = w;
+        this.height = h;
+
+        // brick wall settings
+        this.brickColumns = 10;
+        this.brickRows = 2;
+        this.brickPadding = 5 * this.pixelRatio;
+        this.brickWidth = (this.cvs.width / this.brickColumns) - this.brickPadding;
         this.brickHeight = this.brickWidth / 2;
-        this.brickColumns = 15;
-        this.brickRows = 4;
-        this.primaryColor = "#2d9bd6";
 
         // create the paddle
         this.paddle = new Paddle(80, 80, 50 * this.pixelRatio, 6 * this.pixelRatio, this.primaryColor, this.pixelRatio, this.ctx, this.cvs);
@@ -152,7 +173,7 @@
         for (let x=0; x<this.brickColumns; x++) {
           this.bricks[x] = [];
           for (let y=0; y<this.brickRows; y++) {
-            this.bricks[x][y] = new Brick(x, y, this.brickWidth, this.brickHeight, this.primaryColor, this.ctx, this.cvs);
+            this.bricks[x][y] = new Brick(x * (this.brickPadding + this.brickWidth), y * (this.brickPadding + this.brickHeight), this.brickWidth, this.brickHeight, this.primaryColor, this.ctx, this.cvs);
           };
         };
 
@@ -162,7 +183,7 @@
     	},
 
       update: function() {
-          // physics updates -- move ball and bricks around
+          // physics updates -- move ball, paddle, bricks around, detect collisions
           this.paddle.update();
           this.ball.update();
         
@@ -186,6 +207,7 @@
         this.paddle.draw();
         this.ball.draw();
 
+        // draw the bricks
         for (let x=0; x<this.brickColumns; x++) {
           for (let y=0; y<this.brickRows; y++) {
             this.bricks[x][y].draw();
@@ -219,12 +241,10 @@
 
   .game-stage {
     background: #eee;
-    width: 100%;
-    max-width: 100%; 
-    height: auto;
-    position: absolute;
-    top:0;
-    left: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
   }
 
   .brick { 
