@@ -6,17 +6,18 @@
 <script>
 
   class Paddle {
-    constructor(x, y, width, height, color, context, canvas) {
+    constructor(x, y, width, height, color, pixelRatio, context, canvas) {
       this.ctx = context;
       this.cvs = canvas;
       this.center = { 'x': x, 'y': y };
-      this.velocity = 0; // x velocity from -1 to 1
-      this.acceleration = 1.3;
+      this.velocity = 0; // negative goes left, positive goes right
       this.width = width;
       this.height = height;
       this.color = color;
       this.maxSpeed = 10;
-      this.sensitivity = 10;
+      this.sensitivity = width/2;
+      this.mouseX = 0;
+      this.pixelRatio = pixelRatio || 0;
       
       // listen for mouse move 
       // bind 'this' via arrow function
@@ -25,31 +26,21 @@
     }
 
     mouseMove(e) {
-      // mouse is to the left of the paddle
-      if (this.center.x - e.clientX > this.sensitivity ) {
-        this.velocity = -1;
-      } else if (this.center.x - e.clientX < -this.sensitivity ) {
-        this.velocity = 1;
-      }
+      // we can't reliably access mouse coordinates w/o listening for event.
+      // this is our hack to remember where the mouse is when it's not moving.
+      this.mouseX = e.pageX * this.pixelRatio;  
     }
 
     update() {
-
-      // don't bother calculating new position if we're not moving
-      if (this.velocity == 0) {
-        return;
-      }
-
-      // if we're moving in a direction, accelerate if the button is still pressed down
-      this.velocity =  Math.min(this.maxSpeed, this.velocity + (this.velocity * this.acceleration))
-
+      // change velocity depending on which side mouse is on
+      this.velocity = this.mouseX - this.center.x;
+     
       // move the paddle
       this.center.x += this.velocity;
 
       // clamp to horizontal bounds
-      this.center.x = Math.min(this.center.x, this.cvs.width - this.width/2);
-      this.center.x = Math.max(this.center.x, this.width/2);
-
+      this.center.x = Math.min(this.center.x, this.cvs.width - this.width);
+      this.center.x = Math.max(this.center.x, 0);
     }
 
     draw() {  
@@ -61,6 +52,7 @@
     }
 
   }
+
 
   class Brick {
     constructor(x, y, width, height, color, context, canvas) {
@@ -101,13 +93,11 @@
         // change direction if we're about to hit the ceiling/floor
         if(this.center.y + this.velocity.y < this.ballRadius || this.center.y + this.velocity.y > this.cvs.height - this.ballRadius) {
             this.velocity.y = -this.velocity.y;
-            console.log("hit Y");
         }
 
         // change direction if we're about to hit a wall
         if(this.center.x + this.velocity.x > this.cvs.width - this.ballRadius || this.center.x + this.velocity.x < this.ballRadius) {
             this.velocity.x = -this.velocity.x;
-            console.log("hit X");
         }
 
     }
@@ -150,7 +140,7 @@
         this.primaryColor = "#2d9bd6";
 
         // create the paddle
-        this.paddle = new Paddle(80, 80, 50 * this.pixelRatio, 6 * this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
+        this.paddle = new Paddle(80, 80, 50 * this.pixelRatio, 6 * this.pixelRatio, this.primaryColor, this.pixelRatio, this.ctx, this.cvs);
 
         // create the ball
         let ballRadius = 8 * this.pixelRatio;
