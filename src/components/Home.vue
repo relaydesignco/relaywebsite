@@ -1,8 +1,9 @@
 <template>
-  <div class="wrapper">
+  <div class="nowrap">
 
     <breakout></breakout>
 
+<div class="wrapper">
     <article class="home">
       <header class="fadein">
         <h2>Design better experiences</h2>
@@ -21,6 +22,7 @@
       </section>
     </article>
   </div>
+</div>
 </template>
 
 <script>
