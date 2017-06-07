@@ -5,6 +5,11 @@
 
 <script>
 
+  /*
+  *
+   Paddle class
+  *
+  */
   class Paddle {
     constructor(x, y, width, height, color, pixelRatio, context, canvas) {
       this.ctx = context;
@@ -22,7 +27,6 @@
       // listen for mouse move 
       // bind 'this' via arrow function
       document.addEventListener('mousemove', (e) => this.mouseMove(e) );
-      
     }
 
     mouseMove(e) {
@@ -39,13 +43,14 @@
       this.center.x += this.velocity;
 
       // clamp to horizontal bounds
-      this.center.x = Math.min(this.center.x, this.cvs.width - this.width);
-      this.center.x = Math.max(this.center.x, 0);
+      this.center.x = Math.min(this.center.x, this.cvs.width - this.width/2);
+      this.center.x = Math.max(this.center.x, this.width/2);
     }
 
     draw() {  
-      this.ctx.beginPath();
-      this.ctx.rect(this.center.x, this.cvs.height-this.height, this.width, this.height);
+      this.ctx.beginPath(); 
+      // rect is drawn from upper left corner
+      this.ctx.rect(this.center.x - this.width/2, this.center.y - this.height/2, this.width, this.height);
       this.ctx.fillStyle = this.color;
       this.ctx.fill();
       this.ctx.closePath();
@@ -53,9 +58,14 @@
 
   }
 
-
+  /*
+  *
+   Brick class
+  *
+  */
   class Brick {
     constructor(x, y, width, height, color, context, canvas) {
+      this.visible = true;
       this.ctx = context;
       this.cvs = canvas;
       this.center = { 'x': x, 'y': y };
@@ -69,16 +79,28 @@
     }
 
     draw() {  
+      if (!this.visible) {
+        return; 
+      }
       this.ctx.beginPath();
-      this.ctx.rect(this.center.x, this.center.y, this.width, this.height);
+      // draw from top left corner
+      this.ctx.rect(this.center.x - this.width/2, this.center.y - this.height/2, this.width, this.height);
       this.ctx.fillStyle = this.color;
       this.ctx.fill();
       this.ctx.closePath();
     }
 
+    collide() {
+      this.visible = false;
+    }
+
   }
 
-
+  /*
+  *
+   Ball class
+  *
+  */
   class Ball {
     constructor(x, y, ballRadius, moveSpeed, color, context, canvas) {
       this.ctx = context;
@@ -86,7 +108,7 @@
       this.center = { 'x': x, 'y': y };
       this.ballRadius = ballRadius;
       this.moveSpeed = moveSpeed;
-      this.velocity = { 'x': moveSpeed, 'y': moveSpeed };
+      this.velocity = { 'x': 0, 'y': 0 };
       this.color = color;
     }
 
@@ -95,8 +117,8 @@
         this.center.x += this.velocity.x;
         this.center.y += this.velocity.y;
 
-        // change direction if we're about to hit the ceiling/floor
-        if(this.center.y + this.velocity.y < this.ballRadius || this.center.y + this.velocity.y > this.cvs.height - this.ballRadius) {
+        // change direction if we're about to hit the ceiling
+        if(this.center.y + this.velocity.y < this.ballRadius) {
             this.velocity.y = -this.velocity.y;
         }
 
@@ -116,15 +138,22 @@
         this.ctx.closePath();
     }
 
+
+
   }
 
+  /*
+  *
+    Main game component
+  *
+  */
   export default {
     name: 'breakout',
     data () {
     	return {
     	  active: false,
-        rows: 4,
-        columns: 10,
+        rows: 1,
+        columns: 2,
         brickWidth: 10,
         brickHeight: 4,
         bricks: [], 
@@ -155,32 +184,47 @@
 
         // brick wall settings
         this.brickColumns = 10;
-        this.brickRows = 2;
+        this.brickRows = 3;
         this.brickPadding = 5 * this.pixelRatio;
         this.brickWidth = (this.cvs.width / this.brickColumns) - this.brickPadding;
         this.brickHeight = this.brickWidth / 2;
 
         // create the paddle
-        this.paddle = new Paddle(80, 80, 50 * this.pixelRatio, 6 * this.pixelRatio, this.primaryColor, this.pixelRatio, this.ctx, this.cvs);
+        let paddleHeight =  15 * this.pixelRatio;
+        let paddleWidth = 90 * this.pixelRatio;
+        this.paddle = new Paddle(this.cvs.width/2, this.cvs.height - paddleHeight/2, paddleWidth, paddleHeight, this.primaryColor, this.pixelRatio, this.ctx, this.cvs);
 
         // create the ball
         let ballRadius = 8 * this.pixelRatio;
         let moveSpeed = 2 * this.pixelRatio;
-        this.ball = new Ball(100, 100, ballRadius, moveSpeed, this.primaryColor, this.ctx, this.cvs);
+        this.ball = new Ball(this.cvs.width/2, this.cvs.height - ballRadius, ballRadius, moveSpeed, this.primaryColor, this.ctx, this.cvs);
         
         // create the bricks
         this.bricks = [];
         for (let x=0; x<this.brickColumns; x++) {
           this.bricks[x] = [];
           for (let y=0; y<this.brickRows; y++) {
-            this.bricks[x][y] = new Brick(x * (this.brickPadding + this.brickWidth), y * (this.brickPadding + this.brickHeight), this.brickWidth, this.brickHeight, this.primaryColor, this.ctx, this.cvs);
+            // center anchor position, not top left
+            let xPos = (x * (this.brickPadding + this.brickWidth)) + this.brickWidth/2;
+            let yPos = (y * (this.brickPadding + this.brickHeight)) + this.brickHeight/2;
+            this.bricks[x][y] = new Brick(xPos, yPos, this.brickWidth, this.brickHeight, this.primaryColor, this.ctx, this.cvs);
           };
         };
+
+        // listen for click to start the game
+        document.addEventListener('click', (e) => this.mouseClick(e) );
 
         // kick off the update-animation loop
         setInterval(this.update, 10);
         
     	},
+
+      mouseClick: function(e) {
+        if (!this.active) {
+          this.active = true;
+          this.ball.velocity = {'x': this.ball.moveSpeed, 'y': this.ball.moveSpeed };
+        }
+      },
 
       update: function() {
           // physics updates -- move ball, paddle, bricks around, detect collisions
@@ -193,8 +237,69 @@
             }
           }
 
+          // resolve collisions
+          this.collisionDetection();
+
           // after all objects positions are updated, draw them
           this.draw();
+
+      },
+
+      collisionDetection: function() {
+
+        // JS Canvas coordinates have (0,0) as top left and 
+        // (canvas.width, canvas.height) as bottom right
+
+        // check the ball's coords against the paddle
+        let ballMinX = this.ball.center.x - this.ball.ballRadius;
+        let ballMaxX = this.ball.center.x + this.ball.ballRadius;        
+        let ballTopY = this.ball.center.y - this.ball.ballRadius;
+        let ballBottomY = this.ball.center.y + this.ball.ballRadius;
+
+        let paddleMinX = this.paddle.center.x - this.paddle.width/2;
+        let paddleMaxX = this.paddle.center.x + this.paddle.width/2;
+        let paddleTopY = this.paddle.center.y - this.paddle.height/2;
+
+        if (ballBottomY >= paddleTopY) {
+
+          // ball is below or on paddle
+          if ((ballMinX >= paddleMinX && ballMinX <= paddleMaxX) || (ballMaxX >= paddleMinX && ballMaxX <= paddleMaxX)) {
+            // ball is within horizontal bounds of paddle
+            
+            // reverse direction of travel
+            this.ball.velocity.y = -this.ball.velocity.y;
+
+            // push ball back outside of paddle collision
+            this.ball.center.y -= Math.abs(ballBottomY - paddleTopY);
+
+          }
+        }
+
+        // check the ball's position against each brick 
+        for (let x=0; x<this.brickColumns; x++) {
+          for (let y=0; y<this.brickRows; y++) {
+            let brick = this.bricks[x][y];
+
+            if (!brick.visible) {
+              break;
+            }
+
+            let brickMinX = brick.center.x - brick.width/2;
+            let brickMaxX = brick.center.x + brick.width/2;
+            let brickTopY = brick.center.y - brick.height/2;
+            let brickBottomY = brick.center.y + brick.height/2;
+
+            // ball y coordinate is within vertical space of brick
+            if ((ballTopY <= brickBottomY && ballTopY >= brickTopY) || (ballBottomY <= brickBottomY && ballBottomY >= brickTopY)) {
+              // ball x coordinate is within horizontal space of brick
+              if ((ballMinX >= brickMinX && ballMinX <= brickMaxX) || (ballMaxX >= brickMinX && ballMaxX <= brickMaxX)) {
+                brick.collide();
+                console.log("COLLISION");
+              }
+            }
+
+          }
+        }
 
       },
       
