@@ -1,0 +1,16 @@
+build/*.js
+config/*.js
+src/App.vue
+main.js
+src/components/Company.vue
+src/components/Contact.vue
+src/components/Navbar.vue
+src/components/HelloWorld.vue
+src/components/Home.vue
+src/components/Projects.vue
+src/components/Services.vue
+src/components/SiteFooter.vue
+src/components/ProjectGarage.vue
+src/components/Project21c.vue
+src/components/ProjectPSA.vue
+ProjectWBG.vue

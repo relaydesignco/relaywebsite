@@ -4,13 +4,12 @@
 
 
 <script>
+  // import SAT from 'sat'
 
-  /*
-  *
-   Paddle class
-  *
-  */
-  class Paddle {
+  class BoxObject {
+    /*
+    Collidable rectanglular object 
+    */
     constructor(x, y, width, height, color, pixelRatio, context, canvas) {
       this.ctx = context;
       this.cvs = canvas;
@@ -19,27 +18,12 @@
       this.width = width;
       this.height = height;
       this.color = color;
-      this.maxSpeed = 10;
-      this.sensitivity = width/2;
-      this.mouseX = 0;
       this.pixelRatio = pixelRatio || 0;
-      
-      // listen for mouse move 
-      // bind 'this' via arrow function
-      document.addEventListener('mousemove', (e) => this.mouseMove(e) );
-    }
-
-    mouseMove(e) {
-      // we can't reliably access mouse coordinates w/o listening for event.
-      // this is our hack to remember where the mouse is when it's not moving.
-      this.mouseX = e.pageX * this.pixelRatio;  
     }
 
     update() {
-      // change velocity depending on which side mouse is on
-      this.velocity = this.mouseX - this.center.x;
      
-      // move the paddle
+      // move the object
       this.center.x += this.velocity;
 
       // clamp to horizontal bounds
@@ -60,34 +44,56 @@
 
   /*
   *
-   Brick class
+   Paddle class
   *
   */
-  class Brick {
-    constructor(x, y, width, height, color, context, canvas) {
-      this.visible = true;
-      this.ctx = context;
-      this.cvs = canvas;
-      this.center = { 'x': x, 'y': y };
-      this.width = width;
-      this.height = height;
-      this.color = color;
+  class Paddle extends BoxObject {
+    constructor(x, y, width, height, color, pixelRatio, context, canvas) {
+      super(x, y, width, height, color, pixelRatio, context, canvas);
+      
+      this.maxSpeed = 10;
+      this.sensitivity = width/2;
+      this.mouseX = 0;
+      this.pixelRatio = pixelRatio || 0;
+      
+      // listen for mouse move 
+      // bind 'this' via arrow function
+      document.addEventListener('mousemove', (e) => this.mouseMove(e));
+    }
+
+    mouseMove(e) {
+      // we can't reliably access mouse coordinates w/o listening for event.
+      // this is our hack to remember where the mouse is when it's not moving.
+      this.mouseX = e.pageX * this.pixelRatio;  
     }
 
     update() {
-
+      // change velocity depending on which side mouse is on
+      this.velocity = this.mouseX - this.center.x;
+      super.update();
     }
+
+  }
+
+  /*
+  *
+   Brick class
+  *
+  */
+  class Brick extends BoxObject {
+    constructor(x, y, width, height, color, pixelRatio, context, canvas) {
+      super(x, y, width, height, color, pixelRatio, context, canvas);  
+      this.visible = true;
+    }
+
+    // update() {
+    // }
 
     draw() {  
       if (!this.visible) {
         return; 
       }
-      this.ctx.beginPath();
-      // draw from top left corner
-      this.ctx.rect(this.center.x - this.width/2, this.center.y - this.height/2, this.width, this.height);
-      this.ctx.fillStyle = this.color;
-      this.ctx.fill();
-      this.ctx.closePath();
+      super.draw();
     }
 
     collide() {
@@ -118,12 +124,12 @@
         this.center.y += this.velocity.y;
 
         // change direction if we're about to hit the ceiling
-        if(this.center.y + this.velocity.y < this.ballRadius) {
+        if (this.center.y + this.velocity.y < this.ballRadius) {
             this.velocity.y = -this.velocity.y;
         }
 
         // change direction if we're about to hit a wall
-        if(this.center.x + this.velocity.x > this.cvs.width - this.ballRadius || this.center.x + this.velocity.x < this.ballRadius) {
+        if (this.center.x + this.velocity.x > this.cvs.width - this.ballRadius || this.center.x + this.velocity.x < this.ballRadius) {
             this.velocity.x = -this.velocity.x;
         }
 
@@ -150,8 +156,8 @@
   export default {
     name: 'breakout',
     data () {
-    	return {
-    	  active: false,
+      return {
+        active: false,
         rows: 1,
         columns: 2,
         brickWidth: 10,
@@ -161,11 +167,11 @@
         ctx: null,
         width: 0,
         height: 0
-    	}
+      }
     },
     methods: {
 
-    	startGame: function(e) {
+      startGame: function(e) {
 
         this.primaryColor = "#2d9bd6";
 
@@ -190,9 +196,11 @@
         this.brickHeight = this.brickWidth / 2;
 
         // create the paddle
-        let paddleHeight =  15 * this.pixelRatio;
+        let paddleHeight = 15 * this.pixelRatio;
         let paddleWidth = 90 * this.pixelRatio;
-        this.paddle = new Paddle(this.cvs.width/2, this.cvs.height - paddleHeight/2, paddleWidth, paddleHeight, this.primaryColor, this.pixelRatio, this.ctx, this.cvs);
+        let paddleX = this.cvs.width/2;
+        let paddleY = this.cvs.height - paddleHeight/2
+        this.paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, this.primaryColor, this.pixelRatio, this.ctx, this.cvs);
 
         // create the ball
         let ballRadius = 8 * this.pixelRatio;
@@ -207,22 +215,22 @@
             // center anchor position, not top left
             let xPos = (x * (this.brickPadding + this.brickWidth)) + this.brickWidth/2;
             let yPos = (y * (this.brickPadding + this.brickHeight)) + this.brickHeight/2;
-            this.bricks[x][y] = new Brick(xPos, yPos, this.brickWidth, this.brickHeight, this.primaryColor, this.ctx, this.cvs);
+            this.bricks[x][y] = new Brick(xPos, yPos, this.brickWidth, this.brickHeight, this.primaryColor, this.pixelRatio, this.ctx, this.cvs);
           };
         };
 
         // listen for click to start the game
-        document.addEventListener('click', (e) => this.mouseClick(e) );
+        document.addEventListener('click', (e) => this.mouseClick(e));
 
         // kick off the update-animation loop
         setInterval(this.update, 10);
         
-    	},
+      },
 
       mouseClick: function(e) {
         if (!this.active) {
-          this.active = true;
-          this.ball.velocity = {'x': this.ball.moveSpeed, 'y': this.ball.moveSpeed };
+          this.active = true; // game has now started
+          this.ball.velocity = {'x': this.ball.moveSpeed, 'y': this.ball.moveSpeed};
         }
       },
 
