@@ -4,52 +4,73 @@
 
 
 <script>
-  // import SAT from 'sat'
+  import SAT from 'sat'
+  
 
-  class BoxObject {
-    /*
-    Collidable rectanglular object 
-    */
-    constructor(x, y, width, height, color, pixelRatio, context, canvas) {
+
+  /*
+  Collidable object 
+  */
+  class CollidableObject {
+     constructor(x, y, pixelRatio, color, context, canvas) {
       this.ctx = context;
       this.cvs = canvas;
-      this.center = { 'x': x, 'y': y };
-      this.velocity = 0; // negative goes left, positive goes right
-      this.width = width;
-      this.height = height;
+      this.center = new SAT.Vector(x, y);
+      this.velocity = new SAT.Vector(0, 0); // negative goes left, positive goes right
+      this.pixelRatio = pixelRatio;
       this.color = color;
-      this.pixelRatio = pixelRatio || 0;
     }
 
     update() {
-     
       // move the object
-      this.center.x += this.velocity;
+      this.center.add(this.velocity);
+    }
+  
+  }
 
+
+  /*
+  Rectanglular Collidable object for Paddle, Bricks
+  */
+  class BoxObject extends CollidableObject {
+    constructor(x, y, width, height, pixelRatio, color, context, canvas) {
+      super(x, y, pixelRatio, color, context, canvas);
+      this.width = width;
+      this.height = height;
+      this.color = color; 
+      this.box = new SAT.Box(new SAT.Vector(x, y), width, height);
+    }
+
+    update() {
+      // move the object
+      super.update();
+      
       // clamp to horizontal bounds
-      this.center.x = Math.min(this.center.x, this.cvs.width - this.width/2);
-      this.center.x = Math.max(this.center.x, this.width/2);
+      this.center.x = Math.max(Math.min(this.center.x, this.cvs.width - this.width/2), this.width/2);
+
+      // update physics object location
+      this.box.pos = new SAT.Vector(this.center.x - this.width/2, this.center.y - this.height/2);
+
     }
 
     draw() {  
       this.ctx.beginPath(); 
       // rect is drawn from upper left corner
-      this.ctx.rect(this.center.x - this.width/2, this.center.y - this.height/2, this.width, this.height);
+      this.ctx.rect(this.box.pos.x, this.box.pos.y, this.width, this.height);
       this.ctx.fillStyle = this.color;
       this.ctx.fill();
       this.ctx.closePath();
     }
 
+
   }
 
   /*
-  *
    Paddle class
-  *
   */
   class Paddle extends BoxObject {
-    constructor(x, y, width, height, color, pixelRatio, context, canvas) {
-      super(x, y, width, height, color, pixelRatio, context, canvas);
+    constructor(x, y, width, height, pixelRatio, color, context, canvas) {
+      super(x, y, width, height, pixelRatio, color, context, canvas);
       
       this.maxSpeed = 10;
       this.sensitivity = width/2;
@@ -69,25 +90,20 @@
 
     update() {
       // change velocity depending on which side mouse is on
-      this.velocity = this.mouseX - this.center.x;
+      this.velocity.x = this.mouseX - this.center.x;
       super.update();
     }
 
   }
 
   /*
-  *
    Brick class
-  *
   */
   class Brick extends BoxObject {
-    constructor(x, y, width, height, color, pixelRatio, context, canvas) {
-      super(x, y, width, height, color, pixelRatio, context, canvas);  
+    constructor(x, y, width, height, pixelRatio, color, context, canvas) {
+      super(x, y, width, height, pixelRatio, color, context, canvas);
       this.visible = true;
     }
-
-    // update() {
-    // }
 
     draw() {  
       if (!this.visible) {
@@ -103,26 +119,21 @@
   }
 
   /*
-  *
    Ball class
-  *
   */
-  class Ball {
-    constructor(x, y, ballRadius, moveSpeed, color, context, canvas) {
-      this.ctx = context;
-      this.cvs = canvas;
-      this.center = { 'x': x, 'y': y };
+  class Ball extends CollidableObject {
+    constructor(x, y, ballRadius, moveSpeed, pixelRatio, color, context, canvas) {
+      super(x, y, pixelRatio, color, context, canvas);
       this.ballRadius = ballRadius;
       this.moveSpeed = moveSpeed;
-      this.velocity = { 'x': 0, 'y': 0 };
-      this.color = color;
+      this.circle = new SAT.Circle(this.center, this.ballRadius);
     }
 
     update() {
-        // move the ball
-        this.center.x += this.velocity.x;
-        this.center.y += this.velocity.y;
 
+        // move the ball
+        this.center.add(this.velocity);
+        
         // change direction if we're about to hit the ceiling
         if (this.center.y + this.velocity.y < this.ballRadius) {
             this.velocity.y = -this.velocity.y;
@@ -133,33 +144,31 @@
             this.velocity.x = -this.velocity.x;
         }
 
+        // update physics object location
+        this.circle.pos = new SAT.Vector(this.center.x, this.center.y);
+
     }
 
     draw() {
         // draw the ball
         this.ctx.beginPath();
-        this.ctx.arc(this.center.x, this.center.y, this.ballRadius, 0, Math.PI*2);
+        this.ctx.arc(this.circle.pos.x, this.circle.pos.y, this.ballRadius, 0, Math.PI*2);
         this.ctx.fillStyle = this.color;
         this.ctx.fill();
         this.ctx.closePath();
     }
 
-
-
   }
 
+
   /*
-  *
-    Main game component
-  *
+  Main game component
   */
   export default {
     name: 'breakout',
     data () {
       return {
         active: false,
-        rows: 1,
-        columns: 2,
         brickWidth: 10,
         brickHeight: 4,
         bricks: [], 
@@ -189,7 +198,7 @@
         this.height = h;
 
         // brick wall settings
-        this.brickColumns = 10;
+        this.brickColumns = 4;
         this.brickRows = 3;
         this.brickPadding = 5 * this.pixelRatio;
         this.brickWidth = (this.cvs.width / this.brickColumns) - this.brickPadding;
@@ -197,15 +206,15 @@
 
         // create the paddle
         let paddleHeight = 15 * this.pixelRatio;
-        let paddleWidth = 90 * this.pixelRatio;
+        let paddleWidth = 100 * this.pixelRatio;
         let paddleX = this.cvs.width/2;
         let paddleY = this.cvs.height - paddleHeight/2
-        this.paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, this.primaryColor, this.pixelRatio, this.ctx, this.cvs);
+        this.paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
 
         // create the ball
         let ballRadius = 8 * this.pixelRatio;
-        let moveSpeed = 2 * this.pixelRatio;
-        this.ball = new Ball(this.cvs.width/2, this.cvs.height - ballRadius, ballRadius, moveSpeed, this.primaryColor, this.ctx, this.cvs);
+        let moveSpeed = 4 * this.pixelRatio;
+        this.ball = new Ball(this.cvs.width/2, this.cvs.height - (ballRadius*2) - paddleHeight/2, ballRadius, moveSpeed, this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
         
         // create the bricks
         this.bricks = [];
@@ -215,7 +224,7 @@
             // center anchor position, not top left
             let xPos = (x * (this.brickPadding + this.brickWidth)) + this.brickWidth/2;
             let yPos = (y * (this.brickPadding + this.brickHeight)) + this.brickHeight/2;
-            this.bricks[x][y] = new Brick(xPos, yPos, this.brickWidth, this.brickHeight, this.primaryColor, this.pixelRatio, this.ctx, this.cvs);
+            this.bricks[x][y] = new Brick(xPos, yPos, this.brickWidth, this.brickHeight, this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
           };
         };
 
@@ -230,7 +239,7 @@
       mouseClick: function(e) {
         if (!this.active) {
           this.active = true; // game has now started
-          this.ball.velocity = {'x': this.ball.moveSpeed, 'y': this.ball.moveSpeed};
+          this.ball.velocity = new SAT.Vector(this.ball.moveSpeed, -this.ball.moveSpeed);
         }
       },
 
@@ -259,28 +268,18 @@
         // (canvas.width, canvas.height) as bottom right
 
         // check the ball's coords against the paddle
-        let ballMinX = this.ball.center.x - this.ball.ballRadius;
-        let ballMaxX = this.ball.center.x + this.ball.ballRadius;        
-        let ballTopY = this.ball.center.y - this.ball.ballRadius;
-        let ballBottomY = this.ball.center.y + this.ball.ballRadius;
-
-        let paddleMinX = this.paddle.center.x - this.paddle.width/2;
-        let paddleMaxX = this.paddle.center.x + this.paddle.width/2;
-        let paddleTopY = this.paddle.center.y - this.paddle.height/2;
-
-        if (ballBottomY >= paddleTopY) {
-
-          // ball is below or on paddle
-          if ((ballMinX >= paddleMinX && ballMinX <= paddleMaxX) || (ballMaxX >= paddleMinX && ballMaxX <= paddleMaxX)) {
-            // ball is within horizontal bounds of paddle
+        let response = new SAT.Response();
+        let collided = SAT.testPolygonCircle(this.paddle.box.toPolygon(), this.ball.circle, response);
+        
+        if (collided === true) {
+            // console.log(collided);    
             
-            // reverse direction of travel
+            // change direction
             this.ball.velocity.y = -this.ball.velocity.y;
 
             // push ball back outside of paddle collision
-            this.ball.center.y -= Math.abs(ballBottomY - paddleTopY);
+            this.ball.center.y -= (response.overlapV.y + this.ball.ballRadius);
 
-          }
         }
 
         // check the ball's position against each brick 
@@ -292,19 +291,25 @@
               break;
             }
 
-            let brickMinX = brick.center.x - brick.width/2;
-            let brickMaxX = brick.center.x + brick.width/2;
-            let brickTopY = brick.center.y - brick.height/2;
-            let brickBottomY = brick.center.y + brick.height/2;
-
-            // ball y coordinate is within vertical space of brick
-            if ((ballTopY <= brickBottomY && ballTopY >= brickTopY) || (ballBottomY <= brickBottomY && ballBottomY >= brickTopY)) {
-              // ball x coordinate is within horizontal space of brick
-              if ((ballMinX >= brickMinX && ballMinX <= brickMaxX) || (ballMaxX >= brickMinX && ballMaxX <= brickMaxX)) {
-                brick.collide();
-                console.log("COLLISION");
-              }
+            let brickCollided = SAT.testPolygonCircle(brick.box.toPolygon(), this.ball.circle);
+            if (brickCollided === true) {
+              brick.collide();
+              console.log("BRICK HIT");
             }
+
+            // let brickMinX = brick.center.x - brick.width/2;
+            // let brickMaxX = brick.center.x + brick.width/2;
+            // let brickTopY = brick.center.y - brick.height/2;
+            // let brickBottomY = brick.center.y + brick.height/2;
+
+            // // ball y coordinate is within vertical space of brick
+            // if ((ballTopY <= brickBottomY && ballTopY >= brickTopY) || (ballBottomY <= brickBottomY && ballBottomY >= brickTopY)) {
+            //   // ball x coordinate is within horizontal space of brick
+            //   if ((ballMinX >= brickMinX && ballMinX <= brickMaxX) || (ballMaxX >= brickMinX && ballMaxX <= brickMaxX)) {
+            //     brick.collide();
+            //     console.log("COLLISION");
+            //   }
+            // }
 
           }
         }

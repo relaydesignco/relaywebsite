@@ -49,6 +49,7 @@
     "prerender-spa-plugin": "^2.0.1",
     "rimraf": "^2.6.0",
     "sass-loader": "^6.0.5",
+    "sat": "^0.6.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
     "url-loader": "^0.5.8",
