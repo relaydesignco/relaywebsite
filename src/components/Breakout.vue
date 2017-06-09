@@ -147,27 +147,9 @@
       }
     },
     methods: {
+
       startGame: function(e) {
-        // easy refs for canvas and context; have to be registered after rendering
-        this.cvs = this.$refs.breakout;
-        this.ctx = this.cvs.getContext("2d");
-
-        // prep for hi-dpi display: double size of canvas, then scale to 50% w/ css
-        this.pixelRatio = this.getPixelRatio(this.ctx);
-        let w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        let h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-        this.cvs.width = w * this.pixelRatio;
-        this.cvs.height = h * this.pixelRatio;
-        this.width = w;
-        this.height = h;
-
-        // brick wall settings depend on pixelRatio
-        this.brickColumns = 4;
-        this.brickRows = 3;
-        this.brickPadding = 5 * this.pixelRatio;
-        this.brickWidth = (this.cvs.width / this.brickColumns) - this.brickPadding;
-        this.brickHeight = this.brickWidth / 2;
-
+        
         // create the bricks
         this.bricks = [];
         for (let x=0; x<this.brickColumns; x++) {
@@ -181,22 +163,16 @@
         };
         
         // create the paddle
-        let paddleHeight = 15 * this.pixelRatio;
-        let paddleWidth = 100 * this.pixelRatio;
-        let paddleX = this.cvs.width/2 - paddleWidth;
-        let paddleY = this.cvs.height - paddleHeight;
-        this.paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
+        this.paddle = new Paddle(this.paddleX, this.paddleY, this.paddleWidth, this.paddleHeight, this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
 
         // create the ball
-        let ballRadius = 8 * this.pixelRatio;
-        let moveSpeed = 4 * this.pixelRatio;
-        this.ball = new Ball(this.cvs.width/2, this.cvs.height - paddleHeight - ballRadius/2, ballRadius, moveSpeed, this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
+        this.ball = new Ball(this.cvs.width/2, this.cvs.height - this.paddleHeight - this.ballRadius/2, this.ballRadius, this.moveSpeed, this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
         
-        // listen for click to start the game
-        document.addEventListener('click', (e) => this.mouseClick(e));
+        // listen for click to start the game; store bound handler so we can remove the listener later
+        document.addEventListener('click', this.bindHandler);
 
-        // kick off the update-animation loop
-        setInterval(this.update, 10);
+        // kick off the update-animation loop; store result so we can stop it later
+        this.intervalHandler = setInterval(this.update, 10);
         
       },
 
@@ -204,6 +180,10 @@
         if (!this.active) {
           this.active = true; // game has now started
           this.ball.velocity = new SAT.Vector(this.ball.moveSpeed, -this.ball.moveSpeed);
+          
+          // don't need event listener anymore
+          document.removeEventListener('click', this.bindHandler);
+        
         }
       },
 
@@ -217,6 +197,11 @@
 
           // after all objects positions are updated, draw them
           this.draw();
+
+          // check if the game is over
+          if (this.ball.circle.pos.y >= this.cvs.height + (this.ballRadius * 2) + this.ball.velocity.y) {
+            this.endGame();
+          }
 
       },
 
@@ -269,14 +254,73 @@
             context.oBackingStorePixelRatio ||
             context.backingStorePixelRatio || 1;
         return (window.devicePixelRatio || 1) / backingStore;
+      },
+
+      endGame: function() {
+        // pause game
+        clearInterval(this.intervalHandler);
+        this.active = false;
+        this.ball.velocity = new SAT.Vector(0, 0);
+
+        // show placeholder endgame message
+        if (confirm("You lose! Play again?")) {
+          // reset game
+          this.startGame();
+        } else {
+          // TODO: close game
+        }
       }
-      
+
     },
+    
     mounted () {
+
+      // easy refs for canvas and context; have to be registered after rendering
+      this.cvs = this.$refs.breakout;
+      this.ctx = this.cvs.getContext("2d");
+
+      // prep for hi-dpi display: double size of canvas, then scale to 50% w/ css
+      this.pixelRatio = this.getPixelRatio(this.ctx);
+      let w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      let h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+      this.cvs.width = w * this.pixelRatio;
+      this.cvs.height = h * this.pixelRatio;
+      this.width = w;
+      this.height = h;
+
+      // brick wall settings depend on pixelRatio
+      this.brickColumns = 4;
+      this.brickRows = 3;
+      this.brickPadding = 5 * this.pixelRatio;
+      this.brickWidth = (this.cvs.width / this.brickColumns) - this.brickPadding;
+      this.brickHeight = this.brickWidth / 2;
+      
+      // setup the ball 
+      this.ballRadius = 8 * this.pixelRatio;
+      this.moveSpeed = 4 * this.pixelRatio;
+
+      // setup the paddle
+      this.paddleHeight = 15 * this.pixelRatio;
+      this.paddleWidth = 100 * this.pixelRatio;
+      this.paddleX = this.cvs.width/2 - this.paddleWidth;
+      this.paddleY = this.cvs.height - this.paddleHeight;
+
+      // prep events
+      this.bindHandler = this.mouseClick.bind(this);
+
+      // load the level
       this.startGame();
+
     },
+
     destroyed () {
+      // in case we close before endGame, clear all handlers
+      if (this.intervalHandler) {
+        clearInterval(this.intervalHandler);
+      }
+      document.removeEventListener('click', this.bindHandler);
     }
+
   }
 </script>
 
