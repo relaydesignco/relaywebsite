@@ -95,14 +95,19 @@
       },
 
       collisionDetection: function () {
-        // check the ball's coords against the paddle
+        // check the ball's position against the paddle
         const response = new SAT.Response();
         const collided = SAT.testPolygonCircle(this.paddle.box.toPolygon(), this.ball.circle, response);
         if (collided === true) {
-            // change direction
+          // change direction
           this.ball.velocity.y = -this.ball.velocity.y;
-            // push ball back outside of paddle collision
+
+          // push ball back outside of paddle collision
           this.ball.circle.pos.y -= (response.overlapV.y + this.ball.ballRadius / 2);
+
+          // adjust velocity based on how far from center of paddle the ball is
+          const diff = this.ball.circle.pos.x - (this.paddle.box.pos.x + this.paddle.box.w / 2);
+          this.ball.velocity.x += diff * 0.1; // add % of offset value to x velocity
         }
 
         // check the ball's position against each brick
