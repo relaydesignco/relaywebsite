@@ -5,149 +5,28 @@
 
 <script>
   import SAT from 'sat'
-
-  /*
-  Rectanglular Collidable object for Paddle, Bricks
-  */
-  class BoxObject {
-    constructor (x, y, width, height, pixelRatio, color, context, canvas) {
-      this.ctx = context;
-      this.cvs = canvas;
-      this.pixelRatio = pixelRatio;
-      this.color = color;
-      this.velocity = new SAT.Vector(0, 0); // negative goes left, positive goes right
-      this.box = new SAT.Box(new SAT.Vector(x, y), width, height);
-    }
-
-    update () {
-      // move the object
-      this.box.pos.add(this.velocity);
-
-      // clamp to horizontal bounds
-      this.box.pos.x = Math.max(Math.min(this.box.pos.x, this.cvs.width), 0);
-    }
-
-    draw () {
-      // rect is drawn from upper left corner
-      this.ctx.beginPath();
-      this.ctx.rect(this.box.pos.x, this.box.pos.y, this.box.w, this.box.h);
-      this.ctx.fillStyle = this.color;
-      this.ctx.fill();
-      this.ctx.closePath();
-    }
-  }
-
-  /*
-   Paddle class
-  */
-  class Paddle extends BoxObject {
-    constructor (x, y, width, height, pixelRatio, color, context, canvas) {
-      super(x, y, width, height, pixelRatio, color, context, canvas);
-      this.mouseX = 0;
-      // listen for mouse move; bind 'this' via arrow function
-      document.addEventListener('mousemove', (e) => this.mouseMove(e));
-    }
-
-    mouseMove (e) {
-      // we can't reliably access mouse coordinates w/o listening for event.
-      // this is our hack to remember where the mouse is when it's not moving.
-      this.mouseX = e.pageX * this.pixelRatio;
-    }
-
-    update () {
-      // change velocity depending on which side mouse is on; position center on mouse pointer
-      this.velocity.x = this.mouseX - this.box.pos.x - this.box.w / 2;
-      super.update();
-    }
-
-  }
-
-  /*
-   Brick class
-  */
-  class Brick extends BoxObject {
-    constructor (x, y, width, height, pixelRatio, color, context, canvas) {
-      super(x, y, width, height, pixelRatio, color, context, canvas);
-      this.visible = true;
-    }
-
-    draw () {
-      if (!this.visible) {
-        return;
-      }
-      super.draw();
-    }
-
-    collide () {
-      this.visible = false;
-    }
-
-  }
-
-  /*
-   Ball class
-  */
-  class Ball {
-    constructor (x, y, ballRadius, moveSpeed, pixelRatio, color, context, canvas) {
-      this.ctx = context;
-      this.cvs = canvas;
-      this.pixelRatio = pixelRatio;
-      this.color = color;
-      this.velocity = new SAT.Vector(0, 0); // negative goes left, positive goes right
-      this.ballRadius = ballRadius;
-      this.moveSpeed = moveSpeed;
-      this.circle = new SAT.Circle(new SAT.Vector(x, y), this.ballRadius);
-    }
-
-    update () {
-      // move the ball
-      this.circle.pos.add(this.velocity);
-
-        // change direction if we're hitting the ceiling
-      if (this.circle.pos.y + this.velocity.y <= this.ballRadius) {
-        this.velocity.y = -this.velocity.y;
-      }
-
-        // change direction if we're hitting a wall
-      if (this.circle.pos.x + this.velocity.x > this.cvs.width - this.ballRadius || this.circle.pos.x + this.velocity.x < this.ballRadius) {
-        this.velocity.x = -this.velocity.x;
-      }
-    }
-
-    draw () {
-        // draw the ball
-      this.ctx.beginPath();
-      this.ctx.arc(this.circle.pos.x, this.circle.pos.y, this.ballRadius, 0, Math.PI * 2);
-      this.ctx.fillStyle = this.color;
-      this.ctx.fill();
-      this.ctx.closePath();
-    }
-
-  }
+  import Ball from '../classes/Ball.js'
+  import Paddle from '../classes/Paddle.js'
+  import Brick from '../classes/Brick.js'
 
 
-  /*
-  Main game component
-  */
   export default {
     name: 'breakout',
     data () {
       return {
         active: false,
-        brickWidth: 10,
-        brickHeight: 4,
         bricks: [],
-        cvs: null,
-        ctx: null,
-        width: 0,
+        brickColumns: 8,
+        brickRows: 4,
         height: 0,
+        width: 0,
         primaryColor: '#2d9bd6'
       }
     },
     methods: {
 
       startGame: function (e) {
-      // create the bricks
+        // create the bricks
         this.bricks = [];
         for (let x = 0; x < this.brickColumns; x++) {
           this.bricks[x] = [];
@@ -163,7 +42,7 @@
         this.paddle = new Paddle(this.paddleX, this.paddleY, this.paddleWidth, this.paddleHeight, this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
 
         // create the ball
-        this.ball = new Ball(this.cvs.width / 2, this.cvs.height - this.paddleHeight - this.ballRadius / 2, this.ballRadius, this.moveSpeed, this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
+        this.ball = new Ball(this.cvs.width / 2, this.cvs.height - this.paddleHeight - (this.ballRadius * 2), this.ballRadius, this.moveSpeed, this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
 
         // listen for click to start the game; store bound handler so we can remove the listener later
         document.addEventListener('click', this.bindHandler);
@@ -173,6 +52,7 @@
       },
 
       mouseClick: function (e) {
+        // start the game on first click
         if (!this.active) {
           this.active = true; // game has now started
           this.ball.velocity = new SAT.Vector(this.ball.moveSpeed, -this.ball.moveSpeed);
@@ -274,7 +154,7 @@
           alert('You won!');
         } else {
           alert('You lost!');
-        };
+        }
 
         // show placeholder endgame message
         if (confirm('Play again?')) {
@@ -299,23 +179,21 @@
       const h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
       this.cvs.width = w * this.pixelRatio;
       this.cvs.height = h * this.pixelRatio;
-      this.width = w;
-      this.height = h;
+      this.width = w; // for the reactive styling
+      this.height = h; // for the reactive styling
 
       // brick wall settings depend on pixelRatio
-      this.brickColumns = 4;
-      this.brickRows = 3;
       this.brickPadding = 5 * this.pixelRatio;
       this.brickWidth = (this.cvs.width / this.brickColumns) - this.brickPadding;
       this.brickHeight = this.brickWidth / 2;
 
       // setup the ball
-      this.ballRadius = 8 * this.pixelRatio;
-      this.moveSpeed = 4 * this.pixelRatio;
+      this.ballRadius = 12 * this.pixelRatio;
+      this.moveSpeed = 5 * this.pixelRatio;
 
       // setup the paddle
-      this.paddleHeight = 15 * this.pixelRatio;
-      this.paddleWidth = 100 * this.pixelRatio;
+      this.paddleHeight = 25 * this.pixelRatio;
+      this.paddleWidth = 140 * this.pixelRatio;
       this.paddleX = this.cvs.width / 2 - this.paddleWidth;
       this.paddleY = this.cvs.height - this.paddleHeight;
 
@@ -339,7 +217,6 @@
 
 
 <style scoped lang="scss">
-
   @import "../assets/_variables.scss";
 
   .game-stage {
