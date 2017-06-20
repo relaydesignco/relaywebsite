@@ -163,11 +163,10 @@
 
         // show placeholder endgame message
         if (confirm('Play again?')) {
-          // reset game
           this.startGame();
         } else {
-          // TODO: close game
-          this.startGame();
+          // emit an event that Home listens for b/c this component can't remove itself.
+          this.$emit('closeGame');
         }
       }
 

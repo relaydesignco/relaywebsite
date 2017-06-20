@@ -1,28 +1,30 @@
 <template>
   <div class="nowrap">
 
-    <breakout></breakout>
+    <button v-on:click="gameActive=true">Play Game</button>
+    <breakout v-if="gameActive" v-on:closeGame="gameActive=false"></breakout>
 
-<div class="wrapper">
-    <article class="home">
-      <header class="fadein">
-        <h2>Design better experiences</h2>
-      </header>
-      <section class="fadein">
-        <!-- <p>We help companies use design and technology to grow and innovate through <router-link :to="'project/waterfront-botanical-gardens'">branding</router-link>, <router-link :to="'services'">experience design</router-link> and <router-link :to="'project/21c'">digital applications</router-link>.</p>-->
-        <p>We help companies use design and technology to grow and innovate through branding, experience design, and digital applications.</p>
-      </section>
-      <section class="fadein" id="home-projects">
-        <p>Hello <router-link :to="'hello-world'" class="major">world</router-link>.</p>
-        <p>See past <router-link :to="'projects'" class="major">projects</router-link>.<br />
-          Learn about <router-link :to="'services'" class="major">our services</router-link>.<br />
-          Meet the <router-link :to="'company'" class="major">team</router-link>.<br />
-        </p>
+    <div class="wrapper">
+        <article class="home">
+          <header class="fadein">
+            <h2>Design better experiences</h2>
+          </header>
+          <section class="fadein">
+            <!-- <p>We help companies use design and technology to grow and innovate through <router-link :to="'project/waterfront-botanical-gardens'">branding</router-link>, <router-link :to="'services'">experience design</router-link> and <router-link :to="'project/21c'">digital applications</router-link>.</p>-->
+            <p>We help companies use design and technology to grow and innovate through branding, experience design, and digital applications.</p>
+          </section>
+          <section class="fadein" id="home-projects">
+            <p>Hello <router-link :to="'hello-world'" class="major">world</router-link>.</p>
+            <p>See past <router-link :to="'projects'" class="major">projects</router-link>.<br />
+              Learn about <router-link :to="'services'" class="major">our services</router-link>.<br />
+              Meet the <router-link :to="'company'" class="major">team</router-link>.<br />
+            </p>
 
-      </section>
-    </article>
+          </section>
+        </article>
+    </div>
+
   </div>
-</div>
 </template>
 
 <script>
@@ -31,7 +33,12 @@
   export default {
     name: 'home',
     components: { Breakout },
-    data () { return {} },
+    data () { return {
+        gameActive: false
+      }
+    },
+    methods: {
+    },
     head: {
       meta: [
         { name: 'description', content: 'Relay helps companies use design and technology to grow and innovate through branding, experience design, and digital applications.'}
