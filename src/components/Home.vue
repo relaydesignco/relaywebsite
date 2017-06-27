@@ -23,21 +23,28 @@
           </section>
         </article>
     </div>
-
   </div>
 </template>
 
 <script>
   import Breakout from '../components/Breakout'
+  import constants from '../constants/constants'
 
   export default {
     name: 'home',
     components: { Breakout },
-    data () { return {
-        gameActive: false
+    computed: {
+      gameActive: function () {
+        // just for now...
+        if (this.$store.state.gameState === constants.gameStates.INACTIVE) {
+          return false;
+        } else {
+            return true;
+        }
       }
     },
     methods: {},
+    mounted () {},
     head: {
       meta: [
         { name: 'description', content: 'Relay helps companies use design and technology to grow and innovate through branding, experience design, and digital applications.'}
@@ -65,7 +72,7 @@
       margin-top: 8em;
       margin-bottom: 2em;
     }
-    
+
     h2 {
       font-size: 2.2em;
       margin-bottom: .25em;

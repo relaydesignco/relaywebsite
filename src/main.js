@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import VueHead from 'vue-head'
 import VueAnalytics from 'vue-analytics'
+import store from './store'
 
 Vue.config.productionTip = false
 
@@ -21,6 +22,7 @@ Vue.use(VueAnalytics, {
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   template: '<App/>',
   components: { App },

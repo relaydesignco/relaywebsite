@@ -2,7 +2,7 @@
   <div class="site-header">
 		<header>
 			<router-link to="/" class="logo">
-        <img src="/static/logo.svg" alt="Relay Design Co.">
+        <img @click="logoClick" src="/static/logo.svg" alt="Relay Design Co.">
       </router-link>
 		</header>
 		<div class="navbar" v-bind:class="{ 'flyout': flyout, 'scrolled': scrolled }"  v-on:mouseover="active=true" v-on:mouseout="endNav">
@@ -79,6 +79,11 @@
       },
       handleScroll () {
         this.scrolled = window.scrollY > 50;
+      },
+      logoClick() {
+    	    if (this.$route.name === 'Home') {
+            this.$store.commit('LOADGAME');
+          }
       }
     },
     created () {

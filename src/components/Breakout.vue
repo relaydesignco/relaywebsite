@@ -168,7 +168,7 @@
           this.startGame();
         } else {
           // emit an event that Home listens for b/c this component can't remove itself.
-          this.$emit('closeGame');
+          this.$store.commit('REMOVEGAME');
         }
       }
 
