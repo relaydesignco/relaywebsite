@@ -2,14 +2,10 @@
   <div class="nowrap">
 
     <transition name="reveal">
-      <breakout v-if="gameActive" @closeGame="gameActive=false"></breakout>
+      <breakout v-if="gameActive" @closeGame="gameActive=false"  @openGame="gameActive=true"></breakout>
     </transition>
 
     <div class="wrapper">
-
-      <a class="game-btn" @click="gameActive=true">
-        <img src="/static/logo.svg" alt="Relay Design Co.">
-      </a>
 
       <article class="home">
           <header class="fadein">
@@ -24,7 +20,6 @@
               Learn about <router-link :to="'services'" class="major">our services</router-link>.<br />
               Meet the <router-link :to="'company'" class="major">team</router-link>.<br />
             </p>
-
           </section>
         </article>
     </div>
@@ -66,16 +61,11 @@
 
   .Home {
 
-    .game-btn {
+    .logo {
       margin-top: 8em;
       margin-bottom: 2em;
-      display: block;
     }
-
-    .logo img {
-        display:none;
-    }
-
+    
     h2 {
       font-size: 2.2em;
       margin-bottom: .25em;
