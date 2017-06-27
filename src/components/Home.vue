@@ -1,16 +1,21 @@
 <template>
   <div class="nowrap">
 
-    <button v-on:click="gameActive=true">Play Game</button>
-    <breakout v-if="gameActive" v-on:closeGame="gameActive=false"></breakout>
+    <transition name="reveal">
+      <breakout v-if="gameActive" @closeGame="gameActive=false"></breakout>
+    </transition>
 
     <div class="wrapper">
-        <article class="home">
+
+      <a class="game-btn" @click="gameActive=true">
+        <img src="/static/logo.svg" alt="Relay Design Co.">
+      </a>
+
+      <article class="home">
           <header class="fadein">
             <h2>Design better experiences</h2>
           </header>
           <section class="fadein">
-            <!-- <p>We help companies use design and technology to grow and innovate through <router-link :to="'project/waterfront-botanical-gardens'">branding</router-link>, <router-link :to="'services'">experience design</router-link> and <router-link :to="'project/21c'">digital applications</router-link>.</p>-->
             <p>We help companies use design and technology to grow and innovate through branding, experience design, and digital applications.</p>
           </section>
           <section class="fadein" id="home-projects">
@@ -37,8 +42,7 @@
         gameActive: false
       }
     },
-    methods: {
-    },
+    methods: {},
     head: {
       meta: [
         { name: 'description', content: 'Relay helps companies use design and technology to grow and innovate through branding, experience design, and digital applications.'}
@@ -53,18 +57,23 @@
 
   @import "../assets/_variables.scss";
 
+  .reveal-enter-active, .reveal-leave-active {
+    transition: height .5s
+  }
+  .reveal-enter, .reveal-leave-to {
+    height: 0
+  }
+
   .Home {
-    .logo {
 
-      @media only screen and (min-width: $screen-md-min) {
-        margin-top: 8em;
-        margin-bottom: 2em;
-      }
+    .game-btn {
+      margin-top: 8em;
+      margin-bottom: 2em;
+      display: block;
+    }
 
-      // .designco {
-      //   transform: rotateX(0);
-      //   fill-opacity: 1;
-      // }
+    .logo img {
+        display:none;
     }
 
     h2 {

@@ -44,8 +44,10 @@
         // create the ball
         this.ball = new Ball(this.cvs.width / 2, this.cvs.height - this.paddleHeight - (this.ballRadius * 2), this.ballRadius, this.moveSpeed, this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
 
-        // listen for click to start the game; store bound handler so we can remove the listener later
-        document.addEventListener('click', this.bindHandler);
+        // listen for click to start the game
+        // have to wait a second before listening so we don't catch the click that revealed the game
+        // store bound handler so we can remove the listener later
+        setTimeout(() => { document.addEventListener('click', this.bindHandler) }, 100);
 
         // kick off the update-animation loop; store result so we can stop it later
         this.intervalHandler = setInterval(this.update, 10);
