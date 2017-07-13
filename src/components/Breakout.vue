@@ -31,12 +31,13 @@
       startGame: function (e) {
         // create the bricks
         this.bricks = [];
+        const yOffset = 20;
         for (let x = 0; x < this.brickColumns; x++) {
           this.bricks[x] = [];
           for (let y = 0; y < this.brickRows; y++) {
             // center anchor position, not top left
-            const xPos = (x * (this.brickPadding + this.brickWidth));
-            const yPos = (y * (this.brickPadding + this.brickHeight));
+            const xPos = (x * (this.brickPadding + this.brickWidth)) + this.leftOffset;
+            const yPos = (y * (this.brickPadding + this.brickHeight)) + yOffset;
             this.bricks[x][y] = new Brick(xPos, yPos, this.brickWidth, this.brickHeight, this.pixelRatio, this.primaryColor, this.ctx, this.cvs);
           }
         }
@@ -84,19 +85,19 @@
         }
 
         // check if game has been won
-        let won = true;
-        for (let x = 0; x < this.brickColumns; x++) {
-          for (let y = 0; y < this.brickRows; y++) {
-            const brick = this.bricks[x][y];
-            if (brick.visible) {
-              won = false;
-              return;
-            }
-          }
-        }
-        if (won) {
-          this.endGame(true);
-        }
+//        let won = true;
+//        for (let x = 0; x < this.brickColumns; x++) {
+//          for (let y = 0; y < this.brickRows; y++) {
+//            const brick = this.bricks[x][y];
+//            if (brick.visible) {
+//              won = false;
+//              return;
+//            }
+//          }
+//        }
+//        if (won) {
+//          this.endGame(true);
+//        }
       },
 
       collisionDetection: function () {
@@ -176,7 +177,6 @@
 
       closeGame: function (event) {
         this.$store.commit('REMOVEGAME');
-        console.log('closing game');
       }
 
     },
@@ -197,18 +197,21 @@
       this.width = w; // for the reactive styling
       this.height = h; // for the reactive styling
 
+      this.gameWidth = this.cvs.width >= 960 * this.pixelRatio ? 960 * this.pixelRatio : this.cvs.width;
+      this.leftOffset = (this.cvs.width - this.gameWidth) / 2;
+
       // brick wall settings depend on pixelRatio
       this.brickPadding = 5 * this.pixelRatio;
-      this.brickWidth = (this.cvs.width / this.brickColumns) - this.brickPadding;
-      this.brickHeight = this.brickWidth / 2;
+      this.brickWidth = (this.gameWidth / this.brickColumns) - this.brickPadding;
+      this.brickHeight = this.cvs.height * 0.1;
 
       // setup the ball
-      this.ballRadius = 12 * this.pixelRatio;
+      this.ballRadius = 9 * this.pixelRatio;
       this.moveSpeed = 5 * this.pixelRatio;
 
       // setup the paddle
-      this.paddleHeight = 25 * this.pixelRatio;
-      this.paddleWidth = 140 * this.pixelRatio;
+      this.paddleHeight = this.brickHeight / 3;
+      this.paddleWidth = 100 * this.pixelRatio;
       this.paddleX = this.cvs.width / 2 - this.paddleWidth;
       this.paddleY = this.cvs.height - this.paddleHeight;
 
@@ -241,25 +244,26 @@
   .game-stage {
     background: #eee;
     position: relative;
-    margin-top: 40px;
     z-index: 1;
   }
 
   .brick {
     background: $brand-primary;
-    height: 4px;
-    width: 10px;
   }
 
   button {
-    z-index: 9999;
     position: absolute;
     top: 0;
     right: 0;
-    background: white;
-    border: 2px solid black;
+    z-index: 9999;
+    background: $brand-primary;
+    border: none;
     width: 40px;
     height: 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
   }
 
 </style>
