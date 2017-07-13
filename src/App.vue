@@ -1,25 +1,43 @@
 <template>
   <div id="app" :class="this.$route.name">
-    <navbar></navbar>
 
-    <div class="page-content">
-      <transition name="custom">
-        <router-view></router-view>
-      </transition>
-    </div>
-    <sitefooter></sitefooter>
+    <transition name="gameTransition">
+      <breakout v-if="gameActive"></breakout>
+    </transition>
+
+    <navbar v-bind:class="[!gameActive ? 'active' : '']"></navbar>
+
+    <section v-bind:class="[!gameActive ? 'active' : '']">
+      <div class="page-content">
+          <router-view></router-view>
+      </div>
+      <sitefooter></sitefooter>
+    </section>
+
   </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar'
 import Sitefooter from './components/Sitefooter'
+import Breakout from './components/Breakout'
+import constants from './constants/constants'
 
 export default {
   name: 'app',
   components: {
     Navbar,
-    Sitefooter
+    Sitefooter,
+    Breakout
+  },
+  computed: {
+    gameActive: function () {
+      if (this.$store.state.gameState === constants.gameStates.INACTIVE) {
+        return false;
+      } else {
+        return true;
+      }
+    }
   },
 }
 </script>
@@ -28,39 +46,25 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Karla');
   @import "./assets/base.scss";
 
-  // @keyframes slideInFromLeft {
-  //   0% {
-  //     transform: translateX(0);
-  //   }
-  //   100% {
-  //     transform: translateX(100%);
-  //   }
-  // }
-  // .custom-enter-active, .custom-leave-active {
-  //   transition-property: opacity;
-  //   transition-duration: .25s;
-  //   animation: .5s ease-out 0s 1 slideInFromLeft;
-  // }
+/*
+[enter] => [enter-active] => [no transition class] => [leave] => [leave-active] => [no transition class]
+ */
 
-  // .custom-enter-active {
-  //   transition-delay: .25s;
-  // }
+.gameTransition-enter-active,
+.gameTransition-leave-active {
+  transition: height .3s;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+.gameTransition-enter-active {
+  height: 400px;
+}
+.gameTransition-enter,
+.gameTransition-leave-active {
+  height: 0;
+}
+.gameTransition-leave {
+  height: 400px;
+}
 
-  // .custom-enter, .custom-leave-active {
-  //   opacity: 0
-  // }
-
-  // .fade-enter-active, .fade-leave-active {
-  //   transition-property: opacity;
-  //   transition-duration: .25s;
-  // }
-
-  // .fade-enter-active {
-  //   transition-delay: .25s;
-  // }
-
-  // .fade-enter, .fade-leave-active {
-  //   opacity: 0
-  // }
 </style>
 

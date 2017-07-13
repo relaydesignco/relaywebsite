@@ -1,5 +1,8 @@
 <template>
-  <canvas id="breakout" ref="breakout" class="game-stage" v-bind:style="{ width: width + 'px', height: height + 'px' }"></canvas>
+  <div class="game-wrap">
+    <button @click="closeGame">X</button>
+    <canvas id="breakout" ref="breakout" class="game-stage" v-bind:style="{ width: width + 'px', height: height + 'px' }"></canvas>
+  </div>
 </template>
 
 
@@ -167,9 +170,13 @@
         if (confirm('Play again?')) {
           this.startGame();
         } else {
-          // emit an event that Home listens for b/c this component can't remove itself.
-          this.$store.commit('REMOVEGAME');
+          this.closeGame();
         }
+      },
+
+      closeGame: function (event) {
+        this.$store.commit('REMOVEGAME');
+        console.log('closing game');
       }
 
     },
@@ -182,8 +189,10 @@
       // prep for hi-dpi display: double size of canvas, then scale to 50% w/ css
       this.pixelRatio = this.getPixelRatio(this.ctx);
       const w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-      const h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+//      const h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+      const h = 400;
       this.cvs.width = w * this.pixelRatio;
+
       this.cvs.height = h * this.pixelRatio;
       this.width = w; // for the reactive styling
       this.height = h; // for the reactive styling
@@ -225,11 +234,14 @@
 <style scoped lang="scss">
   @import "../assets/_variables.scss";
 
+  .game-wrap {
+    overflow: hidden;
+  }
+
   .game-stage {
     background: #eee;
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
+    margin-top: 40px;
     z-index: 1;
   }
 
@@ -237,6 +249,17 @@
     background: $brand-primary;
     height: 4px;
     width: 10px;
+  }
+
+  button {
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: white;
+    border: 2px solid black;
+    width: 40px;
+    height: 40px;
   }
 
 </style>
