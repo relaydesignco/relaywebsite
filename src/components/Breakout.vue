@@ -1,6 +1,13 @@
 <template>
   <div class="game-wrap">
-    <button @click="closeGame">X</button>
+    <button class="closeButton" @click="closeGame">X</button>
+    <div v-show="menuActive" class="menu">
+      <h1>You {{ didWin ? 'WON' : 'LOST' }}!</h1>
+      <h3>Your Score</h3>
+      <h2>{{ score }}</h2>
+      <button @click="startGame">Play Again</button>
+      <button @click="closeGame">Close Game</button>
+    </div>  
     <canvas id="breakout" ref="breakout" class="game-stage" v-bind:style="{ width: width + 'px', height: height + 'px' }"></canvas>
   </div>
 </template>
@@ -18,17 +25,23 @@
     data () {
       return {
         active: false,
+        menuActive: false,
+        didWin: false,
         bricks: [],
         brickColumns: 8,
         brickRows: 4,
         height: 0,
         width: 0,
+        score: 0,
         primaryColor: '#2d9bd6'
       }
     },
     methods: {
 
       startGame: function (e) {
+        // hide the menu if it's open
+        this.menuActive = false;
+
         // create the bricks
         this.bricks = [];
         const yOffset = 20;
@@ -85,19 +98,20 @@
         }
 
         // check if game has been won
-//        let won = true;
-//        for (let x = 0; x < this.brickColumns; x++) {
-//          for (let y = 0; y < this.brickRows; y++) {
-//            const brick = this.bricks[x][y];
-//            if (brick.visible) {
-//              won = false;
-//              return;
-//            }
-//          }
-//        }
-//        if (won) {
-//          this.endGame(true);
-//        }
+        let won = true;
+        for (let x = 0; x < this.brickColumns; x++) {
+          for (let y = 0; y < this.brickRows; y++) {
+            const brick = this.bricks[x][y];
+            if (brick.visible) {
+              won = false;
+              return;
+            }
+          }
+        }
+        if (won) {
+          this.didWin = true;
+          this.endGame(true);
+        }
       },
 
       collisionDetection: function () {
@@ -159,20 +173,8 @@
         // pause game
         clearInterval(this.intervalHandler);
         this.active = false;
+        this.menuActive = true;
         this.ball.velocity = new SAT.Vector(0, 0);
-
-        if (win) {
-          alert('You won!');
-        } else {
-          alert('You lost!');
-        }
-
-        // show placeholder endgame message
-        if (confirm('Play again?')) {
-          this.startGame();
-        } else {
-          this.closeGame();
-        }
       },
 
       closeGame: function (event) {
@@ -239,6 +241,7 @@
 
   .game-wrap {
     overflow: hidden;
+    display: block;
   }
 
   .game-stage {
@@ -252,18 +255,51 @@
   }
 
   button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 9999;
     background: $brand-primary;
     border: none;
-    width: 40px;
-    height: 40px;
     color: white;
     font-weight: bold;
     font-size: 30px;
     text-align: center;
+
+    &.closeButton {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 9999;
+      width: 40px;
+      height: 40px;
+    }
+
+  }
+
+  .menu {
+    background-color: $brand-primary;
+    color: white;
+    font-family: $font-family-secondary;
+    position: absolute;
+    z-index: 900;
+    width: 400px;
+    height: 300px;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: 50px;
+    padding: 20px; 
+    text-align: center;
+    border: 3px solid #eee;
+
+    h1, h2, h3 {
+      line-height: 1.2;
+      color: white;
+      margin: 0;
+    }
+
+    button {
+      margin: .5em;
+      font-size: 1em;
+      padding: .25em;
+      border: 1px solid white;
+    }
   }
 
 </style>

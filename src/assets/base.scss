@@ -12,7 +12,7 @@ html, body {
 }
 
 #app {
-  font-family: 'Karla', Helvetica, Arial, sans-serif;
+  font-family: $font-family-primary;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
@@ -20,7 +20,7 @@ html, body {
 }
 
 body, p {
-  font-family: 'Karla', Helvetica, Arial, sans-serif;
+  font-family: $font-family-primary;
   font-size: 18px;
   line-height: 1.25em;
   font-weight: lighter;
