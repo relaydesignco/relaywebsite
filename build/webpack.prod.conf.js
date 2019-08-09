@@ -103,6 +103,9 @@ var webpackConfig = merge(baseWebpackConfig, {
         '/project/waterfront-botanical-gardens',
         '/project/21c',
         '/project/psa',
+        '/careers',
+        '/careers/digital-designer',
+        '/careers/front-end-developer',
         '/hello-world',
         '/contact' ] // List of endpoints you wish to prerender
     )

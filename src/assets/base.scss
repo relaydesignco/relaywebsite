@@ -259,6 +259,10 @@ img {
       width: 60%;
     }
 
+    .column-three-quarters {
+      width: 75%;
+    }
+
     .column-quarter {
       width: 25%;
     }
@@ -314,12 +318,12 @@ ul.dash-list {
   padding: 0;
 
   > li {
-    text-indent: .5em;
+    padding-left: 1em;
     margin-bottom: .5em;
 
     &:before {
       content: "—";
-      margin: 0 0.5em 0 -0.5em;
+      margin: 0 .25em 0 -1em;
       color: $brand-primary;
       font-weight: bold;
     }

@@ -6,6 +6,9 @@ import ProjectPSA from '@/components/ProjectPSA'
 import Project21c from '@/components/Project21c'
 import ProjectWBG from '@/components/ProjectWBG'
 import ProjectGarage from '@/components/ProjectGarage'
+import Careers from '@/components/Careers'
+import CareersDigitalDesigner from '@/components/CareersDigitalDesigner'
+import CareersFrontEndDeveloper from '@/components/CareersFrontEndDeveloper'
 import Services from '@/components/Services'
 import Company from '@/components/Company'
 import Contact from '@/components/Contact'
@@ -45,6 +48,21 @@ export default new Router({
       path: '/projects',
       name: 'Projects',
       component: Projects
+    },
+    {
+      path: '/careers',
+      name: 'Careers',
+      component: Careers
+    },
+    {
+      path: '/careers/digital-designer',
+      name: 'CareersDigitalDesigner',
+      component: CareersDigitalDesigner
+    },
+    {
+      path: '/careers/front-end-developer',
+      name: 'CareersFrontEndDeveloper',
+      component: CareersFrontEndDeveloper
     },
     {
       path: '/services',
