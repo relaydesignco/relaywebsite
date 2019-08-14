@@ -52,7 +52,8 @@
         { property: 'og:title', content: 'Careers at Relay Design Co.' },
         { property: 'og:image', content: 'https://relaydesign.co/static/fb-hiring.png' },
         { property: 'og:description', content: 'Relay is now hiring. View our current openings.' },
-        { property: 'og:url', content: 'https://relaydesign.co/careers' },
+        { property: 'og:url', content: 'https://relaydesign.co/careers/' },
+        { property: 'og:type', content: 'website' },
         { name: 'twitter:title', content: 'Careers at Relay Design Co.' },
         { name: 'twitter:description', content: 'Relay is now hiring. View our current openings.'},
       ]
