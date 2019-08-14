@@ -10,7 +10,7 @@
             <li><a href="https://www.twitter.com/relaydesignco" target="_blank"><img src="/static/icon_twitter.svg" class="icon" alt="Twitter" /></a></li>
             <li><a href="https://www.instagram.com/relaydesignco" target="_blank"><img src="/static/icon_instagram.svg" class="icon" alt="Instagram" /></a></li>
         </ul>
-        <p class="copyright">&copy;2017 Relay, LLC. Louisville, KY. All rights reserved.</p>
+        <p class="copyright">&copy;2019 Relay, LLC. Louisville, KY. All rights reserved.</p>
       </div>
     </footer>
 </template>
