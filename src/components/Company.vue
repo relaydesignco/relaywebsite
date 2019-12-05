@@ -36,110 +36,23 @@
 
       <h2>The Team</h2>
       <section class="row compressed flex-grid" id="teamMembers">
-        <div class="column-quarter">
-          <img src="/static/company-headshot-brian.jpg" alt="Brian Johnson" />
-          <h4>Brian Johnson</h4>
-          <p>Designer / Operations</p>
+        <div class="column-quarter" v-for="member in teamMembers" :key="member.name">
+          <img :src="`/static/company-headshot-${member.headshot}.jpg`" :alt="member.name" />
+          <h4>{{member.name}}</h4>
+          <p>{{member.job}}</p>
           <ul class="inline-list icon-list">
-            <li>
-              <a href="https://www.instagram.com/pokehill/" target="_blank">
-                <img src="/static/icon_instagram.svg" class="icon" alt="Instagram" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/brianatmindsalt/" target="_blank">
-                <img src="/static/icon_linkedin.svg" class="icon" alt="LinkedIn" />
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="column-quarter">
-          <img src="/static/company-headshot-drew.jpg" alt="Drew McChesney" />
-          <h4>Drew McChesney</h4>
-          <p>Strategy / Operations</p>
-          <ul class="inline-list icon-list">
-            <li>
-              <a href="https://twitter.com/mcchesney" target="_blank">
+            <li v-if="member.twitter">
+              <a :href="`https://twitter.com/${member.twitter}`" target="_blank">
                 <img src="/static/icon_twitter.svg" class="icon" alt="Twitter" />
               </a>
             </li>
-            <li>
-              <a href="https://www.linkedin.com/in/drewmcchesney/" target="_blank">
-                <img src="/static/icon_linkedin.svg" class="icon" alt="Instagram" />
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="column-quarter">
-          <img src="/static/company-headshot-mike.jpg" alt="Mike Casto" />
-          <h4>Mike Casto</h4>
-          <p>Designer</p>
-          <ul class="inline-list icon-list">
-            <li>
-              <a href="https://www.linkedin.com/in/mike-casto-7661817/" target="_blank">
+            <li v-if="member.linkedIn">
+              <a :href="`https://www.linkedin.com/in/${member.linkedIn}`" target="_blank">
                 <img src="/static/icon_linkedin.svg" class="icon" alt="LinkedIn" />
               </a>
             </li>
-          </ul>
-        </div>
-        <div class="column-quarter">
-          <img src="/static/company-headshot-ashley.jpg" alt="Ashley Revlett" />
-          <h4>Ashley Revlett</h4>
-          <p>Designer / Developer</p>
-          <ul class="inline-list icon-list">
-            <li>
-              <a href="https://www.instagram.com/backlashblues/" target="_blank">
-                <img src="/static/icon_instagram.svg" class="icon" alt="Instagram" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/ashley-revlett-40a96917/" target="_blank">
-                <img src="/static/icon_linkedin.svg" class="icon" alt="LinkedIn" />
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="column-quarter">
-          <img src="/static/company-headshot-lauren.jpg" alt="Lauren Graehler" />
-          <h4>Lauren Graehler</h4>
-          <p>Designer</p>
-          <ul class="inline-list icon-list">
-            <li>
-              <a href="https://www.instagram.com/lagraeh/" target="_blank">
-                <img src="/static/icon_instagram.svg" class="icon" alt="Instagram" />
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="column-quarter">
-          <img src="/static/company-headshot-aaron.jpg" alt="Aaron Fautz" />
-          <h4>Aaron Fautz</h4>
-          <p>Developer</p>
-          <ul class="inline-list icon-list">
-            <li>
-              <a href="https://www.instagram.com/corpsegrindersneck/" target="_blank">
-                <img src="/static/icon_instagram.svg" class="icon" alt="Instagram" />
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="column-quarter">
-          <img src="/static/company-headshot-david.jpg" alt="David Soards" />
-          <h4>David Soards</h4>
-          <p>Developer</p>
-          <ul class="inline-list icon-list">
-            <li>
-              <a href="https://twitter.com/ninjasoards" target="_blank">
-                <img src="/static/icon_twitter.svg" class="icon" alt="Twitter" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/davidysoards/" target="_blank">
-                <img src="/static/icon_linkedin.svg" class="icon" alt="LinkedIn" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/ninjasoards/" target="_blank">
+            <li v-if="member.instagram">
+              <a :href="`https://www.instagram.com/${member.instagram}`" target="_blank">
                 <img src="/static/icon_instagram.svg" class="icon" alt="Instagram" />
               </a>
             </li>
@@ -158,7 +71,56 @@ export default {
     return {
       page_title: "Company",
       feature_image_filename: "/static/company-large.jpg",
-      feature_image_alt: "Relay Design Co bullpen"
+      feature_image_alt: "Relay Design Co bullpen",
+      teamMembers: [
+        {
+          name: "Brian Johnson",
+          job: "Designer / Operations",
+          headshot: "brian",
+          instagram: "pokehill",
+          linkedIn: "brianatmindsalt"
+        },
+        {
+          name: "Drew McChesney",
+          job: "Strategy / Operations",
+          headshot: "drew",
+          twitter: "mcchesney",
+          linkedIn: "drewmcchesney"
+        },
+        {
+          name: "Mike Casto",
+          job: "Designer",
+          headshot: "mike",
+          linkedIn: "mike-casto-7661817"
+        },
+        {
+          name: "Ashley Revlett",
+          job: "Designer / Developer",
+          headshot: "ashley",
+          instagram: "backlashblues",
+          linkedIn: "ashley-revlett-40a96917"
+        },
+        {
+          name: "Lauren Graehler",
+          job: "Designer",
+          headshot: "lauren",
+          instagram: "lagraeh"
+        },
+        {
+          name: "Aaron Fautz",
+          job: "Developer",
+          headshot: "aaron",
+          instagram: "corpsegrindersneck"
+        },
+        {
+          name: "David Soards",
+          job: "Developer",
+          headshot: "david",
+          twitter: "ninjasoards",
+          linkedIn: "davidysoards",
+          instagram: "ninjasoards"
+        }
+      ]
     };
   },
   head: {
