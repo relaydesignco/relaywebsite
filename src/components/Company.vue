@@ -35,8 +35,8 @@
       </section>
 
       <h2>The Team</h2>
-      <section class="row compressed flex-grid" id="teamMembers">
-        <div class="column-quarter" v-for="member in teamMembers" :key="member.name">
+      <section class="teamMembers">
+        <div class="member" v-for="member in teamMembers" :key="member.name">
           <img :src="`/static/company-headshot-${member.headshot}.jpg`" :alt="member.name" />
           <h4>{{member.name}}</h4>
           <p>{{member.job}}</p>
@@ -140,13 +140,24 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<!-- Add "lang" attribute to use scss instead -->
-<style lang="scss">
-#teamMembers {
-  margin-top: 2rem;
+<style lang="scss" scoped>
+@import "../assets/_variables";
+
+h2 {
+  margin-bottom: 2rem;
 }
-.flex-grid {
+
+.teamMembers {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  display: grid;
+  @media only screen and (min-width: $screen-md-min) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 1rem;
+    column-gap: 2rem;
+  }
+
   h4 {
     margin-top: 0;
     margin-bottom: 0;
@@ -156,5 +167,10 @@ export default {
     margin: 0;
     font-size: 0.8em;
   }
+}
+
+.member {
+  text-align: center;
+  flex-basis: 22%;
 }
 </style>

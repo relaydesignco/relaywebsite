@@ -295,7 +295,7 @@ img {
 .flex-grid {
   display:flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 
   .column-third {
     text-align: center;
@@ -304,16 +304,6 @@ img {
 
     @media only screen and (min-width: $screen-md-min) {
       width: 28%;
-    }
-  }
-
-  .column-quarter {
-    text-align: center;
-    margin-bottom: 1em;
-    height: auto;
-
-    @media only screen and (min-width: $screen-md-min) {
-      width: 22%;
     }
   }
 }
