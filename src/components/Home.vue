@@ -13,7 +13,7 @@
           Learn about <router-link :to="'services'" class="major">our services</router-link>.<br />
           Meet the <router-link :to="'company'" class="major">team</router-link>.<br />
         </p>
-        <p>We are <router-link :to="'careers'" class="major">hiring</router-link>.</p>
+        <!--<p>We are <router-link :to="'careers'" class="major">hiring</router-link>.</p>-->
       </section>
     </article>
   </div>

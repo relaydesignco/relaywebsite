@@ -11,8 +11,8 @@
     <section class="slat">
       <div class="column-three-quarters">
         <h1>Careers</h1>
-        <h5>Current openings:</h5>
-        <h3 v-for="career in careers" class="career_title"><router-link :to="{ path: career.url }"><strong>{{career.title}}</strong></router-link></h3>
+        <!--<h5>Current openings:</h5>
+        <h3 v-for="career in careers" class="career_title"><router-link :to="{ path: career.url }"><strong>{{career.title}}</strong></router-link></h3>-->
       </div>
     </section>
 
