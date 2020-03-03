@@ -7,162 +7,170 @@
     -->
 
     <article class="wrapper">
-      <section v-for="project in projects">
+      <section v-for="project in projects" :key="project.title">
         <router-link :to="{ path: project.url }">
-          <h3 class="project_title">{{project.verb}} <strong>{{project.title}}</strong></h3>
+          <h3 class="project_title">
+            {{project.verb}}
+            <strong>{{project.title}}</strong>
+          </h3>
           <div class="project_preview">
             <div class="preview_text">
               <p>
-                {{project.excerpt}}<br />
+                {{project.excerpt}}
+                <br />
                 <span class="btn">View Case Study</span>
               </p>
             </div>
-            <img :src="project.feature_image_filename" />
+            <img :src="project.feature_image_filename" :alt="project.alt" />
           </div>
         </router-link>
       </section>
     </article>
   </div>
-
 </template>
 
 <script>
-
-  export default {
-    name: 'projects',
-    components: {
-    },
-    data () {
-      return {
-        page_title: 'Projects',
-        projects: [
+export default {
+  name: "projects",
+  components: {},
+  data() {
+    return {
+      page_title: "Projects",
+      projects: [
         {
-          verb:'Growing to scale',
-          title:'21c Museum Hotels',
-          url:'/project/21c',
-          feature_image_filename:'/static/projects-preview-21c.jpg',
-          excerpt:'Over the past nine years, the Relay team has served as creative partners to 21c\'s marketing team, helping their brand adapt to new technologies, trends and markets.'
+          verb: "Growing to scale",
+          title: "21c Museum Hotels",
+          url: "/project/21c",
+          feature_image_filename: "/static/projects-preview-21c.jpg",
+          alt: "21C Museum Hotel sign",
+          excerpt:
+            "Over the past nine years, the Relay team has served as creative partners to 21c's marketing team, helping their brand adapt to new technologies, trends and markets."
         },
         {
-          verb:'Introducing',
-          title:'Waterfront Botanical Gardens',
-          url:'/project/waterfront-botanical-gardens',
-          feature_image_filename:'/static/projects-preview-wbg.jpg',
-          excerpt:'When the non-profit organization Botanica began planning a botanical garden in Louisville, they tapped the team from Relay to name and brand the gardens.'
+          verb: "Introducing",
+          title: "Waterfront Botanical Gardens",
+          url: "/project/waterfront-botanical-gardens",
+          feature_image_filename: "/static/projects-preview-wbg.jpg",
+          alt: "In Bloom magazines",
+          excerpt:
+            "When the non-profit organization Botanica began planning a botanical garden in Louisville, they tapped the team from Relay to name and brand the gardens."
         },
         {
-          verb:'Envisioning',
-          title:'Garage Bar',
-          url:'/project/garage-bar',
-          feature_image_filename:'/static/projects-preview-garage.jpg',
-          excerpt:'The team at Relay worked with an inspired chef and innovative restauranteur to create a brand identity that blends perfectly with the atmosphere of Garage Bar.'
+          verb: "Envisioning",
+          title: "Garage Bar",
+          url: "/project/garage-bar",
+          feature_image_filename: "/static/projects-preview-garage.jpg",
+          alt: "Garage Bar sign",
+          excerpt:
+            "The team at Relay worked with an inspired chef and innovative restauranteur to create a brand identity that blends perfectly with the atmosphere of Garage Bar."
         },
         {
-          verb:'Re-inventing',
-          title:'PSA Airlines',
-          url:'/project/psa',
-          feature_image_filename:'/static/projects-preview-psa.jpg',
-          excerpt:'The Relay team designed a new brand identity, marketing materials and website for PSA Airlines after their parent company\'s merger with American Airlines.'
-        },
-        ]
-      }
-    },
-    head: {
-      title: function () {
-        return {
-          inner: this.page_title
+          verb: "Re-inventing",
+          title: "PSA Airlines",
+          url: "/project/psa",
+          feature_image_filename: "/static/projects-preview-psa.jpg",
+          alt: "Pilot exiting a plane",
+          excerpt:
+            "The Relay team designed a new brand identity, marketing materials and website for PSA Airlines after their parent company's merger with American Airlines."
         }
-      },
+      ]
+    };
+  },
+  head: {
+    title: function() {
+      return {
+        inner: this.page_title
+      };
     }
   }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- Add "lang" attribute to use scss instead -->
 <style scoped lang="scss">
+@import "../assets/project.scss";
 
-  @import "../assets/project.scss";
+section {
+  position: relative;
+}
 
-  section { position: relative; }
+.project_preview {
+  position: relative;
+  overflow: hidden;
 
-  .project_preview {
-    position: relative;
-    overflow: hidden;
-
-    img {
-      display: block;
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      background-color: rgba( $brand-primary, .8 );
-      transition: .3s;
-      //mix-blend-mode: multiply;
-    }
+  img {
+    display: block;
   }
 
-  .preview_text {
-    display: flex;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: 1;
     width: 100%;
     height: 100%;
-    position: absolute;
-    z-index: 100;
-    align-items: center;
+    background-color: rgba($brand-primary, 0.8);
+    transition: 0.3s;
+    //mix-blend-mode: multiply;
+  }
+}
 
-    p {
-      font-size: 1.4em;
-      margin: 1em;
-      opacity: 0;
-      transition: .5s;
+.preview_text {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+  align-items: center;
+
+  p {
+    font-size: 1.4em;
+    margin: 1em;
+    opacity: 0;
+    transition: 0.5s;
+    color: white;
+    font-weight: bold;
+
+    @media only screen and (min-width: $screen-md-min) {
+      max-width: 60%;
+      margin: 2em;
+    }
+
+    .btn {
+      border: 1px solid white;
+      padding: 0.5em 1em;
+      display: inline-block;
+      line-height: 1;
+      margin-top: 2em;
+      transition: all 0.2s;
+      font-weight: 400;
+      font-size: 0.75em;
+
+      &:hover {
+        background: white;
+        color: $brand-primary;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-md-min) {
+  a:hover {
+    .project_preview:after {
+      left: 0;
+    }
+
+    .preview_text {
       color: white;
-      font-weight: bold;
+      opacity: 1;
 
-      @media only screen and (min-width: $screen-md-min) {
-        max-width: 60%;
-        margin: 2em;
-      }
-
-      .btn {
-        border: 1px solid white;
-        padding: .5em 1em;
-        display:inline-block;
-        line-height: 1;
-        margin-top: 2em;
-        transition: all .2s;
-        font-weight: 400;
-        font-size: .75em;
-
-        &:hover {
-          background: white;
-          color: $brand-primary;
-          box-shadow: 1px 1px 5px rgba(0,0,0,.2);
-        }
-      }
-    }
-  }
-
-  @media only screen and (min-width: $screen-md-min) {
-    a:hover {
-
-      .project_preview:after {
-        left: 0;
-      }
-
-      .preview_text {
-        color: white;
+      p {
         opacity: 1;
-
-        p {
-          opacity: 1;
-        }
       }
     }
   }
-
+}
 </style>

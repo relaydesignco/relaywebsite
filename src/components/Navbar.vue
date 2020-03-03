@@ -58,7 +58,8 @@
     			{ title:'Home', url:'/', active: false },
           { title:'Projects', url:'/projects', active: false },
           { title:'Services', url:'/services', active: false },
-    			{ title:'Company', url:'/company', active: false },
+          { title:'Company', url:'/company', active: false },
+          { title:'Careers', url:'/careers', active: false },
     			{ title:'Contact', url:'/contact', active: false },
     	  ],
     	  animQueue: "custom"
@@ -248,7 +249,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 50%;
+      width: 70%;
   	}
 
   	ul {
