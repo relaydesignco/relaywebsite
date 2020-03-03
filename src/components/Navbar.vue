@@ -59,7 +59,6 @@
           { title:'Projects', url:'/projects', active: false },
           { title:'Services', url:'/services', active: false },
           { title:'Company', url:'/company', active: false },
-          { title:'Careers', url:'/careers', active: false },
     			{ title:'Contact', url:'/contact', active: false },
     	  ],
     	  animQueue: "custom"
