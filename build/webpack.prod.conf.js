@@ -107,6 +107,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         '/careers/digital-designer',
         '/careers/front-end-developer',
         '/hello-world',
+        '/2020-holiday-message',
         '/contact' ] // List of endpoints you wish to prerender
     )
   ]
