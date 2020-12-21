@@ -7,10 +7,10 @@
         <router-view></router-view>
       </transition>
     </div>
-    <div class="v-else">
+    <div v-else>
       <router-view></router-view>
     </div>
-    <sitefooter></sitefooter>
+    <sitefooter v-if="this.$route.name !== 'holiday-message'"></sitefooter>
   </div>
 </template>
 
