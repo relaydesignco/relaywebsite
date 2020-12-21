@@ -1,11 +1,14 @@
 <template>
   <div id="app" :class="this.$route.name">
-    <navbar></navbar>
+    <navbar v-if="this.$route.name !== 'holiday-message'"></navbar>
 
-    <div class="page-content">
+    <div v-if="this.$route.name !== 'holiday-message'" class="page-content">
       <transition name="custom">
         <router-view></router-view>
       </transition>
+    </div>
+    <div class="v-else">
+      <router-view></router-view>
     </div>
     <sitefooter></sitefooter>
   </div>

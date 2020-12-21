@@ -13,6 +13,7 @@ import Services from '@/components/Services'
 import Company from '@/components/Company'
 import Contact from '@/components/Contact'
 import HelloWorld from '@/components/HelloWorld'
+import HolidayMessage from '@/components/HolidayMessage'
 
 Vue.use(Router)
 
@@ -83,6 +84,11 @@ export default new Router({
       path: '/hello-world',
       name: 'hello-world',
       component: HelloWorld
+    },
+    {
+      path: '/2020-holiday-message',
+      name: 'holiday-message',
+      component: HolidayMessage
     }
   ]
 })
