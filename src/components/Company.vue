@@ -112,14 +112,14 @@ export default {
           headshot: "aaron",
           instagram: "corpsegrindersneck"
         },
-        {
-          name: "David Soards",
-          job: "Developer",
-          headshot: "david",
-          twitter: "ninjasoards",
-          linkedIn: "davidysoards",
-          instagram: "ninjasoards"
-        }
+        // {
+        //   name: "David Soards",
+        //   job: "Developer",
+        //   headshot: "david",
+        //   twitter: "ninjasoards",
+        //   linkedIn: "davidysoards",
+        //   instagram: "ninjasoards"
+        // }
       ]
     };
   },
@@ -152,8 +152,9 @@ h2 {
   flex-flow: row wrap;
   justify-content: space-between;
   display: grid;
+  
   @media only screen and (min-width: $screen-md-min) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     row-gap: 1rem;
     column-gap: 2rem;
   }
