@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply font-serif;
+
+  margin: 0;
+  padding: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-sans font-bold;
+}
+
+.h1 {
+  @apply text-5xl md:text-6xl lg:text-7xl mb-3 md:mb-5 lg:mb-10;
+}
+
+.h4 {
+  font-size: 64px;
+}
+
+@screen md {
+  .h4 {
+    font-size: 76px;
+  }
+}
+
+.h5 {
+  @apply text-4xl md:text-5xl;
+}
+
+.h6 {
+  @apply text-4xl font-serif;
+}
+
+.large {
+  @apply text-2xl md:text-3xl lg:text-4xl leading-snug;
+}
+
+.medium {
+  @apply text-xl leading-8 mb-7;
+}
+
+.small {
+  @apply text-base mb-7;
+}
+
+.noScroll {
+  /* prevent scrolling on body when menu is open */
+  @apply overflow-hidden h-full;
+
+  touch-action: none;
+}
+
+.bar-link {
+  @apply inline-block relative
+}
+
+.bar-link span {
+  @apply inline-block relative z-10 font-sans;
+}
+
+.bar-link::after {
+  @apply block bg-red absolute top-0 left-0 z-0 py-3;
+
+  height: 110%;
+  margin-top: -1%;
+  margin-left: -5%;
+  width: 110%;
+  content: "";
+  transform: scale(0, 100%);
+  transform-origin: left center;
+  transition: all .2s ease-in-out;
+}
+
+.bar-link:hover::after {
+  transform: scale(100%, 100%);
+}
