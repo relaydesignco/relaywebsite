@@ -4,11 +4,12 @@ import { useRoute } from 'vue-router'
 
 const showMenu = ref(false)
 
-// close menu when nav link is clicked
+// close menu and scroll to top when nav link is clicked
 const route = useRoute()
 watch(route, (to) => {
   showMenu.value = false;
   document.body.classList.remove('noScroll')
+  window.scrollTo(0, 0);
 }, {flush: 'pre', immediate: true, deep: true})
 
 // remove noScroll from body when menu is closed
