@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bar-link {
-  @apply inline-block relative
+  @apply inline-block relative font-bold
 }
 
 .bar-link span {

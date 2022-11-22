@@ -46,7 +46,7 @@ watch(showMenu, (newVal) => {
           <span class="bar"></span>
           <span class="text">About.</span>
         </router-link>
-        <div class="mt-auto">
+        <div class="mt-auto font-bold">
           <span class="font-sans text-base">Talk to us:</span><br />
           <a class="font-sans font-base text-base text-red no-underline" href="mailto:hello@relaydesign.co">hello@relaydesign.co</a>
         </div>
@@ -68,7 +68,7 @@ watch(showMenu, (newVal) => {
 }
 
 .nav-link {
-  @apply text-4xl text-black font-sans mb-4 relative inline-block;
+  @apply text-4xl text-black font-sans mb-4 relative inline-block font-bold;
 }
 
 .nav-link .text {
