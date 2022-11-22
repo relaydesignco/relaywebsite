@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import ColorSection from '../components/ColorSection.vue'
 import Footer from '../components/Footer.vue'
+import HeadlineScroll from '../components/HeadlineScroll.vue'
 
 const bg = ref('bg-white')
 
@@ -41,6 +42,7 @@ function onChangeBg(color: string) {
 
 
     <ColorSection bg-color="red" @changeBg="onChangeBg">
+      <HeadlineScroll headline="What we do." />
       <div class="flex flex-col md:flex-row min-h-screen px-8 md:px-24 py-36 items-start text-white capabilities">
         <h2 class="h6 mb-12 text-white md:w-1/2 md:sticky md:top-32">Our capabilities.</h2>
         <div class="md:w-1/2">
@@ -75,8 +77,8 @@ function onChangeBg(color: string) {
       </div>
     </ColorSection>
 
+    <Footer />
   </main>
-  <Footer />
 </template>
 
 <style scoped>

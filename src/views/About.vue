@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import ColorSection from '../components/ColorSection.vue'
 import Footer from '../components/Footer.vue'
+import HeadlineScroll from '../components/HeadlineScroll.vue'
 
 const bg = ref('bg-white')
 
@@ -41,6 +42,7 @@ function onChangeBg(color: string) {
     </ColorSection>
 
     <ColorSection bg-color="blue" @changeBg="onChangeBg">
+      <HeadlineScroll headline="Meet the team." />
       <div class="flex flex-col md:flex-row min-h-screen py-24 md:py-56 px-8 md:px-24 items-start">
         <div class="md:w-1/2">
           <p class="medium md:pr-20">Our designers understand the role brand plays in user experience, and believe great UX builds customer loyalty.</p>
@@ -62,8 +64,9 @@ function onChangeBg(color: string) {
         </div>
       </div>
     </ColorSection>
+
+    <Footer />
   </main>
-  <Footer />
 </template>
 
 <style scoped>
