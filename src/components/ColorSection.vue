@@ -8,17 +8,17 @@ const isVisible = ref(false)
 const visibleMarker = ref(null)
 const sectionIsVisible = ref(useElementVisibility(visibleMarker))
 const emit = defineEmits<{
-  (e: 'changeBg', bg: string): void
+  (e: 'showBg', bg: string): void
+  (e: 'hideBg', bg: string): void
 }>()
 
 watchEffect(() => {
-  // console.log(`${props.bgColor} sectionIsVisible: ${sectionIsVisible.value}`);
   if (sectionIsVisible.value == true) {
     isVisible.value = true;
-    console.log("section visible, emitting change to", props.bgColor)
-    emit('changeBg', `bg-${props.bgColor}`)
+    emit('showBg', `bg-${props.bgColor}`)
   } else {
     isVisible.value = false;
+    emit('hideBg', `bg-${props.bgColor}`)
   }
 });
 
@@ -42,10 +42,11 @@ section {
 
 .visibleMarker {
   position: absolute;
-  top: 25%;
-  height: 50%;
-  width: 5px;
-  /* background: black; */
+  top: 10%;
+  height: 60%;
+  width: 10px;
+  outline: 1px solid yellow;
+  background: black;
 }
 
 .content {

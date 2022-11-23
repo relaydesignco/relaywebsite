@@ -1,27 +1,39 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, Ref } from 'vue'
 import ColorSection from '../components/ColorSection.vue'
 import Footer from '../components/Footer.vue'
 import HeadlineScroll from '../components/HeadlineScroll.vue'
 
 const bg = ref('bg-white')
+const visibleColors : Ref<Array<string>> = ref([])
 
-function onChangeBg(color: string) {
-  console.log("changing to ", color)
+function onShowBg(color: string) {
+  visibleColors.value.push(color)
   bg.value = color
+}
+
+function onHideBg(color: string) {
+  const idx = visibleColors.value.indexOf(color)
+  if (idx >= 0) {
+    const r = visibleColors.value.splice(idx, 1)
+  }
+  if (visibleColors.value.length > 0) {
+    bg.value = visibleColors.value[0]
+  }
 }
 </script>
 
 <template>
   <main :class="bg">
-    <ColorSection bg-color="yellow" @changeBg="onChangeBg">
+
+    <ColorSection bg-color="yellow" @showBg="onShowBg" @hideBg="onHideBg">
       <div class="flex flex-col min-h-screen px-8 md:px-24 items-center justify-center">
         <h1 class="h1 text-center text-pink">About.</h1>
         <p class="text-center large">We’re a team of designers and developers who love to build. And when the things we build help thoughtful, innovative people solve meaningful problems – all the better.</p>
       </div>
     </ColorSection>
 
-    <ColorSection bg-color="pink" @changeBg="onChangeBg">
+    <ColorSection bg-color="pink" @showBg="onShowBg" @hideBg="onHideBg">
       <div class="flex flex-col md:flex-row min-h-screen px-8 md:px-24 py-36 items-start text-white">
         <h2 class="h6 mb-12 text-white md:w-1/2 md:sticky md:top-40">Our beliefs.</h2>
         <div class="md:w-1/2">
@@ -41,7 +53,7 @@ function onChangeBg(color: string) {
       </div>
     </ColorSection>
 
-    <ColorSection bg-color="blue" @changeBg="onChangeBg">
+    <ColorSection bg-color="blue" @showBg="onShowBg" @hideBg="onHideBg">
       <HeadlineScroll headline="Meet the team." />
       <div class="flex flex-col md:flex-row min-h-screen py-24 md:py-56 px-8 md:px-24 items-start">
         <div class="md:w-1/2">
