@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, Ref, watch, computed, watchEffect } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 
@@ -23,7 +23,8 @@ watch(showMenu, (newVal) => {
 
 // change hamburger and logo color if over white bg
 const pageView = ref<HTMLElement | null>(null)
-const bgColor = computed(() => pageView.value?.bg)
+// @ts-ignore
+const bgColor = computed(() => pageView.value?.bg) // trust that all pageview components expose bg
 const navColor = computed(() => {
   if (bgColor.value == 'bg-white') return 'bg-blue';
   return 'bg-white';
