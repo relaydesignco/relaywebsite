@@ -3,24 +3,22 @@ import { ref } from 'vue'
 import ColorSection from '../components/ColorSection.vue'
 import Footer from '../components/Footer.vue'
 import HeadlineScroll from '../components/HeadlineScroll.vue'
+import { useBgColor } from '../composables/useBgColor.js'
 
-const bg = ref('bg-white')
+const { bg, onShowBg, onHideBg } = useBgColor()
 
-function onChangeBg(color: string) {
-  bg.value = color
-}
 </script>
 
 <template>
   <main :class="bg">
-    <ColorSection bg-color="pink" @changeBg="onChangeBg">
+    <ColorSection bg-color="pink" @showBg="onShowBg" @hideBg="onHideBg">
       <div class="flex flex-col min-h-screen px-8 md:px-24 items-center justify-center">
         <h1 class="h1 text-center text-blue">Approach.</h1>
         <p class="text-center large">Our design-led process helps clients build what matters – to their customers, and their businesses – reliably and effectively.</p>
       </div>
     </ColorSection>
 
-    <ColorSection bg-color="white" @changeBg="onChangeBg">
+    <ColorSection bg-color="white" @showBg="onShowBg" @hideBg="onHideBg">
       <div class="min-h-screen w-full px-8 md:px-24 lg:px-56 py-36 items-start grid approach-grid">
         <div class="area1">
           <h2 class="h5 text-pink">Product x Brand</h2>
@@ -41,7 +39,7 @@ function onChangeBg(color: string) {
     </ColorSection>
 
 
-    <ColorSection bg-color="red" @changeBg="onChangeBg">
+    <ColorSection bg-color="red" @showBg="onShowBg" @hideBg="onHideBg">
       <HeadlineScroll headline="What we do." />
       <div class="flex flex-col md:flex-row min-h-screen px-8 md:px-24 py-36 items-start text-white capabilities">
         <h2 class="h6 mb-12 text-white md:w-1/2 md:sticky md:top-32">Our capabilities.</h2>

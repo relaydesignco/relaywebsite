@@ -1,20 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import ColorSection from '../components/ColorSection.vue'
 import WorkListItem from '../components/WorkListItem.vue'
 import Footer from '../components/Footer.vue'
+import { useBgColor } from '../composables/useBgColor.js'
 
-const bg = ref('bg-white')
+const { bg, onShowBg, onHideBg } = useBgColor()
 
-function onChangeBg(color: string) {
-  bg.value = color
-}
 </script>
 
 <template>
   <main :class="bg">
 
-    <ColorSection bg-color="red" @changeBg="onChangeBg">
+    <ColorSection bg-color="red" @showBg="onShowBg" @hideBg="onHideBg">
       <div class="flex flex-col min-h-screen px-8 md:px-24 items-center justify-center">
         <h1 class="h1 text-center text-blue mb-40 mt-56">Work.</h1>
 
