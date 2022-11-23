@@ -44,9 +44,9 @@ section {
   position: absolute;
   top: 10%;
   height: 60%;
-  width: 10px;
-  outline: 1px solid yellow;
-  background: black;
+  width: 1px;
+  /* outline: 1px solid yellow;
+  background: black; */
 }
 
 .content {
