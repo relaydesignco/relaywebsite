@@ -4,8 +4,8 @@
 <template>
   <section class="bg-black w-full py-20 px-8 md:px-24">
     <div class="mb-12">
-      <span class="font-sans text-2xl text-white font-bold">Talk to us.</span><br />
-      <a class="text-red hover:text-white font-sans text-2xl no-underline bar-link" href="mailto:hello@relaydesign.co"><span>hello@relaydesign.co</span></a>
+      <span class="font-sans text-xl md:text-2xl text-white font-bold">Talk to us.</span><br />
+      <a class="text-red hover:text-white font-sans text-xl md:text-2xl no-underline bar-link" href="mailto:hello@relaydesign.co"><span>hello@relaydesign.co</span></a>
     </div>
     <div class="flex flex-col md:flex-row">
       <router-link class="bar-link text-white leading-loose mr-5 text-base " to="/work"><span>Work.</span></router-link>
