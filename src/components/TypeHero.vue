@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, watch } from 'vue'
 import { useMouseInElement, useWindowSize, useTemplateRefsList } from '@vueuse/core'
 type Coordinate = {
   x: number,
@@ -9,6 +9,8 @@ type Coordinate = {
 const { width, height } = useWindowSize()
 const target = ref(null)
 const m = ref(useMouseInElement(target))
+let fakeMouse : Coordinate | null = { x: -100, y: height.value / 2 } // fake mouse pointer movement
+let timeTillStart = 600 // delay start of inital animation
 
 /* Easing functions */
 function easeIn(t: number){
@@ -27,12 +29,12 @@ function spike(t: number) {
 function lerp(start: number, end: number, pct: number){
   if (Math.floor(start) == Math.floor(end)) return end
   const val = (1 - pct) * start + pct * end
-  return val
+  return Math.floor(val)
 }
 
 /* Linear conversion */
 const oldMin = 0
-const oldMax = dist({x: 0, y: 0}, {x: Math.floor(width.value / 2), y: Math.floor(height.value / 2)})
+const oldMax = dist({x: 0, y: 0}, {x: Math.floor(width.value * .4), y: Math.floor(height.value * .4)})
 const newMin = 100
 const newMax = 900
 const oldRange = (oldMax - oldMin)
@@ -51,10 +53,13 @@ function dist(a:Coordinate, b:Coordinate) {
 
 /* calculate eased weight for animation */
 function getWeight(el: HTMLSpanElement, deltaTime: number) {
-  if (width.value <= 768 || m.value.isOutside == true) return '100'
+  if (m.value.isOutside == true) return '100'
   const viewportOffset = el.getBoundingClientRect();
-  const mouseCoord : Coordinate = { x: m.value.x, y: m.value.y }
-  const letterPos : Coordinate = { x: viewportOffset.left, y: viewportOffset.top }
+  let mouseCoord : Coordinate = { x: m.value.x, y: m.value.y }
+  if (fakeMouse) {
+    mouseCoord = { x: fakeMouse.x, y: fakeMouse.y }
+  }
+  const letterPos : Coordinate = { x: viewportOffset.left + el.offsetWidth / 2, y: viewportOffset.top +  + el.offsetHeight / 2 }
   const d = dist(mouseCoord, letterPos)
   const scaledD = scaleNumberInRange(d)
   const weight = Math.floor(Math.max(100, 900 - scaledD))
@@ -63,17 +68,27 @@ function getWeight(el: HTMLSpanElement, deltaTime: number) {
   return lerpedWeight.toString()
 }
 
-/* animatio loop */
+/* animation loop */
 let lastTimestamp : number
-let loop
+let loop : number
 function updateFontWeights() {
   const now = Date.now()
   const elapsed = now - lastTimestamp
-  if (now !== lastTimestamp) {
+  if (now !== lastTimestamp && timeTillStart <= 0) {
+    if (fakeMouse && timeTillStart <= 0) {
+      if (fakeMouse.x <= width.value) {
+        const remainingX = Math.max(20, (width.value - fakeMouse.x) * .05)
+        fakeMouse.x = Math.min(fakeMouse.x + remainingX, width.value + 100)
+        fakeMouse.y = height.value / 2
+      } else {
+        fakeMouse = null
+      }
+    }
     refs.value.forEach((d) => {
       d.style.fontWeight = getWeight(d, elapsed);
     })
   }
+  timeTillStart -= elapsed
   lastTimestamp = now
   loop = window.requestAnimationFrame(updateFontWeights)
 }
@@ -92,6 +107,17 @@ onMounted(() => {
 //     updateFontWeights()
 //  })
 
+// if the user moves their mouse while the initial animation is going,
+// stop the anim and use their mouse moves instead
+watch(
+  () => m.value.y,
+  (y, prevY) => {
+    if (y != prevY && prevY != 0) {
+      fakeMouse = null
+    }
+  }
+)
+
 // create dynamic refs for each letter
 const headline1 =  reactive("Digital products ".split(""))
 const headline2 = reactive("that delight users ".split(""))
@@ -100,25 +126,29 @@ const refs = useTemplateRefsList<HTMLSpanElement>()
 </script>
 
 <template>
-      <div class="posDebug">{{ m.x }}, {{ m.y }}</div>
+  <div>
 
-      <div ref="target" class="flex flex-col min-h-screen px-8 md:px-24 items-center justify-center">
-        <div class="headline font-sans leading-none text-center text-white">
-          <span v-for="item in headline1" :ref="refs.set">
-            {{ item }}
-          </span>
-        </div>
-        <div class="headline font-sans leading-none text-center text-white">
-          <span v-for="item in headline2" :ref="refs.set">
-            {{ item }}
-          </span>
-        </div>
-        <div class="headline font-sans leading-none text-center text-white">
-          <span v-for="item in headline3" :ref="refs.set">
-            {{ item }}
-          </span>
-        </div>
+    <div class="posDebug">{{ m.x }}, {{ m.y }}</div>
+
+    <div ref="target" class="flex flex-col min-h-screen px-8 md:px-24 items-center justify-center">
+      <div class="headline font-sans leading-none text-center text-white">
+        <span v-for="item in headline1" :ref="refs.set">
+          {{ item }}
+        </span>
       </div>
+      <div class="headline font-sans leading-none text-center text-white">
+        <span v-for="item in headline2" :ref="refs.set">
+          {{ item }}
+        </span>
+      </div>
+      <div class="headline font-sans leading-none text-center text-white">
+        <span v-for="item in headline3" :ref="refs.set">
+          {{ item }}
+        </span>
+      </div>
+    </div>
+
+  </div>
 </template>
 
 <style scoped>
@@ -137,7 +167,19 @@ const refs = useTemplateRefsList<HTMLSpanElement>()
   }
 }
 
+.headline span {
+  font-weight: 100;
+  font-synthesis: none;
+  text-rendering:geometricPrecision;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  font-optical-sizing: none;
+  font-kerning: none;
+}
+
 section {
+  @apply bg-red;
+
   width: 100%;
   min-height: 101vh;
   position: relative;
