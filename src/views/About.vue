@@ -5,6 +5,7 @@ import Footer from '../components/Footer.vue'
 import { useBgColor } from '../composables/useBgColor.js'
 
 const { bg, onShowBg, onHideBg } = useBgColor()
+defineExpose({bg})
 
 </script>
 

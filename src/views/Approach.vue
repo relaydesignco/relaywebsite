@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import ColorSection from '../components/ColorSection.vue'
 import Footer from '../components/Footer.vue'
 import HeadlineScroll from '../components/HeadlineScroll.vue'
 import { useBgColor } from '../composables/useBgColor.js'
 
 const { bg, onShowBg, onHideBg } = useBgColor()
+defineExpose({bg})
 
 </script>
 
