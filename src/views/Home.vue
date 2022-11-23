@@ -18,10 +18,10 @@ defineExpose({bg})
     </ColorSection>
 
     <ColorSection bg-color="white" @showBg="onShowBg" @hideBg="onHideBg">
-      <div class="px-8 md:px-24 py-12">
-        <WorkListItem title="American Airlines" description="An online home for a global workforce" img-src="/fpo.png" route-url="/work/american-airlines" />
-        <WorkListItem title="GE Appliances" description="A virtual experience as sales tool" img-src="/fpo.png" route-url="/work/american-airlines" />
-        <WorkListItem title="Embodied Labs" description="Immersive online training platform" img-src="/fpo.png" route-url="/work/american-airlines" />
+      <div class="px-8 md:px-32 py-12">
+        <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="American Airlines" description="An online home for a global workforce" img-src="/fpo.png" route-url="/work/american-airlines" />
+        <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="GE Appliances" description="A virtual experience as sales tool" img-src="/fpo.png" route-url="/work/american-airlines" />
+        <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="Embodied Labs" description="Immersive online training platform" img-src="/fpo.png" route-url="/work/american-airlines" />
       </div>
     </ColorSection>
 
