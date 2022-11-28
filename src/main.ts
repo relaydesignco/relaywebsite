@@ -18,7 +18,15 @@ const router = createRouter({
     { path: '/about', component: About },
     { path: '/work', component: Work },
     { path: '/approach', component: Approach },
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // scroll to top or last position if route changes
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  },
 })
 
 createApp(App).use(router).mount('#app')

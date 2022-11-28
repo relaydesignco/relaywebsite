@@ -2,13 +2,12 @@
 import { ref, watch, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 
-// close menu and scroll to top when nav link is clicked
+// close menu when nav link is clicked
 const showMenu = ref(false)
 const route = useRoute()
 watch(route, (to) => {
   showMenu.value = false;
   document.body.classList.remove('noScroll')
-  window.scrollTo(0, 0);
 }, {flush: 'pre', immediate: true, deep: true})
 
 // remove noScroll from body when menu is closed
@@ -137,8 +136,14 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   transition: all .3s ease;
 }
 
-.nav-link:hover .bar {
+.nav-link:hover .bar,
+.nav-link .router-link-active .bar {
   transform: scale(100%, 100%);
+}
+
+.nav-link .router-link-active .bar {
+  height: 5px;
+  top: 3.1rem;
 }
 
 .hamburger {
