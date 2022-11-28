@@ -141,6 +141,46 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   transform: scale(100%, 100%);
 }
 
+.hamburger {
+  animation: bounce-top 1.2s both;
+}
+
+ @keyframes bounce-top {
+  0% {
+    transform: translateY(-45px);
+    animation-timing-function: ease-in;
+  }
+  24% {
+  }
+  40% {
+    transform: translateY(-24px);
+    animation-timing-function: ease-in;
+  }
+  65% {
+    transform: translateY(-12px);
+    animation-timing-function: ease-in;
+  }
+  82% {
+    transform: translateY(-6px);
+    animation-timing-function: ease-in;
+  }
+  93% {
+    transform: translateY(-4px);
+    animation-timing-function: ease-in;
+  }
+  25%,
+  55%,
+  75%,
+  87% {
+    transform: translateY(0px);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateY(0px);
+    animation-timing-function: ease-out;
+  }
+}
+
 .hamburger .nav-icon-line {
   transform-origin: center center;
   transform: scaleX(1);
@@ -156,6 +196,5 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 .hamburger.close .nav-icon-line.line-3 {
   transform: rotate(-45deg) translate(10px, -7px);
 }
-
 
 </style>
