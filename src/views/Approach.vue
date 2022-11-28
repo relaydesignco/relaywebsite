@@ -41,7 +41,7 @@ defineExpose({bg})
 
     <ColorSection bg-color="red" @showBg="onShowBg" @hideBg="onHideBg">
       <HeadlineScroll headline="What we do." />
-      <div class="flex flex-col md:flex-row min-h-screen px-8 md:px-24 py-36 items-start text-white capabilities">
+      <div class="flex flex-col md:flex-row min-h-screen px-8 md:px-24 pb-36 items-start text-white capabilities">
         <h2 class="h6 mb-12 text-white md:w-1/2 md:sticky md:top-32">Our capabilities.</h2>
         <div class="md:w-1/2">
           <div class="mb-14">

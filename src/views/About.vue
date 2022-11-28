@@ -41,7 +41,7 @@ defineExpose({bg})
 
     <ColorSection bg-color="blue" @showBg="onShowBg" @hideBg="onHideBg">
       <HeadlineScroll headline="Meet the team." />
-      <div class="flex flex-col md:flex-row min-h-screen py-24 md:py-56 px-8 md:px-24 items-start">
+      <div class="flex flex-col md:flex-row min-h-screen pb-24 md:pb-56 px-8 md:px-24 items-start">
         <div class="md:w-1/2">
           <p class="medium md:pr-20">Our designers understand the role brand plays in user experience, and believe great UX builds customer loyalty.</p>
           <p class="medium md:pr-20">Our in-house engineering team has decades of experience building, launching and maintaining digital products across a wide range of technologies.</p>
