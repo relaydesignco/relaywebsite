@@ -13,7 +13,7 @@ defineExpose({bg})
   <main :class="bg">
 
     <ColorSection bg-color="yellow" @showBg="onShowBg" @hideBg="onHideBg">
-      <div class="flex flex-col min-h-screen px-8 md:px-24 items-center justify-center">
+      <div class="flex flex-col min-h-screen px-8 md:px-36 items-center justify-center">
         <h1 class="h1 text-center text-pink">About.</h1>
         <p class="text-center large">We’re a team of designers and developers who love to build. And when the things we build help thoughtful, innovative people solve meaningful problems – all the better.</p>
       </div>
@@ -41,7 +41,7 @@ defineExpose({bg})
 
     <ColorSection bg-color="blue" @showBg="onShowBg" @hideBg="onHideBg">
       <HeadlineScroll headline="Meet the team." />
-      <div class="flex flex-col md:flex-row min-h-screen pb-24 md:pb-56 px-8 md:px-24 items-start">
+      <div class="flex flex-col md:flex-row pb-24 md:pb-36 px-8 md:px-24 items-start">
         <div class="md:w-1/2">
           <p class="medium md:pr-20">Our designers understand the role brand plays in user experience, and believe great UX builds customer loyalty.</p>
           <p class="medium md:pr-20">Our in-house engineering team has decades of experience building, launching and maintaining digital products across a wide range of technologies.</p>
@@ -49,14 +49,14 @@ defineExpose({bg})
         <div class="md:w-1/2">
           <div class="flex flex-col md:flex-row">
             <div class="md:w-1/2">
-              <p class="small"><span class="font-sans">Drew McChesney</span><br />Managing Director</p>
-              <p class="small"><span class="font-sans">Drew McChesney</span><br />Managing Director</p>
-              <p class="small"><span class="font-sans">Drew McChesney</span><br />Managing Director</p>
+              <p class="small"><span class="font-sans font-bold">Drew McChesney</span><br />Managing Director</p>
+              <p class="small"><span class="font-sans font-bold">Brian Johnson</span><br />Creative Director</p>
+              <p class="small"><span class="font-sans font-bold">Ashley Revlett</span><br />Technology Director</p>
             </div>
             <div class="md:w-1/2">
-              <p class="small"><span class="font-sans">Drew McChesney</span><br />Managing Director</p>
-              <p class="small"><span class="font-sans">Drew McChesney</span><br />Managing Director</p>
-              <p class="small"><span class="font-sans">Drew McChesney</span><br />Managing Director</p>
+              <p class="small"><span class="font-sans font-bold">Mike Casto</span><br />Senior Designer</p>
+              <p class="small"><span class="font-sans font-bold">Aaron Fautz</span><br />Senior Engineer</p>
+              <p class="small"><span class="font-sans font-bold">Lauren Hill</span><br />Brand Designer</p>
             </div>
           </div>
         </div>

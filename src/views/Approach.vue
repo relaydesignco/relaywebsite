@@ -12,7 +12,7 @@ defineExpose({bg})
 <template>
   <main :class="bg">
     <ColorSection bg-color="pink" @showBg="onShowBg" @hideBg="onHideBg">
-      <div class="flex flex-col min-h-screen px-8 md:px-24 items-center justify-center">
+      <div class="flex flex-col min-h-screen px-8 md:px-36 items-center justify-center">
         <h1 class="h1 text-center text-blue">Approach.</h1>
         <p class="text-center large">Our design-led process helps clients build what matters – to their customers, and their businesses – reliably and effectively.</p>
       </div>
@@ -31,7 +31,7 @@ defineExpose({bg})
           <p>We can fill gaps in your existing team, or serve as a complete product team – helping you take your product from now to whatever comes next, quickly.</p>
         </div>
         <div class="area3">
-          <h2 class="h5 text-pink">Product x Brand</h2>
+          <h2 class="h5 text-pink">Experiment &amp; Iterate</h2>
           <p>We believe that the most successful products are built around clear, consistent brands – and the strongest brands are built around thoughtful, useful products.</p>
           <p>That’s why our approach starts with both brand and product strategy. When aligned, they have an exponential effect on your ability to create engaged and loyal customers.</p>
         </div>
@@ -54,21 +54,23 @@ defineExpose({bg})
             </ul>
           </div>
           <div class="mb-14">
-            <h3 class="h5 text-white">Purpose</h3>
+            <h3 class="h5 text-white">Design</h3>
             <ul>
-              <li>Brand strategy</li>
-              <li>Product strategy</li>
-              <li>Product roadmap</li>
-              <li>Customer interviews & research</li>
+              <li>UX/UI design</li>
+              <li>Brand identity</li>
+              <li>Design systems</li>
+              <li>Rapid prototyping</li>
+              <li>User testing</li>
             </ul>
           </div>
           <div class="mb-14">
-            <h3 class="h5 text-white">Progress</h3>
+            <h3 class="h5 text-white">Technology</h3>
             <ul>
-              <li>Brand strategy</li>
-              <li>Product strategy</li>
-              <li>Product roadmap</li>
-              <li>Customer interviews & research</li>
+              <li>Full-stack web development</li>
+              <li>Mobile development</li>
+              <li>API development</li>
+              <li>Software for physical spaces</li>
+              <li>Systems integrations</li>
             </ul>
           </div>
         </div>

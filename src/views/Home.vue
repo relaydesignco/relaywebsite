@@ -35,7 +35,7 @@ defineExpose({bg})
             <p class="medium md:mt-24">We work with start-ups and brands to build apps and digital experiences that shape the way people live and work, for the better.</p>
             <p class="medium">Our designers and developers work alongside your product team – taking your concept from design to prototype to launch and beyond, while staying true to your vision and solving problems that make a difference.</p>
             <p>
-              <router-link class="bar-link" to="/about"><span>More about us</span></router-link>
+              <router-link class="bar-link" to="/about"><span>Learn more about us</span></router-link>
             </p>
           </div>
         </div>
