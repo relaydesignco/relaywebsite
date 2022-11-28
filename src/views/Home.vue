@@ -11,7 +11,7 @@ defineExpose({bg})
 </script>
 
 <template>
-  <main :class="bg">
+  <main :class="`bg-${bg}`">
 
     <ColorSection bg-color="red" @showBg="onShowBg" @hideBg="onHideBg">
       <TypeHero />

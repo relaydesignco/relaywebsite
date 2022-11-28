@@ -15,10 +15,10 @@ const emit = defineEmits<{
 watchEffect(() => {
   if (sectionIsVisible.value == true) {
     isVisible.value = true;
-    emit('showBg', `bg-${props.bgColor}`)
+    emit('showBg', `${props.bgColor}`)
   } else {
     isVisible.value = false;
-    emit('hideBg', `bg-${props.bgColor}`)
+    emit('hideBg', `${props.bgColor}`)
   }
 });
 

@@ -10,7 +10,7 @@ defineExpose({bg})
 </script>
 
 <template>
-  <main :class="bg">
+  <main :class="`bg-${bg}`">
 
     <ColorSection bg-color="yellow" @showBg="onShowBg" @hideBg="onHideBg">
       <div class="flex flex-col min-h-screen px-8 md:px-36 items-center justify-center">
