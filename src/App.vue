@@ -62,10 +62,10 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
         <rect :class="[logoColor, {moved : isScrolled}]" class="bar" x="25" y="60" width="34" height="3" />
       </svg>
     </router-link>
-    <button class="absolute z-20 right-7 top-7 bg-opacity-0 text-black border-0 p-0" @click.prevent="showMenu = !showMenu">
-      <div :class="navColor" class="nav-icon-line block h-1 w-10 mb-2"></div>
-      <div :class="navColor" class="nav-icon-line block h-1 w-10 mb-2"></div>
-      <div :class="navColor" class="nav-icon-line block h-1 w-10"></div>
+    <button class="hamburger absolute z-20 right-7 top-7 bg-opacity-0 text-black border-0 p-0" :class="{close : showMenu}" @click.prevent="showMenu = !showMenu">
+      <div :class="navColor" class="nav-icon-line line-1 block h-1 w-10 mb-2"></div>
+      <div :class="navColor" class="nav-icon-line line-2 block h-1 w-10 mb-2"></div>
+      <div :class="navColor" class="nav-icon-line line-3 block h-1 w-10"></div>
     </button>
     <div class="menu absolute right-0 top-0 w-full md:w-1/2 lg:w-1/3 h-screen bg-blue z-10" :class="{ showMenu: showMenu } ">
       <div class="nav-menu flex items-start flex-col p-10 pt-32 h-full">
@@ -140,5 +140,22 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 .nav-link:hover .bar {
   transform: scale(100%, 100%);
 }
+
+.hamburger .nav-icon-line {
+  transform-origin: center center;
+  transform: scaleX(1);
+}
+.hamburger.close .nav-icon-line.line-1 {
+  transform: rotate(45deg) translate(9px, 8px);
+}
+
+.hamburger.close .nav-icon-line.line-2 {
+  transform: scaleX(0);
+}
+
+.hamburger.close .nav-icon-line.line-3 {
+  transform: rotate(-45deg) translate(10px, -7px);
+}
+
 
 </style>
