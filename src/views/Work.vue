@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import WorkListItemType from '../components/WorkListItemType.vue'
+import WorkListItem from '../components/WorkListItem.vue'
 import Footer from '../components/Footer.vue'
 </script>
 
@@ -11,11 +11,11 @@ import Footer from '../components/Footer.vue'
         <h1 class="h1 text-center text-blue mb-40 mt-56">Work.</h1>
       </div>
       <div class="px-4 md:px-32 py-12 pb-36">
-          <WorkListItemType title="American Airlines" img-src="/hero-aa.jpg" route-url="/work/american-airlines" />
-          <WorkListItemType title="GE Appliances" img-src="/hero-gea.jpg" route-url="/work/american-airlines" />
-          <WorkListItemType title="Embodied Labs" img-src="/hero-el.jpg" route-url="/work/american-airlines" />
-          <WorkListItemType title="21c Museum Hotels" img-src="/hero-aa.jpg" route-url="/work/american-airlines" />
-          <WorkListItemType title="OdessaConnect" img-src="/hero-gea.jpg" route-url="/work/american-airlines" />
+        <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="Embodied Labs" description="Immersive online training platform" img-src="/hero-el.jpg" route-url="/work/american-airlines" />
+        <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="GE Appliances" description="A virtual experience as sales tool" img-src="/hero-gea.jpg" route-url="/work/american-airlines" />
+        <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="21c Museum Hotels" description="Immersive online training platform" img-src="/hero-el.jpg" route-url="/work/american-airlines" />
+        <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="Odessa Connect" description="A virtual experience as sales tool" img-src="/hero-gea.jpg" route-url="/work/american-airlines" />
+        <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="American Airlines" description="An online home for a global workforce" img-src="/hero-aa.jpg" route-url="/work/american-airlines" />
         </div>
     </section>
 
