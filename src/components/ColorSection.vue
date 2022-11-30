@@ -14,10 +14,8 @@ const emit = defineEmits<{
 
 watchEffect(() => {
   if (sectionIsVisible.value == true) {
-    isVisible.value = true;
     emit('showBg', `${props.bgColor}`)
   } else {
-    isVisible.value = false;
     emit('hideBg', `${props.bgColor}`)
   }
 });
@@ -26,27 +24,17 @@ watchEffect(() => {
 
 <template>
   <section>
-    <div class="content" :class="{ isVisible: isVisible, notVisible: !isVisible}">
+    <div ref="visibleMarker" class="content" :class="{ isVisible: sectionIsVisible, notVisible: !sectionIsVisible}">
     <slot></slot>
     </div>
-    <div ref="visibleMarker" class="visibleMarker"></div>
   </section>
 </template>
 
 <style scoped>
 section {
   width: 100%;
-  min-height: 101vh;
+  min-height: 90vh;
   position: relative;
-}
-
-.visibleMarker {
-  position: absolute;
-  top: 10%;
-  height: 60%;
-  width: 1px;
-  /* outline: 1px solid yellow;
-  background: black; */
 }
 
 .content {

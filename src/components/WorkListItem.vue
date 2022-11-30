@@ -26,11 +26,11 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="relative mb-12 md:h-80 lg:h-96" :class="{ isVisible: isVisible, notVisible: !isVisible}">
+  <div class="relative mb-36 md:h-80 lg:h-96" :class="{ isVisible: isVisible, notVisible: !isVisible}">
     <router-link :to="routeUrl" class="md:h-80 lg:h-96 flex flex-col md:flex-row items-center justify-end mb-8 title">
       <div class="relative z-10 md:w-1/2 order-2 md:order-1">
         <h2>{{ title }}</h2>
-        <p class="text-black description medium !leading-tight inline-block w-auto mb-12 md:mb-0 md:ml-4">{{ description }}</p>
+        <p class="text-black description medium !leading-tight inline-block w-auto mb-12 md:mb-0 md:ml-8 mt-4">{{ description }}</p>
       </div>
       <img :src="imgSrc" alt="" class="content-img md:absolute md:left-2 order-1 md:order-2 z-0 md:h-80 lg:h-96 mb-2 md:w-1/2 object-cover" />
     </router-link>
@@ -56,6 +56,7 @@ h2 {
 
 @screen md {
   h2 {
+    --_p: calc(100% - 128px * -1);
     font-size: 60px;
     color: #0000;
     background:
@@ -63,13 +64,13 @@ h2 {
       var(--_p,100%)/200% no-repeat;
     -webkit-background-clip: text;
             background-clip: text;
-    transition: .15s ease-in;
+    transition: 1s ease;
     margin-left: -120px;
     margin-right: 60px;
   }
 
   a:hover h2 {
-    --_p: calc(100% - 112px * -1);
+    --_p: calc(100% - 64px * -1);
   }
 }
 
@@ -80,31 +81,13 @@ h2 {
 }
 
 @screen md {
-  .description {
-    @apply relative;
-
-    opacity: 0;
-    transition: opacity .25s ease;
-  }
-
-  a:hover .description {
-    opacity: 1;
-  }
-}
-
-@screen md {
   .content-img  {
-    transition: opacity .5s ease, transform .5s ease;
+    transition: transform 1s ease;
     transform-origin: center right;
-    opacity: 0;
   }
 
   a:hover .content-img {
-    opacity: 1;
-  }
-
-  a:hover .content-img {
-    transform: translate(-1rem, -.4rem);
+    transform: translate(-4rem, -.4rem);
   }
 }
 

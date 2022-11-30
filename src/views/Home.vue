@@ -15,9 +15,6 @@ defineExpose({bg})
 
     <ColorSection bg-color="red" @showBg="onShowBg" @hideBg="onHideBg">
       <TypeHero />
-    </ColorSection>
-
-    <ColorSection bg-color="white" @showBg="onShowBg" @hideBg="onHideBg">
       <div class="px-8 md:px-32 py-12 md:mb-24">
         <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="American Airlines" description="An online home for a global workforce" img-src="/fpo.png" route-url="/work/american-airlines" />
         <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="GE Appliances" description="A virtual experience as sales tool" img-src="/fpo.png" route-url="/work/american-airlines" />
@@ -26,7 +23,7 @@ defineExpose({bg})
     </ColorSection>
 
     <ColorSection bg-color="blue" @showBg="onShowBg" @hideBg="onHideBg">
-      <div class="flex flex-col md:flex-row min-h-screen py-24 md:py-56 px-8 md:px-24 items-start">
+      <div class="flex flex-col md:flex-row py-24 md:py-56 px-8 md:px-24 items-start">
         <div class="md:w-1/2">
           <h2 class="h4 md:pr-20 mb-8 text-red leading-none">Build<br />what<br />matters.</h2>
         </div>
