@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
-import { useElementVisibility } from '@vueuse/core'
-
 const props = defineProps<{
   title: string,
   description: string,
@@ -11,52 +8,29 @@ const props = defineProps<{
   clipColor: string,
 }>()
 
-const isVisible = ref(false)
-const visibleMarker = ref(null)
-const sectionIsVisible = ref(useElementVisibility(visibleMarker))
-
-watchEffect(() => {
-  if (sectionIsVisible.value == true) {
-    isVisible.value = true;
-    console.log("section visible", props.title)
-  } else {
-    isVisible.value = false;
-  }
-});
 </script>
 
 <template>
-  <div class="relative mb-36 md:h-80 lg:h-96" :class="{ isVisible: isVisible, notVisible: !isVisible}">
+  <div class="relative mb-36 md:h-80 lg:h-96">
     <router-link :to="routeUrl" class="md:h-80 lg:h-96 flex flex-col md:flex-row items-center justify-end mb-8 title">
       <div class="relative z-10 md:w-1/2 order-2 md:order-1">
-        <h2>{{ title }}</h2>
-        <p class="text-black description medium !leading-tight inline-block w-auto mb-12 md:mb-0 md:ml-8 mt-4">{{ description }}</p>
+        <h2 class="text-blue leading-none">{{ title }}</h2>
+        <p class="text-white description medium !leading-tight inline-block w-auto mb-12 md:mb-0 md:ml-8 mt-4">{{ description }}</p>
       </div>
-      <img :src="imgSrc" alt="" class="content-img md:absolute md:left-2 order-1 md:order-2 z-0 md:h-80 lg:h-96 mb-2 md:w-1/2 object-cover" />
+      <img :src="imgSrc" alt="" class="content-img md:absolute md:left-0 order-1 md:order-2 z-0 md:h-80 lg:h-96 mb-2 md:w-1/2 object-cover" />
     </router-link>
-    <div ref="visibleMarker" class="visibleMarker"></div>
   </div>
 </template>
 
 <style scoped>
 
-.visibleMarker {
-  position: absolute;
-  top: 40%;
-  height: 10%;
-  width: 5px;
-  /* background: blue; */
-}
-
 h2 {
-  @apply text-blue leading-none;
-
   font-size: 40px;
 }
 
 @screen md {
   h2 {
-    --_p: calc(100% - 128px * -1);
+    --_p: calc(100% - 120px * -1);
     font-size: 60px;
     color: #0000;
     background:
@@ -64,13 +38,32 @@ h2 {
       var(--_p,100%)/200% no-repeat;
     -webkit-background-clip: text;
             background-clip: text;
-    transition: 1s ease;
+    transition: 1.75s ease;
     margin-left: -120px;
     margin-right: 60px;
   }
 
   a:hover h2 {
-    --_p: calc(100% - 64px * -1);
+    --_p: calc(100% - 80px * -1);
+  }
+
+  .content-img  {
+    filter: grayscale(1) contrast(.8);
+    transition: filter .5s ease, transform 1.75s ease;
+    transform-origin: center right;
+  }
+
+  a:hover .content-img {
+    transform: translate(-40px, -16px);
+    filter: grayscale(0) contrast(1);
+  }
+
+  p {
+    transition: all 1.75s ease;
+  }
+
+  a:hover p {
+    margin-left: 6px;
   }
 }
 
@@ -80,15 +73,5 @@ h2 {
   }
 }
 
-@screen md {
-  .content-img  {
-    transition: transform 1s ease;
-    transform-origin: center right;
-  }
-
-  a:hover .content-img {
-    transform: translate(-4rem, -.4rem);
-  }
-}
 
 </style>
