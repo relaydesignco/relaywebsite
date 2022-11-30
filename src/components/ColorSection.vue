@@ -33,8 +33,12 @@ watchEffect(() => {
 <style scoped>
 section {
   width: 100%;
-  min-height: 90vh;
+  min-height: 30vh;
   position: relative;
+}
+
+@screen md {
+  min-height: 90vh;
 }
 
 .content {

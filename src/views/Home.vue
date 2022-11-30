@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ColorSection from '../components/ColorSection.vue'
-import WorkListItem from '../components/WorkListItem.vue'
+import WorkListItemWide from '../components/WorkListItemWide.vue'
 import Footer from '../components/Footer.vue'
 import TypeHero from '../components/TypeHero.vue'
 import { useBgColor } from '../composables/useBgColor.js'
@@ -15,11 +15,16 @@ defineExpose({bg})
 
     <ColorSection bg-color="red" @showBg="onShowBg" @hideBg="onHideBg">
       <TypeHero />
-      <div class="px-8 md:px-32 py-12 md:mb-24">
-        <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="American Airlines" description="An online home for a global workforce" img-src="/fpo.png" route-url="/work/american-airlines" />
-        <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="GE Appliances" description="A virtual experience as sales tool" img-src="/fpo.png" route-url="/work/american-airlines" />
-        <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="Embodied Labs" description="Immersive online training platform" img-src="/fpo.png" route-url="/work/american-airlines" />
-      </div>
+    </ColorSection>
+
+    <ColorSection bg-color="orange" @showBg="onShowBg" @hideBg="onHideBg">
+      <WorkListItemWide title="American Airlines" description="An online home for a global workforce" img-src="/hero-aa.jpg" route-url="/work/american-airlines" />
+    </ColorSection>
+    <ColorSection bg-color="green" @showBg="onShowBg" @hideBg="onHideBg">
+      <WorkListItemWide title="GE Appliances" description="A virtual experience as sales tool" img-src="/hero-gea.jpg" route-url="/work/american-airlines" />
+    </ColorSection>
+    <ColorSection bg-color="yellow" @showBg="onShowBg" @hideBg="onHideBg">
+      <WorkListItemWide title="Embodied Labs" description="Immersive online training platform" img-src="/hero-el.jpg" route-url="/work/american-airlines" />
     </ColorSection>
 
     <ColorSection bg-color="blue" @showBg="onShowBg" @hideBg="onHideBg">
