@@ -11,7 +11,7 @@ defineExpose({bg})
 
 <template>
   <CaseStudy
-    bgColor="pink"
+    color="pink"
     title="GE Appliances"
     description="A virtual experience to complement an in-person trade show event."
     heroImgSrc="/1280x768.png"

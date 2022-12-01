@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 
 const props = defineProps<{ bgColor: string }>()
 
-const isVisible = ref(false)
 const visibleMarker = ref(null)
 const sectionIsVisible = ref(useElementVisibility(visibleMarker))
 const emit = defineEmits<{
@@ -12,20 +11,21 @@ const emit = defineEmits<{
   (e: 'hideBg', bg: string): void
 }>()
 
-watchEffect(() => {
-  if (sectionIsVisible.value == true) {
+watch(sectionIsVisible, (newVal, prevVal) => {
+  if (newVal == true) {
     emit('showBg', `${props.bgColor}`)
   } else {
     emit('hideBg', `${props.bgColor}`)
   }
-});
+})
+
 
 </script>
 
 <template>
   <section>
     <div ref="visibleMarker" class="content" :class="{ isVisible: sectionIsVisible, notVisible: !sectionIsVisible}">
-    <slot></slot>
+      <slot></slot>
     </div>
   </section>
 </template>

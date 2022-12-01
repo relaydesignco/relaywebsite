@@ -11,7 +11,7 @@ defineExpose({bg})
 
 <template>
   <CaseStudy
-    bgColor="green"
+    color="green"
     title="OdessaConnect"
     description="A television-based app for seniors, their residences, and their loved ones."
     heroImgSrc="/1280x768.png"

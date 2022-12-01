@@ -11,7 +11,7 @@ defineExpose({bg})
 
 <template>
   <CaseStudy
-    bgColor="orange"
+    color="orange"
     title="Embodied Labs"
     description="An online training platform educating caregivers through immersive experiences."
     heroImgSrc="/1280x768.png"

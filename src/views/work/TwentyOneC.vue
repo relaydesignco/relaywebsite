@@ -11,7 +11,7 @@ defineExpose({bg})
 
 <template>
   <CaseStudy
-    bgColor="yellow"
+    color="yellow"
     title="21c Museum Hotels"
     description="Transformative business intelligence tools for a growing hospitality brand."
     heroImgSrc="/1280x768.png"

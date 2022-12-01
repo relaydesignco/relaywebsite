@@ -12,7 +12,7 @@ const inverseColor = computed(() => {
 })
 
 const props = defineProps<{
-  bgColor: string,
+  color: string,
   title: string,
   description: string,
   intro: string,
@@ -31,7 +31,7 @@ defineExpose({bg})
 <template>
   <main :class="`bg-${bg}`">
 
-    <ColorSection :bg-color="bgColor" @showBg="onShowBg" @hideBg="onHideBg">
+    <ColorSection :bg-color="color" @showBg="onShowBg" @hideBg="onHideBg">
       <div class="flex flex-col min-h-screen px-8 md:px-36 items-center justify-center">
         <h1 :class="`text-${inverseColor}`" class="h1 page-title text-center leading-none">{{title}}</h1>
         <p class="text-center large text-white lg:px-32">{{description}}</p>
@@ -74,7 +74,7 @@ defineExpose({bg})
     <slot name="images2"></slot>
 
 
-    <ColorSection :bg-color="bgColor" @showBg="onShowBg" @hideBg="onHideBg">
+    <ColorSection :bg-color="color" @showBg="onShowBg" @hideBg="onHideBg">
       <div class="flex flex-col md:flex-row px-20 md:px-24 py-44 lg:max-w-6xl lg:mx-auto items-start text-white capabilities">
         <h2 class="subheading md:w-1/4">Services</h2>
         <div class="md:w-3/4">

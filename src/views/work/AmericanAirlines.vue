@@ -11,7 +11,7 @@ defineExpose({bg})
 
 <template>
   <CaseStudy
-    bgColor="green"
+    color="green"
     title="American Airlines"
     description="An online home for a global workforce."
     heroImgSrc="/1280x768.png"
