@@ -30,7 +30,7 @@ const inverseColor = computed(() => {
     case 'blue':
       return 'pink'
     case 'red':
-      return 'blue'
+      return 'white'
     case 'pink':
       return 'blue'
     case 'orange':
@@ -74,9 +74,11 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
       </svg>
     </router-link>
     <button class="hamburger absolute z-20 right-7 top-7 text-black border-0 p-0" :class="{close : showMenu}" @click.prevent="showMenu = !showMenu">
-      <div :class="showMenu == false ? `bg-${inverseColor}` : `bg-${bgColor}`" class="nav-icon-line line-1 block h-1 w-10 mb-2"></div>
-      <div :class="showMenu == false ? `bg-${inverseColor}` : `bg-${bgColor}`" class="nav-icon-line line-2 block h-1 w-10 mb-2"></div>
-      <div :class="showMenu == false ? `bg-${inverseColor}` : `bg-${bgColor}`" class="nav-icon-line line-3 block h-1 w-10"></div>
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect :class="showMenu == false ? `fill-${inverseColor}` : `fill-${bgColor}`" class="nav-icon-line line-1" width="32" height="3"/>
+        <rect :class="showMenu == false ? `fill-${inverseColor}` : `fill-${bgColor}`" class="nav-icon-line line-2" width="32" height="3" y="10"  />
+        <rect :class="showMenu == false ? `fill-${inverseColor}` : `fill-${bgColor}`" class="nav-icon-line line-3" width="32" height="3" y="20"  />
+      </svg>
     </button>
     <div class="menu absolute right-0 top-0 w-full md:w-1/2 lg:w-1/3 h-screen z-10" :class="[{ showMenu: showMenu }, `bg-${inverseColor}`]">
       <div class="nav-menu flex items-start flex-col p-10 pt-32 h-full">
@@ -106,9 +108,13 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 </template>
 
 <style scoped>
+.navbar {
+  --movement-transition: .3s ease-in-out;
+  --color-transition: 1s ease;
+}
 
 .nav-icon-line, .logo path {
-  transition: background-color 1.5s ease, transform .3s ease-in-out;
+  transition: background-color var(--color-transition), fill var(--color-transition), transform var(--movement-transition);
 }
 
 .logo .moveable.moved {
@@ -117,7 +123,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
 .logo .bar {
   transform: translate(-100px, 0);
-  transition: transform .3s ease-in-out;
+  transition: transform var(--movement-transition);
 }
 
 .logo .bar.moved {
@@ -126,7 +132,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
 .menu {
   transform: translateX(100%);
-  transition: all .3s ease;
+  transition: all var(--movement-transition);
 }
 
 .menu.showMenu {
@@ -145,7 +151,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
   transform: scale(0, 100%);
   transform-origin: left center;
-  transition: all .3s ease;
+  transition: all var(--movement-transition);
 }
 
 .nav-link.text-yellow .bar {
@@ -203,11 +209,21 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 }
 
 .hamburger .nav-icon-line {
+  transition: fill var(--color-transition), transform var(--movement-transition);
   transform-origin: center center;
-  transform: scaleX(1);
+  transform: scaleX(100%);
 }
+
+.hamburger .nav-icon-line.line-1 {
+  transform-origin: top left;
+}
+
+.hamburger .nav-icon-line.line-3 {
+  transform-origin: bottom left;
+}
+
 .hamburger.close .nav-icon-line.line-1 {
-  transform: rotate(45deg) translate(9px, 8px);
+  transform: rotate(45deg) translate(4px, -1px);
 }
 
 .hamburger.close .nav-icon-line.line-2 {
@@ -215,7 +231,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 }
 
 .hamburger.close .nav-icon-line.line-3 {
-  transform: rotate(-45deg) translate(10px, -7px);
+  transform: rotate(-45deg) translate(7px, 8px);
 }
 
 </style>
