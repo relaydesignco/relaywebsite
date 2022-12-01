@@ -23,12 +23,12 @@ defineExpose({bg})
     ref="casestudy"
   >
 
-    <template #images>
-      <img src="/1280x768.png" class="w-full my-10" alt="" />
-    </template>
-
     <template #challenge>
       <p>Replace an antiquated, manual reporting process with a custom digital product that streamlines reporting, aggregates data from a variety of sources, and is easily accessible by a diverse, distributed team.</p>
+    </template>
+
+    <template #images>
+      <img src="/1280x768.png" class="w-full my-10" alt="" />
     </template>
 
     <template #outcome>

@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     "./index.html",
-    "./src/**/*.{js,vue}",
+    "./src/**/*.{js,vue,ts}",
   ],
   theme: {
     colors: {

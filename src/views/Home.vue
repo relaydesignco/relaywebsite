@@ -21,10 +21,10 @@ defineExpose({bg})
       <WorkListItemWide title="American Airlines" description="An online home for a global workforce" img-src="/hero-aa.jpg" route-url="/work/american-airlines" />
     </ColorSection>
     <ColorSection bg-color="green" @showBg="onShowBg" @hideBg="onHideBg">
-      <WorkListItemWide title="GE Appliances" description="A virtual experience as sales tool" img-src="/hero-gea.jpg" route-url="/work/american-airlines" />
+      <WorkListItemWide title="GE Appliances" description="A virtual experience as sales tool" img-src="/hero-gea.jpg" route-url="/work/ge" />
     </ColorSection>
     <ColorSection bg-color="yellow" @showBg="onShowBg" @hideBg="onHideBg">
-      <WorkListItemWide title="Embodied Labs" description="Immersive online training platform" img-src="/hero-el.jpg" route-url="/work/american-airlines" />
+      <WorkListItemWide title="Embodied Labs" description="Immersive online training platform" img-src="/hero-el.jpg" route-url="/work/embodied-labs" />
     </ColorSection>
 
     <ColorSection bg-color="blue" @showBg="onShowBg" @hideBg="onHideBg">

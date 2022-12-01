@@ -40,7 +40,7 @@ defineExpose({bg})
     </ColorSection>
 
     <ColorSection bg-color="white" @showBg="onShowBg" @hideBg="onHideBg">
-      <div class="flex flex-col px-12 md:px-36 py-36 items-center justify-center">
+      <div class="flex flex-col px-12 md:px-36 lg:px-2 lg:max-w-5xl lg:mx-auto py-36 lg:py-54 items-center justify-center">
         <p class="text-center intro text-black">{{ intro }}</p>
       </div>
 
@@ -51,7 +51,7 @@ defineExpose({bg})
           </div>
         </div>
         <div class="md:w-1/2">
-          <div class="px-24 md:mx-12 lg:px-24">
+          <div class="px-24 md:px-12 lg:px-24">
             <p class="subheading mt-24 md:mt-0">Challenge</p>
             <slot name="challenge"></slot>
           </div>
@@ -117,7 +117,7 @@ main {
 @screen md {
   .intro {
     font-size: 30px;
-    line-height: 43px;
+    line-height: 48px;
   }
 }
 
@@ -129,11 +129,13 @@ main {
 
 :slotted(p:not(.large)),
 :slotted(li) {
+  @apply mb-6;
+
   font-size: 20px;
 }
 
 :slotted(li) {
-  @apply mb-6 relative;
+  @apply relative;
 }
 
 :slotted(li::before) {
