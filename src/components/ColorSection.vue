@@ -37,10 +37,6 @@ section {
   position: relative;
 }
 
-@screen md {
-  min-height: 90vh;
-}
-
 .content {
   transition: opacity .5s;
 }

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, watch, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { useInverseColor } from './composables/useInverseColor';
+const { getInverseColor } = useInverseColor()
 
 // close menu when nav link is clicked
 const showMenu = ref(false)
@@ -24,24 +26,7 @@ const pageView = ref<HTMLElement | null>(null)
 // @ts-ignore
 const bgColor = computed(() => pageView.value?.bg) // trust that all pageview components expose bg
 const inverseColor = computed(() => {
-  switch(bgColor.value) {
-    case 'white':
-      return 'black'
-    case 'blue':
-      return 'pink'
-    case 'red':
-      return 'white'
-    case 'pink':
-      return 'blue'
-    case 'orange':
-      return 'yellow'
-    case 'yellow':
-      return 'pink'
-    case 'green':
-      return 'pink'
-    default:
-      return 'blue'
-  }
+  return getInverseColor(bgColor.value)
 })
 
 // translate logo "lay" and bar if we've scrolled
