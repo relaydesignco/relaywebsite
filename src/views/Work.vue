@@ -8,7 +8,7 @@ import Footer from '../components/Footer.vue'
 
     <section class="main-content">
       <div class="flex flex-col px-8 md:px-24 items-center justify-center">
-        <h1 class="h1 text-center text-blue mb-40 mt-56">Work.</h1>
+        <h1 class="h1 text-center text-blue mb-30 md:mb-32 mt-56">Work.</h1>
       </div>
       <div class="px-4 md:px-32 py-12 pb-36">
         <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="Embodied Labs" description="Immersive online training platform" img-src="/hero-el.jpg" route-url="/work/american-airlines" />

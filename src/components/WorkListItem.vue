@@ -22,7 +22,7 @@ onUnmounted(() => window.removeEventListener('resize', getDimensions))
 
 // calculate random transforms and related text clip positions
 const minX = 60
-const maxX = 180
+const maxX = 140
 const x = Math.floor(Math.random() * (maxX - minX + 1)) + minX
 const xPos = ref(x + 'px')
 const clipOffset = computed(() => {
@@ -46,12 +46,12 @@ const yPos = ref(y + 'px')
 </script>
 
 <template>
-  <div class="item-container relative mb-36 md:h-80 lg:h-96">
-    <router-link :to="routeUrl" class="md:h-80 lg:h-96 flex flex-col md:flex-row items-center justify-end mb-8 title">
+  <div class="item-container relative mb-36 md:mb-48 md:h-80 lg:h-96">
+    <router-link :to="routeUrl" class="md:h-80 lg:h-96 flex flex-col md:flex-row md:items-center justify-end mb-8 title">
       <div class="relative z-10 md:w-3/5 order-2 md:order-1">
         <div class="text-container ">
           <h2 class="text-blue leading-none">{{ title }}</h2>
-          <p class="text-white description medium !leading-tight inline-block w-auto mb-12 md:mb-0 mt-4">
+          <p class="text-white description medium !leading-tight inline-block w-auto mb-12 md:mb-0 mt-1 md:mt-4">
             <span class="text-with-bar">
               {{ description }}
               <svg width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow">
@@ -67,6 +67,11 @@ const yPos = ref(y + 'px')
 </template>
 
 <style scoped>
+.item-container {
+  --item-transition: .9s ease-out;
+  --bar-transition: .4s ease;
+}
+
 
 h2 {
   font-size: 40px;
@@ -78,7 +83,7 @@ svg {
 
   right: .75rem;
   top: .95rem;
-  transition: opacity .5s ease .3s;
+  transition: opacity var(--bar-transition) .3s;
 }
 
 @screen md{
@@ -96,7 +101,7 @@ svg {
       var(--_p,100%)/200% no-repeat;
     -webkit-background-clip: text;
             background-clip: text;
-    transition: 1.8s ease-out;
+    transition: var(--item-transition);
     font-size: 60px;
     width: 400px;
   }
@@ -111,7 +116,7 @@ svg {
 
   .content-img  {
     filter: grayscale(1) contrast(.8);
-    transition: filter .5s ease, transform 1.8s ease-out;
+    transition: filter var(--bar-transition), transform var(--item-transition);
     transform-origin: center right;
     width: 500px;
   }
