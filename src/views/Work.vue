@@ -1,12 +1,18 @@
 <script setup lang="ts">
+import ColorSection from '../components/ColorSection.vue'
 import WorkListItem from '../components/WorkListItem.vue'
 import Footer from '../components/Footer.vue'
+import { useBgColor } from '../composables/useBgColor.js'
+
+const { bg, onShowBg, onHideBg } = useBgColor()
+defineExpose({bg})
+
 </script>
 
 <template>
-  <main class="bg-red">
+  <main :class="`bg-${bg}`">
 
-    <section class="main-content">
+    <ColorSection bg-color="red" @showBg="onShowBg" @hideBg="onHideBg">
       <div class="flex flex-col px-8 md:px-24 items-center justify-center">
         <h1 class="h1 text-center text-blue mb-30 md:mb-32 mt-56">Work.</h1>
       </div>
@@ -16,17 +22,12 @@ import Footer from '../components/Footer.vue'
         <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="21c Museum Hotels" description="Immersive online training platform" img-src="/hero-el.jpg" route-url="/work/american-airlines" />
         <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="Odessa Connect" description="A virtual experience as sales tool" img-src="/hero-gea.jpg" route-url="/work/american-airlines" />
         <WorkListItem textColor="#6CC4DF" clipColor="#ffffff" title="American Airlines" description="An online home for a global workforce" img-src="/hero-aa.jpg" route-url="/work/american-airlines" />
-        </div>
-    </section>
+      </div>
+    </ColorSection>
 
     <Footer />
   </main>
 </template>
 
 <style scoped>
-.main-content {
-  width: 100%;
-  min-height: 101vh;
-  position: relative;
-}
 </style>
