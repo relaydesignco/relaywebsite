@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import CaseStudy from '../../components/CaseStudy.vue'
+import { useVimeo } from '../../composables/useVimeo';
+useVimeo()
 
 // pass bg color on up to parent
 const casestudy = ref<typeof CaseStudy | null>(null)
@@ -14,10 +16,10 @@ defineExpose({bg})
     color="green"
     title="American Airlines"
     description="An online home for a global workforce."
-    heroImgSrc="/1280x768.png"
-    challengeImgSrc="/630x720.png"
+    heroImgSrc="/aa-header.jpg"
+    challengeImgSrc="/aa-challenge.jpg"
     intro="Relay worked with American Airlines subsidiaries Piedmont Airlines and PSA Airlines to design and develop custom employee portals to house information and tools that enable team members to stay informed while working around the globe."
-    nextSrc="/1280x768.png"
+    nextSrc="/el-header.jpg"
     nextTitle="Embodied Labs"
     nextUrl="/work/embodied-labs"
     ref="casestudy"
@@ -28,11 +30,12 @@ defineExpose({bg})
     </template>
 
     <template #images>
-      <div class="grid grid-cols-3 gap-4" style="grid-template-rows: masonry">
-        <img src="/630x720.png" class="w-full h-full object-cover" style="grid-row: span 2" alt="" />
-        <img src="/1280x768.png" class="w-full" alt="" />
-        <img src="/630x720.png" class="w-full h-full object-cover" style="grid-row: span 2" alt="" />
-        <img src="/1280x768.png" class="w-full" alt="" />
+      <div class="grid grid-cols-1 gap-2">
+        <div style="padding:46.88% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/790903821?h=901d7628e3&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="AA_ScreenRec"></iframe></div>
+      </div>
+      <div class="grid grid-cols-2 gap-4 p-4 bg-lightgray">
+        <img src="/aa-psa-home.jpg" class="w-full h-full object-cover" alt="" />
+        <img src="/aa-piedmont-home.jpg" class="w-full h-full object-cover" alt="" />
       </div>
     </template>
 
@@ -46,7 +49,12 @@ defineExpose({bg})
     </template>
 
     <template #images2>
-      <img src="/1280x768.png" class="w-full my-10 px-10" alt="" />
+      <div class="grid grid-cols-2 gap-4">
+        <div class="h-full object-cover">
+          <div style="padding:42.86% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/790903850?h=877ca4e113&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; gyroscope; accelerometer" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="PSA Logo Animation 4"></iframe></div>
+        </div>
+        <img src="/aa-collateral.jpg" class="w-full h-full" alt="" />
+      </div>
     </template>
 
     <template #services>

@@ -14,6 +14,7 @@ module.exports = {
       'green': '#BDCD44',
       'black': '#231F20',
       'white': '#fff',
+      'lightgray': '#DBDBDB',
     },
     fontFamily: {
       sans: ['Montserrat', 'sans-serif'],

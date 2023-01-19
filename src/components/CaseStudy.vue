@@ -26,6 +26,8 @@ const props = defineProps<{
 const { bg, onShowBg, onHideBg } = useBgColor()
 defineExpose({bg})
 
+
+
 </script>
 
 <template>
@@ -121,11 +123,6 @@ main {
   }
 }
 
-.subheading {
-  @apply text-black font-sans font-bold mb-4;
-
-  font-size: 22px;
-}
 
 :slotted(p:not(.large)),
 :slotted(li) {

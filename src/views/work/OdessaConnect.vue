@@ -14,10 +14,10 @@ defineExpose({bg})
     color="green"
     title="OdessaConnect"
     description="A television-based app for seniors, their residences, and their loved ones."
-    heroImgSrc="/1280x768.png"
-    challengeImgSrc="/630x720.png"
+    heroImgSrc="/odessa-header.jpg"
+    challengeImgSrc="/odessa-challenge.jpg"
     intro="OdessaConnect turns the TV screen into a computer screen, allowing seniors to connect more easily with their loved ones, caregivers, and healthcare providers. Relay helped OdessaConnect grow their idea into a fully-realized cross-platform digital product."
-    nextSrc="/1280x768.png"
+    nextSrc="/21c-header.jpg"
     nextTitle="21c Museum Hotels"
     nextUrl="/work/21c"
     ref="casestudy"
@@ -28,10 +28,7 @@ defineExpose({bg})
     </template>
 
     <template #images>
-      <div class="grid grid-cols-3 gap-4" style="grid-template-rows: masonry">
-        <img src="/630x720.png" class="w-full h-full object-cover" style="grid-row: span 2" alt="" />
-        <img src="/1280x768.png" class="w-full" alt="" />
-        <img src="/630x720.png" class="w-full h-full object-cover" style="grid-row: span 2" alt="" />
+      <div class="grid grid-cols-1 gap-4">
         <img src="/1280x768.png" class="w-full" alt="" />
       </div>
     </template>
@@ -42,10 +39,6 @@ defineExpose({bg})
         <li>Supported the product team’s design iterations through rapid prototyping and custom software development</li>
         <li>Worked closely with hardware and technology partners to develop, test and launch new devices and technology platforms</li>
       </ul>
-    </template>
-
-    <template #images2>
-      <img src="/1280x768.png" class="w-full my-10 px-10" alt="" />
     </template>
 
     <template #services>

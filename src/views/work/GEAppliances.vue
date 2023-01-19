@@ -14,10 +14,10 @@ defineExpose({bg})
     color="pink"
     title="GE Appliances"
     description="A virtual experience to complement an in-person trade show event."
-    heroImgSrc="/1280x768.png"
+    heroImgSrc="/ge-header.jpg"
     challengeImgSrc="/630x720.png"
     intro="The annual KBIS trade show is one of GE Appliances' largest opportunities to promote new products to their professional customer base. When the pandemic disrupted the show’s in-person experience, GE asked Relay to create a complementary digital experience for sales staff to use with remote attendees."
-    nextSrc="/1280x768.png"
+    nextSrc="/aa-header.jpg"
     nextTitle="American Airlines"
     nextUrl="/work/american-airlines"
     ref="casestudy"
@@ -29,10 +29,7 @@ defineExpose({bg})
     </template>
 
     <template #images>
-      <div class="grid grid-cols-3 gap-4" style="grid-template-rows: masonry">
-        <img src="/630x720.png" class="w-full h-full object-cover" style="grid-row: span 2" alt="" />
-        <img src="/1280x768.png" class="w-full" alt="" />
-        <img src="/630x720.png" class="w-full h-full object-cover" style="grid-row: span 2" alt="" />
+      <div class="grid grid-cols-1 gap-4">
         <img src="/1280x768.png" class="w-full" alt="" />
       </div>
     </template>

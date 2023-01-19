@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import CaseStudy from '../../components/CaseStudy.vue'
+import { useVimeo } from '../../composables/useVimeo';
+useVimeo()
 
 // pass bg color on up to parent
 const casestudy = ref<typeof CaseStudy | null>(null)
@@ -14,12 +16,12 @@ defineExpose({bg})
     color="orange"
     title="Embodied Labs"
     description="An online training platform educating caregivers through immersive experiences."
-    heroImgSrc="/1280x768.png"
-    challengeImgSrc="/630x720.png"
+    heroImgSrc="/el-header.jpg"
+    challengeImgSrc="/el-challenge.jpg"
     intro="Embodied Labs is a start-up that pioneered the use of VR for healthcare training. When Covid prevented users from learning on-site and in-headset, Embodied Labs turned to Relay to help translate their product to the web."
-    nextSrc="/1280x768.png"
-    nextTitle="OdessaConnect"
-    nextUrl="/work/odessa"
+    nextSrc="/ge-header.jpg"
+    nextTitle="GE Appliances"
+    nextUrl="/work/ge"
     ref="casestudy"
   >
 
@@ -28,11 +30,16 @@ defineExpose({bg})
     </template>
 
     <template #images>
-      <div class="grid grid-cols-3 gap-4" style="grid-template-rows: masonry">
-        <img src="/630x720.png" class="w-full h-full object-cover" style="grid-row: span 2" alt="" />
-        <img src="/1280x768.png" class="w-full" alt="" />
-        <img src="/630x720.png" class="w-full h-full object-cover" style="grid-row: span 2" alt="" />
-        <img src="/1280x768.png" class="w-full" alt="" />
+      <div class="grid grid-cols-1 gap-4">
+        <img src="/1280x768.png" class="w-full" alt="Video goes here" />
+      </div>
+      <div class="grid grid-cols-2 gap-4 py-3">
+        <img src="/el-screen-1.jpg" class="w-full h-full" alt="" />
+        <img src="/el-screen-2.jpg" class="w-full h-full" alt="" />
+        <div class="w-full h-full">
+          <div style="padding:52.38% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/790903908?h=75ffda7947&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="EL_Wizard"></iframe></div>
+        </div>
+        <img src="/el-screen-3.jpg" class="w-full h-full" alt="" />
       </div>
     </template>
 
@@ -44,10 +51,6 @@ defineExpose({bg})
         <li>Shipped new features regularly to support the sales team and new customer needs</li>
         <li>Supported the product team’s efforts to develop a product strategy for  the web-based product offering</li>
       </ul>
-    </template>
-
-    <template #images2>
-      <img src="/1280x768.png" class="w-full my-10 px-10" alt="" />
     </template>
 
     <template #services>
