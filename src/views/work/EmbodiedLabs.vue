@@ -13,7 +13,7 @@ useVimeo()
     heroImgSrc="/el-header.jpg"
     challengeImgSrc="/el-challenge.jpg"
     intro="Embodied Labs is a start-up that pioneered the use of VR for healthcare training. When Covid prevented users from learning on-site and in-headset, Embodied Labs turned to Relay to help translate their product to the web."
-    nextSrc="/ge-header.jpg"
+    nextSrc="/ge-header-2.jpg"
     nextTitle="GE Appliances"
     nextUrl="/work/ge"
     ref="casestudy"
