@@ -18,7 +18,7 @@ const props = defineProps<{
   description: string,
   intro: string,
   heroImgSrc: string,
-  challengeImgSrc: string,
+  challengeImgSrc?: string,
   nextTitle: string,
   nextUrl: string,
   nextSrc: string,
@@ -44,8 +44,9 @@ const props = defineProps<{
 
       <div class="flex flex-col md:flex-row pb-24 md:pb-36 md:pr-24 items-center">
         <div class="md:w-1/2">
-          <div class="md:mr-24 mb-8 md:mb-0">
-            <img :src="challengeImgSrc" class="w-full object-cover" alt="" />
+          <div class="md:mr-24 mb-8 md:mb-0 h-full">
+            <img v-if="challengeImgSrc" :src="challengeImgSrc" class="w-full object-cover" alt="" />
+            <slot name="challengeEmbed"></slot>
           </div>
         </div>
         <div class="md:w-1/2">

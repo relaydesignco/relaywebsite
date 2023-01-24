@@ -27,7 +27,7 @@ useVimeo()
       <div class="grid grid-cols-1 gap-4">
         <img src="/1280x768.png" class="w-full" alt="Video goes here" />
       </div>
-      <div class="grid grid-cols-2 gap-4 py-3">
+      <div class="grid grid-cols-2 gap-4 p-4 bg-lightgray">
         <img src="/el-screen-1.jpg" class="w-full h-full" alt="" />
         <img src="/el-screen-2.jpg" class="w-full h-full" alt="" />
         <div class="w-full h-full">

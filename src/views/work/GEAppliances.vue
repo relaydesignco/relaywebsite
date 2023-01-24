@@ -9,17 +9,20 @@ import CaseStudy from '../../components/CaseStudy.vue'
     title="GE Appliances"
     description="A virtual experience to complement an in-person trade show event."
     heroImgSrc="/ge-header.jpg"
-    challengeImgSrc="/630x720.png"
     intro="The annual KBIS trade show is one of GE Appliances' largest opportunities to promote new products to their professional customer base. When the pandemic disrupted the show’s in-person experience, GE asked Relay to create a complementary digital experience for sales staff to use with remote attendees."
-    nextSrc="/aa-header.jpg"
-    nextTitle="American Airlines"
-    nextUrl="/work/american-airlines"
+    nextSrc="/odessa-header.jpg"
+    nextTitle="OdessaConnect"
+    nextUrl="/work/odessa"
     ref="casestudy"
   >
 
     <template #challenge>
       <p>Each GE Appliance brand, from Monogram to Hotpoint, has its own unique look. The in-person tradeshow expresses that through unique booth designs, and enticing technology-driven displays.</p>
       <p>Relay was tasked with translating those diverse brand experiences into a single online destination that sales staff could use to communicate with off-site customers, while also serving as a value-added resource for on-site attendees.</p>
+    </template>
+
+    <template #challengeEmbed>
+      <div style="padding:padding:114.29% 0 0 0;position:relative;" class="challengeEmbedGE"><iframe src="https://player.vimeo.com/video/792286008?h=5bde968280&badge=0&autopause=0&player_id=0&app_id=58479/embedautoplay=1&amp;loop=0&amp;?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="EL_Wizard"></iframe></div>
     </template>
 
     <template #images>
@@ -38,10 +41,6 @@ import CaseStudy from '../../components/CaseStudy.vue'
       </ul>
     </template>
 
-    <template #images2>
-      <img src="/1280x768.png" class="w-full my-10 px-10" alt="" />
-    </template>
-
     <template #services>
       <ul>
         <li>UX design</li>
@@ -57,4 +56,15 @@ import CaseStudy from '../../components/CaseStudy.vue'
 
 
 <style scoped>
+.challengeEmbedGE {
+  height: 400px;
+  width: 350px;
+}
+
+@screen md {
+  .challengeEmbedGE {
+    height: 650px;
+    width: 100%;
+  }
+}
 </style>
