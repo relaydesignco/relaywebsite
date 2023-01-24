@@ -29,9 +29,9 @@ const clipOffset = computed(() => {
   if (width.value >= 768 &&  width.value < 1024) {
     return 220
   } else if (width.value >= 1024 && width.value < 1280) {
-    return 100
+    return 300
   } else {
-    return 160
+    return 320
   }
 })
 const xClip = ref(x + clipOffset.value + 'px')
@@ -118,7 +118,7 @@ svg {
     filter: grayscale(1) contrast(.8);
     transition: filter var(--bar-transition), transform var(--item-transition);
     transform-origin: center right;
-    width: 500px;
+    width: 700px;
   }
 
   a:hover .content-img {
@@ -138,7 +138,7 @@ svg {
     width: 1000px;
   }
   h2 {
-    --_p: calc(100% - 100px * -1);
+    --_p: calc(100% - 300px * -1);
   }
   a:hover h2 {
     --_p: calc(100% - v-bind(xClip) * -1);
@@ -151,13 +151,13 @@ svg {
   }
 
   .content-img  {
-    width: 640px;
+    width: 800px;
   }
 
   h2 {
     font-size: 80px;
-    width: 640px;
-    --_p: calc(100% - 160px * -1);
+    width: 800px;
+    --_p: calc(100% - 320px * -1);
   }
   a:hover h2 {
     --_p: calc(100% - v-bind(xClip) * -1);
