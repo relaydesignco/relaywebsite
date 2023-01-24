@@ -2,24 +2,23 @@
 import ColorSection from '../components/ColorSection.vue'
 import HeadlineScroll from '../components/HeadlineScroll.vue'
 import Footer from '../components/Footer.vue'
-import { useBgColor } from '../composables/useBgColor.js'
+import { useMainStore } from "../stores/index"
 
-const { bg, onShowBg, onHideBg } = useBgColor()
-defineExpose({bg})
+const store = useMainStore()
 
 </script>
 
 <template>
-  <main :class="`bg-${bg}`">
+  <main :class="`bg-${store.bgColor}`">
 
-    <ColorSection bg-color="yellow" @showBg="onShowBg" @hideBg="onHideBg">
+    <ColorSection bg-color="yellow">
       <div class="flex flex-col min-h-screen px-8 md:px-36 items-center justify-center">
         <h1 class="h1 text-center text-pink">About.</h1>
         <p class="text-center large">We’re a team of designers and developers who love to build. And when the things we build help thoughtful, innovative people solve meaningful problems – all the better.</p>
       </div>
     </ColorSection>
 
-    <ColorSection bg-color="pink" @showBg="onShowBg" @hideBg="onHideBg">
+    <ColorSection bg-color="pink">
       <div class="flex flex-col md:flex-row min-h-screen px-8 md:px-24 py-36 items-start text-white">
         <h2 class="h6 mb-12 text-white md:w-1/2 md:sticky md:top-40">Our beliefs.</h2>
         <div class="md:w-1/2">
@@ -39,7 +38,7 @@ defineExpose({bg})
       </div>
     </ColorSection>
 
-    <ColorSection bg-color="blue" @showBg="onShowBg" @hideBg="onHideBg">
+    <ColorSection bg-color="blue">
       <HeadlineScroll headline="Meet the team." />
       <div class="flex flex-col md:flex-row pb-24 md:pb-36 px-8 md:px-24 items-start">
         <div class="md:w-1/2">

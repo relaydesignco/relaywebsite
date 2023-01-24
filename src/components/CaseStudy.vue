@@ -3,12 +3,13 @@ import { computed } from 'vue'
 
 import ColorSection from '../components/ColorSection.vue'
 import Footer from '../components/Footer.vue'
-import { useBgColor } from '../composables/useBgColor.js'
+import { useMainStore } from "../stores/index"
 import { useInverseColor } from '../composables/useInverseColor';
 
+const store = useMainStore()
 const { getInverseColor } = useInverseColor()
 const inverseColor = computed(() => {
-  return getInverseColor(bg.value)
+  return getInverseColor(store.bgColor)
 })
 
 const props = defineProps<{
@@ -23,17 +24,12 @@ const props = defineProps<{
   nextSrc: string,
 }>()
 
-const { bg, onShowBg, onHideBg } = useBgColor()
-defineExpose({bg})
-
-
-
 </script>
 
 <template>
-  <main :class="`bg-${bg}`">
+  <main :class="`bg-${store.bgColor}`">
 
-    <ColorSection :bg-color="color" @showBg="onShowBg" @hideBg="onHideBg">
+    <ColorSection :bg-color="color">
       <div class="flex flex-col min-h-screen px-8 md:px-36 items-center justify-center">
         <h1 :class="`text-${inverseColor}`" class="h1 page-title text-center leading-none">{{title}}</h1>
         <p class="text-center large text-white lg:px-32">{{description}}</p>
@@ -41,7 +37,7 @@ defineExpose({bg})
       <img :src="heroImgSrc" class="w-full" alt="" />
     </ColorSection>
 
-    <ColorSection bg-color="white" @showBg="onShowBg" @hideBg="onHideBg">
+    <ColorSection bg-color="white">
       <div class="flex flex-col px-12 md:px-36 lg:px-2 lg:max-w-5xl lg:mx-auto py-36 lg:py-54 items-center justify-center">
         <p class="text-center intro text-black">{{ intro }}</p>
       </div>
@@ -76,7 +72,7 @@ defineExpose({bg})
     <slot name="images2"></slot>
 
 
-    <ColorSection :bg-color="color" @showBg="onShowBg" @hideBg="onHideBg">
+    <ColorSection :bg-color="color">
       <div class="flex flex-col md:flex-row px-20 md:px-24 py-44 lg:max-w-6xl lg:mx-auto items-start text-white capabilities">
         <h2 class="subheading md:w-1/4">Services</h2>
         <div class="md:w-3/4">

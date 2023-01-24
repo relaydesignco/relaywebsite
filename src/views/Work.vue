@@ -2,17 +2,16 @@
 import ColorSection from '../components/ColorSection.vue'
 import WorkListItem from '../components/WorkListItem.vue'
 import Footer from '../components/Footer.vue'
-import { useBgColor } from '../composables/useBgColor.js'
+import { useMainStore } from "../stores/index"
 
-const { bg, onShowBg, onHideBg } = useBgColor()
-defineExpose({bg})
+const store = useMainStore()
 
 </script>
 
 <template>
-  <main :class="`bg-${bg}`">
+  <main :class="`bg-${store.bgColor}`">
 
-    <ColorSection bg-color="red" @showBg="onShowBg" @hideBg="onHideBg">
+    <ColorSection bg-color="red">
       <div class="flex flex-col px-8 md:px-24 items-center justify-center">
         <h1 class="h1 text-center text-blue mb-30 md:mb-32 mt-56">Work.</h1>
       </div>

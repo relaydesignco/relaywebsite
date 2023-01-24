@@ -2,7 +2,10 @@
 import { ref, watch, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useInverseColor } from './composables/useInverseColor';
+import { useMainStore } from "./stores/index"
+
 const { getInverseColor } = useInverseColor()
+const store = useMainStore()
 
 // close menu when nav link is clicked
 const showMenu = ref(false)
@@ -23,8 +26,7 @@ watch(showMenu, (newVal) => {
 
 // change hamburger and logo color if over white bg
 const pageView = ref<HTMLElement | null>(null)
-// @ts-ignore
-const bgColor = computed(() => pageView.value?.bg) // trust that all pageview components expose bg
+const bgColor = computed(() => store.bgColor)
 const inverseColor = computed(() => {
   return getInverseColor(bgColor.value)
 })

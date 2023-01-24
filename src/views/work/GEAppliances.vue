@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
 import CaseStudy from '../../components/CaseStudy.vue'
-
-// pass bg color on up to parent
-const casestudy = ref<typeof CaseStudy | null>(null)
-const bg = computed(() => casestudy.value?.bg) // trust that all casestudy components expose bg
-defineExpose({bg})
 
 </script>
 

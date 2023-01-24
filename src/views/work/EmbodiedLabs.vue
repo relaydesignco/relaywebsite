@@ -1,13 +1,7 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
 import CaseStudy from '../../components/CaseStudy.vue'
 import { useVimeo } from '../../composables/useVimeo';
 useVimeo()
-
-// pass bg color on up to parent
-const casestudy = ref<typeof CaseStudy | null>(null)
-const bg = computed(() => casestudy.value?.bg) // trust that all casestudy components expose bg
-defineExpose({bg})
 
 </script>
 
