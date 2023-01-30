@@ -8,6 +8,7 @@ useVimeo()
 <template>
   <CaseStudy
     color="green"
+    secondaryColor="pink"
     title="American Airlines"
     description="An online home for a global workforce."
     heroImgSrc="/aa-header.jpg"

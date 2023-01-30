@@ -14,6 +14,7 @@ const inverseColor = computed(() => {
 
 const props = defineProps<{
   color: string,
+  secondaryColor: string,
   title: string,
   description: string,
   intro: string,
@@ -61,7 +62,7 @@ const props = defineProps<{
     <slot name="images2"></slot>
 
 
-    <ColorSection :bg-color="color">
+    <ColorSection :bg-color="secondaryColor">
       <div class="flex flex-col md:flex-row px-20 md:px-24 py-44 lg:max-w-6xl lg:mx-auto items-start text-white capabilities">
         <h2 class="subheading md:w-1/4">Services</h2>
         <div class="md:w-3/4">

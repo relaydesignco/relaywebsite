@@ -2,7 +2,7 @@
 import { onMounted, ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import animation from "../../assets/gea_logos_v5.json";
 import CaseStudy from '../../components/CaseStudy.vue'
 
@@ -38,6 +38,7 @@ const slides = [
 <template>
   <CaseStudy
     color="pink"
+    secondaryColor="orange"
     title="GE Appliances"
     description="A virtual experience to complement an in-person trade show event."
     heroImgSrc="/ge-header.jpg"

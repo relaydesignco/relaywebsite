@@ -8,6 +8,7 @@ useVimeo()
 <template>
   <CaseStudy
     color="orange"
+    secondaryColor="yellow"
     title="Embodied Labs"
     description="An online training platform educating caregivers through immersive experiences."
     heroImgSrc="/el-header.jpg"

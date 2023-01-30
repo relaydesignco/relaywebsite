@@ -6,6 +6,7 @@ import CaseStudy from '../../components/CaseStudy.vue'
 <template>
   <CaseStudy
     color="green"
+    secondaryColor="red"
     title="OdessaConnect"
     description="A television-based app for seniors, their residences, and their loved ones."
     heroImgSrc="/odessa-header.jpg"

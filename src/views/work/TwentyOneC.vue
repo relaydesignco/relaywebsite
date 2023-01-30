@@ -6,6 +6,7 @@ import CaseStudy from '../../components/CaseStudy.vue'
 <template>
   <CaseStudy
     color="blue"
+    secondaryColor="red"
     title="21c Museum Hotels"
     description="Transformative business intelligence tools for a growing hospitality brand."
     heroImgSrc="/21c-header.jpg"
