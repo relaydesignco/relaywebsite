@@ -1,5 +1,27 @@
 <script setup lang="ts">
+import { onMounted, ref, watch } from 'vue'
+import { useElementVisibility } from '@vueuse/core'
+import animation from "../../assets/gea_logos_v5.json";
 import CaseStudy from '../../components/CaseStudy.vue'
+
+let hasAnimPlayed = false;
+let anim = ref();
+const animIsVisible = ref(useElementVisibility(anim))
+
+onMounted(() => {
+  console.log(animation)
+  if (!hasAnimPlayed && animIsVisible.value == true) {
+    anim.value.play()
+    hasAnimPlayed = true
+  }
+})
+
+watch(animIsVisible, async (newVal, oldVal) => {
+  if (!hasAnimPlayed && newVal == true) {
+    anim.value.play()
+    hasAnimPlayed = true
+  }
+})
 
 </script>
 
@@ -22,7 +44,14 @@ import CaseStudy from '../../components/CaseStudy.vue'
     </template>
 
     <template #challengeEmbed>
-      <div style="padding:padding:114.29% 0 0 0;position:relative;" class="challengeEmbedGE"><iframe src="https://player.vimeo.com/video/792286008?h=5bde968280&badge=0&autopause=0&player_id=0&app_id=58479/embedautoplay=1&amp;loop=0&amp;?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="EL_Wizard"></iframe></div>
+      <div class="challengeEmbedGE p-4">
+        <lottie-animation
+          ref="anim"
+          :animationData="animation"
+          :loop="false"
+          :autoPlay="false"
+        />
+      </div>
     </template>
 
     <template #images>
@@ -57,14 +86,14 @@ import CaseStudy from '../../components/CaseStudy.vue'
 
 <style scoped>
 .challengeEmbedGE {
-  height: 400px;
-  width: 350px;
+  background: #053253 url('/ge-logos-bg.jpg') no-repeat center center;
+  background-size: cover;
 }
 
-@screen md {
+/* @screen md {
   .challengeEmbedGE {
     height: 650px;
     width: 100%;
   }
-}
+} */
 </style>
