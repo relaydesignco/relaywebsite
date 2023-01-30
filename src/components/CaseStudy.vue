@@ -18,7 +18,6 @@ const props = defineProps<{
   description: string,
   intro: string,
   heroImgSrc: string,
-  challengeImgSrc?: string,
   nextTitle: string,
   nextUrl: string,
   nextSrc: string,
@@ -42,19 +41,8 @@ const props = defineProps<{
         <p class="text-center intro text-black">{{ intro }}</p>
       </div>
 
-      <div class="flex flex-col md:flex-row pb-24 md:pb-36 md:pr-24 items-center">
-        <div class="md:w-1/2">
-          <div class="md:mr-24 mb-8 md:mb-0 h-full">
-            <img v-if="challengeImgSrc" :src="challengeImgSrc" class="w-full object-cover" alt="" />
-            <slot name="challengeEmbed"></slot>
-          </div>
-        </div>
-        <div class="md:w-1/2">
-          <div class="px-24 md:px-12 lg:px-24">
-            <p class="subheading mt-24 md:mt-0">Challenge</p>
-            <slot name="challenge"></slot>
-          </div>
-        </div>
+      <div class="flex flex-col md:flex-row pb-24 md:pb-36 items-center">
+        <slot name="challenge"></slot>
       </div>
 
       <slot name="images"></slot>

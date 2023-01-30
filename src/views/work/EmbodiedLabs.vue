@@ -11,7 +11,6 @@ useVimeo()
     title="Embodied Labs"
     description="An online training platform educating caregivers through immersive experiences."
     heroImgSrc="/el-header.jpg"
-    challengeImgSrc="/el-challenge.jpg"
     intro="Embodied Labs is a start-up that pioneered the use of VR for healthcare training. When Covid prevented users from learning on-site and in-headset, Embodied Labs turned to Relay to help translate their product to the web."
     nextSrc="/ge-header-2.jpg"
     nextTitle="GE Appliances"
@@ -20,7 +19,17 @@ useVimeo()
   >
 
     <template #challenge>
-      <p>The original Embodied Labs product was VR-based. It required trainees to use a VR headset, and was most commonly used on-site at their employer. When the pandemic hit, customers were reticent to bring employees on-site or share headsets, and usage dropped off. Relay was tasked with helping bring the product to the web, enabling users to access the educational content remotely via their browser.</p>
+      <div class="md:w-1/2">
+          <div class="md:mr-8 mb-8 md:mb-0 h-full">
+            <img src="/el-challenge.jpg" alt="" class="w-full" />
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <div class="px-24 md:px-12 lg:px-16 lg:pr-32">
+            <p class="subheading mt-24 md:mt-0">Challenge</p>
+            <p>The original Embodied Labs product was VR-based. It required trainees to use a VR headset, and was most commonly used on-site at their employer. When the pandemic hit, customers were reticent to bring employees on-site or share headsets, and usage dropped off. Relay was tasked with helping bring the product to the web, enabling users to access the educational content remotely via their browser.</p>
+          </div>
+        </div>
     </template>
 
     <template #images>

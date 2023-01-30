@@ -11,7 +11,6 @@ useVimeo()
     title="American Airlines"
     description="An online home for a global workforce."
     heroImgSrc="/aa-header.jpg"
-    challengeImgSrc="/aa-challenge.jpg"
     intro="Relay worked with American Airlines subsidiaries Piedmont Airlines and PSA Airlines to design and develop custom employee portals to house information and tools that enable team members to stay informed while working around the globe."
     nextSrc="/el-header.jpg"
     nextTitle="Embodied Labs"
@@ -20,7 +19,17 @@ useVimeo()
   >
 
     <template #challenge>
-      <p>Replace multiple legacy intranets that were used daily by a global team to access critical business tools and announcements. Challenges experienced by users included performance issues, sprawling information architecture, and lack of content management tools. </p>
+      <div class="md:w-1/2">
+          <div class="md:mr-8 mb-8 md:mb-0 h-full">
+            <img src="/aa-challenge.jpg" alt="" class="w-full" />
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <div class="px-24 md:px-12 lg:px-16 lg:pr-32">
+            <p class="subheading mt-24 md:mt-0">Challenge</p>
+            <p>Replace multiple legacy intranets that were used daily by a global team to access critical business tools and announcements. Challenges experienced by users included performance issues, sprawling information architecture, and lack of content management tools. </p>
+          </div>
+        </div>
     </template>
 
     <template #images>

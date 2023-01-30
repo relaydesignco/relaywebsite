@@ -39,19 +39,25 @@ watch(animIsVisible, async (newVal, oldVal) => {
   >
 
     <template #challenge>
-      <p>Each GE Appliance brand, from Monogram to Hotpoint, has its own unique look. The in-person tradeshow expresses that through unique booth designs, and enticing technology-driven displays.</p>
-      <p>Relay was tasked with translating those diverse brand experiences into a single online destination that sales staff could use to communicate with off-site customers, while also serving as a value-added resource for on-site attendees.</p>
-    </template>
-
-    <template #challengeEmbed>
-      <div class="challengeEmbedGE p-4">
-        <lottie-animation
-          ref="anim"
-          :animationData="animation"
-          :loop="false"
-          :autoPlay="false"
-        />
-      </div>
+      <div class="md:w-1/2">
+          <div class="md:mr-8 mb-8 md:mb-0 h-full">
+            <div class="challengeEmbedGE p-4">
+              <lottie-animation
+                ref="anim"
+                :animationData="animation"
+                :loop="false"
+                :autoPlay="false"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <div class="px-24 md:px-12 lg:px-16 lg:pr-32">
+            <p class="subheading mt-24 md:mt-0">Challenge</p>
+            <p>Each GE Appliance brand, from Monogram to Hotpoint, has its own unique look. The in-person tradeshow expresses that through unique booth designs, and enticing technology-driven displays.</p>
+            <p>Relay was tasked with translating those diverse brand experiences into a single online destination that sales staff could use to communicate with off-site customers, while also serving as a value-added resource for on-site attendees.</p>
+          </div>
+        </div>
     </template>
 
     <template #images>

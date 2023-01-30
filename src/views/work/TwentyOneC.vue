@@ -5,20 +5,24 @@ import CaseStudy from '../../components/CaseStudy.vue'
 
 <template>
   <CaseStudy
-    color="yellow"
+    color="blue"
     title="21c Museum Hotels"
     description="Transformative business intelligence tools for a growing hospitality brand."
     heroImgSrc="/21c-header.jpg"
-    challengeImgSrc="/630x720.png"
     intro="Since becoming our client in 2005, 21c Museum Hotels has grown from one location to nine, and been acquired by one of the largest hospitality companies in the world. To help accomodate their expansion, Relay created a custom web application to report KPIs and real-time metrics for their locations across the U.S., allowing their team to operate more effectively at scale."
     nextSrc="/aa-header.jpg"
     nextTitle="American Airlines"
-    nextUrl="/work/aa"
+    nextUrl="/work/american-airlines"
     ref="casestudy"
   >
 
     <template #challenge>
-      <p>Replace an antiquated, manual reporting process with a custom digital product that streamlines reporting, aggregates data from a variety of sources, and is easily accessible by a diverse, distributed team.</p>
+      <div class="md:w-full">
+        <div class="px-24 md:px-12 lg:px-32">
+          <p class="subheading mt-24 md:mt-0 text-center">Challenge</p>
+          <p>Replace an antiquated, manual reporting process with a custom digital product that streamlines reporting, aggregates data from a variety of sources, and is easily accessible by a diverse, distributed team.</p>
+        </div>
+      </div>
     </template>
 
     <template #images>

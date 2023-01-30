@@ -9,7 +9,6 @@ import CaseStudy from '../../components/CaseStudy.vue'
     title="OdessaConnect"
     description="A television-based app for seniors, their residences, and their loved ones."
     heroImgSrc="/odessa-header.jpg"
-    challengeImgSrc="/odessa-challenge.jpg"
     intro="OdessaConnect turns the TV screen into a computer screen, allowing seniors to connect more easily with their loved ones, caregivers, and healthcare providers. Relay helped OdessaConnect grow their idea into a fully-realized cross-platform digital product."
     nextSrc="/21c-header.jpg"
     nextTitle="21c Museum Hotels"
@@ -17,8 +16,18 @@ import CaseStudy from '../../components/CaseStudy.vue'
     ref="casestudy"
   >
 
-    <template #challenge>
-      <p>OdessaConnect relies on proprietary hardware and a cross-platform digital product to enable seniors to use their TV to communicate with family members, caregivers and healthcare providers. Since OdessaConnect’s early days, Relay has worked alongside the product team to develop new features, support new hardware capabilities, and help the digital platform grow and scale with the business’s success.</p>
+  <template #challenge>
+      <div class="md:w-1/2">
+          <div class="md:mr-8 mb-8 md:mb-0 h-full">
+            <img src="/odessa-challenge.jpg" alt="" class="w-full" />
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <div class="px-24 md:px-12 lg:px-16 lg:pr-32">
+            <p class="subheading mt-24 md:mt-0">Challenge</p>
+            <p>OdessaConnect relies on proprietary hardware and a cross-platform digital product to enable seniors to use their TV to communicate with family members, caregivers and healthcare providers. Since OdessaConnect’s early days, Relay has worked alongside the product team to develop new features, support new hardware capabilities, and help the digital platform grow and scale with the business’s success.</p>
+          </div>
+        </div>
     </template>
 
     <template #images>
