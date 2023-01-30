@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import animation from "../../assets/gea_logos_v5.json";
 import CaseStudy from '../../components/CaseStudy.vue'
 
@@ -22,6 +24,14 @@ watch(animIsVisible, async (newVal, oldVal) => {
     hasAnimPlayed = true
   }
 })
+
+const slides = [
+  '/GEA_Slides_1.png',
+  '/GEA_Slides_2.png',
+  '/GEA_Slides_3.png',
+  '/GEA_Slides_4.png',
+  '/GEA_Slides_5.png',
+]
 
 </script>
 
@@ -61,8 +71,17 @@ watch(animIsVisible, async (newVal, oldVal) => {
     </template>
 
     <template #images>
-      <div class="grid grid-cols-1 gap-4">
-        <img src="/1280x768.png" class="w-full" alt="" />
+      <div class="gea-carousel w-full">
+        <carousel :items-to-show="1" :wrapAround="true" :autoplay="4000" :transition="800">
+          <slide v-for="slide in slides" :key="slide">
+            <div class="img-wrap w-full flex items-center justify-center p-12">
+              <img :src="slide" alt="" />
+            </div>
+          </slide>
+          <template #addons>
+            <navigation />
+          </template>
+        </carousel>
       </div>
     </template>
 
@@ -96,10 +115,13 @@ watch(animIsVisible, async (newVal, oldVal) => {
   background-size: cover;
 }
 
-/* @screen md {
-  .challengeEmbedGE {
-    height: 650px;
-    width: 100%;
-  }
-} */
+.img-wrap {
+  background: #ced6d6;
+}
+
+.gea-carousel {
+  --vc-nav-width: 4rem;
+  --vc-nav-height: 4rem;
+  --vc-nav-color: white;
+}
 </style>
