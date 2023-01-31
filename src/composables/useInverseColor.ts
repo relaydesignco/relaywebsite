@@ -1,6 +1,8 @@
 export function useInverseColor() {
   function getInverseColor(color: string) {
     switch(color) {
+      case 'black':
+        return 'white'
       case 'white':
         return 'black'
       case 'blue':

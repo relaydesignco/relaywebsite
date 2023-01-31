@@ -10,10 +10,12 @@ const store = useMainStore()
 </script>
 
 <template>
+  <TypeHero />
+
+
   <main :class="`bg-${store.bgColor}`">
 
     <ColorSection bg-color="red">
-      <TypeHero />
     </ColorSection>
 
     <ColorSection bg-color="orange">

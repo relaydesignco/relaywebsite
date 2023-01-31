@@ -126,7 +126,7 @@ const refs = useTemplateRefsList<HTMLSpanElement>()
 </script>
 
 <template>
-  <div>
+  <div class="bg-red">
 
     <div class="posDebug">{{ m.x }}, {{ m.y }}</div>
 

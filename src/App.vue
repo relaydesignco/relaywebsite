@@ -60,7 +60,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
         <rect :class="[`fill-${inverseColor}`, {moved : isScrolled}]" class="bar" x="25" y="60" width="34" height="3" />
       </svg>
     </router-link>
-    <button class="hamburger absolute z-20 right-7 top-7 text-black border-0 p-0" :class="{close : showMenu}" @click.prevent="showMenu = !showMenu">
+    <button class="hamburger absolute z-20 right-7 top-7 text-white border-0 p-0" :class="{close : showMenu}" @click.prevent="showMenu = !showMenu">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect :class="showMenu == false ? `fill-${inverseColor}` : `fill-${bgColor}`" class="nav-icon-line line-1" width="32" height="3"/>
         <rect :class="showMenu == false ? `fill-${inverseColor}` : `fill-${bgColor}`" class="nav-icon-line line-2" width="32" height="3" y="10"  />

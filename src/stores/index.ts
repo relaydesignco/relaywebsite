@@ -7,7 +7,7 @@ export type RootState = {
 export const useMainStore = defineStore({
   id: "mainStore",
   state: () => ({
-      bgColor: 'white',
+      bgColor: 'black',
   } as RootState),
   actions: {
     setBgColor(color: string) {
