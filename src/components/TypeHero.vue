@@ -141,7 +141,7 @@ const refs = useTemplateRefsList<HTMLSpanElement>()
           {{ item }}
         </span>
       </div>
-      <div class="headline font-sans leading-none text-center text-white">
+      <div class="headline mb-8 md:mb-0 font-sans leading-none text-center text-white">
         <span v-for="item in headline3" :ref="refs.set">
           {{ item }}
         </span>
@@ -159,6 +159,9 @@ const refs = useTemplateRefsList<HTMLSpanElement>()
 
 .headline {
   font-size: 12vw;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 @screen md {

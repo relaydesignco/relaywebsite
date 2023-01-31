@@ -26,7 +26,7 @@ const { stop } = useIntersectionObserver(
 
 <style scoped>
   .h1 {
-    @apply whitespace-nowrap text-3xl md:text-5xl lg:text-6xl pt-24;
+    @apply leading-none md:whitespace-nowrap text-5xl lg:text-6xl pt-24;
   }
 
   @screen md {
