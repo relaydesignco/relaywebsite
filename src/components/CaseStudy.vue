@@ -35,12 +35,12 @@ const props = defineProps<{
         <p class="text-center large text-white lg:px-32">{{description}}</p>
       </div>
       <img :src="heroImgSrc" class="w-full" alt="" />
+      <div class="flex flex-col px-12 md:px-36 lg:px-2 lg:max-w-5xl lg:mx-auto py-36 lg:py-54 mb-16 md:mb-24 items-center justify-center">
+        <p class="text-center intro text-black">{{ intro }}</p>
+      </div>
     </ColorSection>
 
     <ColorSection bg-color="white">
-      <div class="flex flex-col px-12 md:px-36 lg:px-2 lg:max-w-5xl lg:mx-auto py-36 lg:py-54 items-center justify-center">
-        <p class="text-center intro text-black">{{ intro }}</p>
-      </div>
 
       <div class="flex flex-col md:flex-row pb-24 md:pb-36 items-center">
         <slot name="challenge"></slot>
@@ -57,9 +57,9 @@ const props = defineProps<{
         </div>
       </div>
 
-    </ColorSection>
+      <slot name="images2"></slot>
 
-    <slot name="images2"></slot>
+    </ColorSection>
 
 
     <ColorSection :bg-color="secondaryColor">
