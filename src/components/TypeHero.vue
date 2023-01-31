@@ -35,7 +35,7 @@ function lerp(start: number, end: number, pct: number){
 /* Linear conversion */
 const oldMin = 0
 const oldMax = dist({x: 0, y: 0}, {x: Math.floor(width.value * .4), y: Math.floor(height.value * .4)})
-const newMin = 100
+const newMin = width.value < 480 ? 200 : 100
 const newMax = 900
 const oldRange = (oldMax - oldMin)
 const newRange = (newMax - newMin)
@@ -53,7 +53,7 @@ function dist(a:Coordinate, b:Coordinate) {
 
 /* calculate eased weight for animation */
 function getWeight(el: HTMLSpanElement, deltaTime: number) {
-  if (m.value.isOutside == true) return '100'
+  if (m.value.isOutside == true) return newMin
   const viewportOffset = el.getBoundingClientRect();
   let mouseCoord : Coordinate = { x: m.value.x, y: m.value.y }
   if (fakeMouse) {
@@ -62,8 +62,8 @@ function getWeight(el: HTMLSpanElement, deltaTime: number) {
   const letterPos : Coordinate = { x: viewportOffset.left + el.offsetWidth / 2, y: viewportOffset.top +  + el.offsetHeight / 2 }
   const d = dist(mouseCoord, letterPos)
   const scaledD = scaleNumberInRange(d)
-  const weight = Math.floor(Math.max(100, 900 - scaledD))
-  const currentWeight = el.style.fontWeight == '' ? 100 : parseInt(el.style.fontWeight)
+  const weight = Math.floor(Math.max(newMin, 900 - scaledD))
+  const currentWeight = el.style.fontWeight == '' ? newMin : parseInt(el.style.fontWeight)
   const lerpedWeight = lerp(currentWeight, weight, spike(deltaTime * .009))
   return lerpedWeight.toString()
 }
@@ -85,7 +85,7 @@ function updateFontWeights() {
       }
     }
     refs.value.forEach((d) => {
-      d.style.fontWeight = getWeight(d, elapsed);
+      d.style.fontWeight = String(getWeight(d, elapsed));
     })
   }
   timeTillStart -= elapsed
@@ -171,13 +171,19 @@ const refs = useTemplateRefsList<HTMLSpanElement>()
 }
 
 .headline span {
-  font-weight: 100;
+  font-weight: 200;
   font-synthesis: none;
   text-rendering:geometricPrecision;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
   font-optical-sizing: none;
   font-kerning: none;
+}
+
+@screen md {
+  .headline span {
+    font-weight: 100;
+  }
 }
 
 section {
