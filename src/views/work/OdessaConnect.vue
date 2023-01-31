@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import CaseStudy from '../../components/CaseStudy.vue'
+import { useWistia } from '../../composables/useWistia';
+useWistia()
 
 </script>
 
@@ -32,8 +34,10 @@ import CaseStudy from '../../components/CaseStudy.vue'
     </template>
 
     <template #images>
-      <div class="grid grid-cols-1 gap-4">
-        <img src="/1280x768.png" class="w-full" alt="" />
+      <div class="wistia_responsive_padding" style="padding:53.13% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/lwxkjmwb46?seo=false&videoFoam=true" title="Odessa Animation Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
+      <div class="grid grid-cols-2 gap-5 mt-5">
+        <img src="/odessa-sm-1.jpg" alt="" />
+        <img src="/odessa-sm-2.jpg" alt="" />
       </div>
     </template>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import CaseStudy from '../../components/CaseStudy.vue'
-import { useVimeo } from '../../composables/useVimeo';
-useVimeo()
+import { useWistia } from '../../composables/useWistia';
+useWistia()
 
 </script>
 
@@ -35,17 +35,17 @@ useVimeo()
 
     <template #images>
       <div class="grid grid-cols-1 gap-2 p-6 pb-0 bg-lightgray">
-        <div style="padding:46.88% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/790903821?h=901d7628e3&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="AA_ScreenRec"></iframe></div>
+        <div class="wistia_responsive_padding" style="padding:46.88% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/njhyhhff16?seo=false&videoFoam=true" title="AA_ScreenRec Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
       </div>
       <div class="grid grid-cols-2 gap-4 p-6 bg-lightgray">
         <img src="/aa-psa-home.jpg" class="w-full h-full object-cover" alt="" />
         <img src="/aa-piedmont-home.jpg" class="w-full h-full object-cover" alt="" />
       </div>
       <div class="grid grid-cols-2 gap-4 py-6">
-        <div class="h-full object-cover">
-          <div style="padding:42.86% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/790903850?h=877ca4e113&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; gyroscope; accelerometer" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="PSA Logo Animation 4"></iframe></div>
+        <div class="w-full">
+          <img src="/630x720.png" alt="" class="w-full h-96 object-cover" />
         </div>
-        <img src="/aa-collateral.jpg" class="w-full h-full" alt="" />
+        <img src="/aa-collateral.jpg" class="w-full" alt="" />
       </div>
     </template>
 

@@ -38,8 +38,8 @@ useWistia()
           <h3>Project Features</h3>
           <ul class="ml-8 mt-8">
             <li>Revenue Dashboard</li>
-            <li>Integrations with multiple 3rd-party platforms</li>
             <li>Custom Content Management System</li>
+            <li>Integrations with Multiple 3rd-Party Platforms</li>
             <li>Personnel Directory</li>
             <li>Automated Reporting</li>
           </ul>

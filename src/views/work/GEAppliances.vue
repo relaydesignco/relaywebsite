@@ -26,11 +26,11 @@ watch(animIsVisible, async (newVal, oldVal) => {
 })
 
 const slides = [
-  '/GEA_Slides_1.png',
-  '/GEA_Slides_2.png',
-  '/GEA_Slides_3.png',
-  '/GEA_Slides_4.png',
-  '/GEA_Slides_5.png',
+  '/ge-slide-1.jpg',
+  '/ge-slide-2.jpg',
+  '/ge-slide-3.jpg',
+  '/ge-slide-4.jpg',
+  '/ge-slide-5.jpg',
 ]
 
 </script>
@@ -73,10 +73,13 @@ const slides = [
 
     <template #images>
       <div class="gea-carousel w-full">
-        <carousel :items-to-show="1" :wrapAround="true" :autoplay="4000" :transition="800">
+        <carousel :items-to-show="1" :wrapAround="true" :autoplay="1000000" :transition="800">
           <slide v-for="slide in slides" :key="slide">
-            <div class="img-wrap w-full flex items-center justify-center p-12">
-              <img :src="slide" alt="" />
+            <div class="slide-wrap w-full flex items-center justify-center p-12">
+              <div class="img-wrap relative">
+                <img :src="slide" alt="" class="pic relative" />
+                <img src="/ipad.png" alt="" class="bg absolute top-0 left-0" />
+              </div>
             </div>
           </slide>
           <template #addons>
@@ -116,8 +119,20 @@ const slides = [
   background-size: cover;
 }
 
-.img-wrap {
-  background: #ced6d6;
+.gea-carousel {
+  background: rgb(211,211,211);
+  background: linear-gradient(228deg, rgba(211,211,211,1) 0%, rgba(189,189,189,1) 100%);
+}
+
+.pic {
+  z-index: 2;
+  padding: 4%;
+}
+
+.bg {
+  z-index: 1;
+  -webkit-filter: drop-shadow(10px 10px 40px rgba(0,0,0,.3));
+  filter: drop-shadow(10px 10px 40px rgba(0,0,0,.3));
 }
 
 .gea-carousel {

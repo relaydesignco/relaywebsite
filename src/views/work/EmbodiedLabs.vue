@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import CaseStudy from '../../components/CaseStudy.vue'
-import { useVimeo } from '../../composables/useVimeo';
-useVimeo()
+import { useWistia } from '../../composables/useWistia';
+useWistia()
 
 </script>
 
@@ -35,13 +35,13 @@ useVimeo()
 
     <template #images>
       <div class="grid grid-cols-1 gap-4">
-        <img src="/1280x768.png" class="w-full" alt="Video goes here" />
+        <div class="wistia_responsive_padding" style="padding:56.04% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/as9zv8pfvt?seo=false&videoFoam=true" title="ELVideo3" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
       </div>
       <div class="grid grid-cols-2 gap-4 p-4 bg-lightgray">
         <img src="/el-screen-1.jpg" class="w-full h-full" alt="" />
         <img src="/el-screen-2.jpg" class="w-full h-full" alt="" />
         <div class="w-full h-full">
-          <div style="padding:52.38% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/790903908?h=75ffda7947&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="EL_Wizard"></iframe></div>
+          <div class="wistia_responsive_padding" style="padding:52.19% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/pr7lmyjnbj?seo=false&videoFoam=true" title="EL_Wizard Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
         </div>
         <img src="/el-screen-3.jpg" class="w-full h-full" alt="" />
       </div>

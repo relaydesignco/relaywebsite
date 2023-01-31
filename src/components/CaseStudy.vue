@@ -122,16 +122,11 @@ main {
 }
 
 :slotted(li::before) {
-  @apply block w-5 -ml-7 absolute;
+  @apply block w-5 -ml-7 absolute bg-white;
 
   content: "";
   height: 3px;
   margin-top: 14px;
-}
-
-/* nasty little hard-coded inverse colors */
-.bg-yellow :slotted(li::before) {
-  @apply bg-red
 }
 
 .bg-white :slotted(li::before) {
