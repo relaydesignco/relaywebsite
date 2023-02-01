@@ -32,7 +32,7 @@ const store = useMainStore()
           </div>
           <div class="mb-14">
             <h3 class="h5 text-white">Progress</h3>
-            <p class="medium">We follow a design-led process that prioritizes progress over perfection and continually asks, “What’s the next most important thing?” Beecause momentum is everything when building digital products for a rapidly changing market.</p>
+            <p class="medium">We follow a design-led process that prioritizes progress over perfection and continually asks, “What’s the next most important thing?” Because momentum is everything when building digital products for a rapidly changing market.</p>
           </div>
         </div>
       </div>

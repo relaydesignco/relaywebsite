@@ -10,7 +10,7 @@ useWistia()
     color="green"
     secondaryColor="red"
     title="OdessaConnect"
-    description="A television-based app for seniors, their residences, and their loved ones."
+    description="A television-based app for seniors, their communities, and their loved ones."
     heroImgSrc="/odessa-header.jpg"
     intro="OdessaConnect turns the TV screen into a computer screen, allowing seniors to connect more easily with their loved ones, caregivers, and healthcare providers. Relay helped OdessaConnect grow their idea into a fully-realized cross-platform digital product."
     nextSrc="/21c-header.jpg"
