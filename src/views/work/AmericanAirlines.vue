@@ -1,7 +1,27 @@
 <script setup lang="ts">
+import { onMounted, ref, watch } from 'vue'
+import { useElementVisibility } from '@vueuse/core'
+import animation from "../../assets/psa_logo_animation.json";
 import CaseStudy from '../../components/CaseStudy.vue'
 import { useWistia } from '../../composables/useWistia';
 useWistia()
+
+let anim = ref();
+const animIsVisible = ref(useElementVisibility(anim))
+
+onMounted(() => {
+  if (animIsVisible.value == true) {
+    anim.value.play()
+  }
+})
+
+watch(animIsVisible, async (newVal, oldVal) => {
+  if (newVal == true) {
+    anim.value.play()
+  } else {
+    anim.value.stop()
+  }
+})
 
 </script>
 
@@ -42,8 +62,13 @@ useWistia()
         <img src="/aa-piedmont-home.jpg" class="w-full h-full object-cover" alt="" />
       </div>
       <div class="grid grid-cols-2 gap-4 py-6">
-        <div class="w-full">
-          <img src="/630x720.png" alt="" class="w-full h-96 object-cover" />
+        <div class="w-full flex">
+          <lottie-animation
+            ref="anim"
+            :animationData="animation"
+            :loop="true"
+            :autoPlay="false"
+          />
         </div>
         <img src="/aa-collateral.jpg" class="w-full" alt="" />
       </div>
