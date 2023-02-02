@@ -12,6 +12,9 @@ const m = ref(useMouseInElement(target))
 let fakeMouse : Coordinate | null = { x: -100, y: height.value / 2 } // fake mouse pointer movement
 let timeTillStart = 600 // delay start of inital animation
 
+// desktop safari has janky rendering of lerp, so detect browser here
+const isDesktopSafari = navigator.userAgent.indexOf("Safari") > -1 && navigator.userAgent.indexOf("Chrome") == -1 && width.value >= 480;
+
 /* Easing functions */
 function easeIn(t: number){
     return t * t
@@ -64,7 +67,8 @@ function getWeight(el: HTMLSpanElement, deltaTime: number) {
   const scaledD = scaleNumberInRange(d)
   const weight = Math.floor(Math.max(newMin, 900 - scaledD))
   const currentWeight = el.style.fontWeight == '' ? newMin : parseInt(el.style.fontWeight)
-  const lerpedWeight = lerp(currentWeight, weight, spike(deltaTime * .009))
+  // do not lerp on desktop safari
+  const lerpedWeight = isDesktopSafari ? weight : lerp(currentWeight, weight, spike(deltaTime * .009))
   return lerpedWeight.toString()
 }
 
@@ -97,15 +101,6 @@ onMounted(() => {
   lastTimestamp = Date.now()
   updateFontWeights()
 })
-
-// @TODO cancel anim frame if offscreen
-// watch(m.value, (newVal, oldVal) => {
-//   if (newVal.isOutside == true && loop != undefined) {
-//     cancelAnimationFrame(loop)
-//   } else if (newVal.isOutside == false && loop == undefined)
-//     lastTimestamp = Date.now()
-//     updateFontWeights()
-//  })
 
 // if the user moves their mouse while the initial animation is going,
 // stop the anim and use their mouse moves instead
