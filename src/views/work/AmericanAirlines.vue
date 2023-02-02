@@ -55,7 +55,7 @@ watch(animIsVisible, async (newVal, oldVal) => {
 
     <template #images>
       <div class="grid grid-cols-1 gap-2 p-6 pb-0 bg-lightgray">
-        <div class="wistia_responsive_padding" style="padding:52.08% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/njhyhhff16?seo=false&videoFoam=true" title="AA_ScreenRec Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
+        <div class="wistia_responsive_padding" style="padding:52.08% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/njhyhhff16?seo=false&videoFoam=true" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
       </div>
       <div class="grid grid-cols-2 gap-4 p-6 bg-lightgray">
         <img src="/aa-psa-home.jpg" class="w-full h-full object-cover" alt="" />
