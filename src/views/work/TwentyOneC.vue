@@ -32,7 +32,7 @@ useWistia()
 
       <div class="flex w-full">
         <div class="w-full md:w-1/2">
-          <div class="wistia_responsive_padding" style="padding:109.38% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/qlhux7lew0?seo=false&videoFoam=true" title="21cLogoShadows Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
+          <div class="wistia_responsive_padding" style="padding:109.38% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/qlhux7lew0?seo=false&videoFoam=true" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
         </div>
         <div class="w-full md:w-1/2 bg-lightgray p-12 flex flex-col justify-center content-center">
           <h3>Project Features</h3>
@@ -49,7 +49,7 @@ useWistia()
       <img src="/21c_Slides_Tablet.jpg" class="w-full my-10" alt="" />
 
       <div class="w-full">
-        <div class="wistia_responsive_padding" style="padding:46.88% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/t7r0ifm49c?seo=false&videoFoam=true" title="21cDesktopAnimationFINAL Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
+        <div class="wistia_responsive_padding" style="padding:46.88% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/t7r0ifm49c?seo=false&videoFoam=true" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
       </div>
     </template>
 

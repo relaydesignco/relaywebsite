@@ -35,13 +35,13 @@ useWistia()
 
     <template #images>
       <div class="grid grid-cols-1 gap-4">
-        <div class="wistia_responsive_padding" style="padding:56.04% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/as9zv8pfvt?seo=false&videoFoam=true" title="ELVideo3" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
+        <div class="wistia_responsive_padding" style="padding:56.04% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/as9zv8pfvt?seo=false&videoFoam=true" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
       </div>
       <div class="grid grid-cols-2 gap-4 p-4 bg-lightgray">
         <img src="/el-screen-1.jpg" class="w-full h-full" alt="" />
         <img src="/el-screen-2.jpg" class="w-full h-full" alt="" />
         <div class="w-full h-full">
-          <div class="wistia_responsive_padding" style="padding:52.19% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/pr7lmyjnbj?seo=false&videoFoam=true" title="EL_Wizard Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
+          <div class="wistia_responsive_padding" style="padding:52.19% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/pr7lmyjnbj?seo=false&videoFoam=true" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
         </div>
         <img src="/el-screen-3.jpg" class="w-full h-full" alt="" />
       </div>
