@@ -157,8 +157,11 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   transition: all var(--movement-transition);
 }
 
-.nav-link.text-yellow .bar {
-  @apply bg-black
+.nav-link.text-yellow .bar,
+.nav-link.text-blue .bar,
+.nav-link.text-orange .bar,
+.nav-link.text-green .bar {
+  @apply bg-white
 }
 
 .nav-link:hover .bar,
