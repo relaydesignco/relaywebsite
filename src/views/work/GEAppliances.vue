@@ -44,7 +44,7 @@ const slides = [
     heroImgSrc="/ge-header.jpg"
     intro="The annual KBIS trade show is one of GE Appliances' largest opportunities to promote new products to their professional customer base. When the pandemic disrupted the show’s in-person experience, GE asked Relay to create a complementary digital experience for sales staff to use with remote attendees."
     nextSrc="/odessa-header.jpg"
-    nextTitle="OdessaConnect"
+    nextTitle="Odessa Connect"
     nextUrl="/work/odessa"
     ref="casestudy"
   >
