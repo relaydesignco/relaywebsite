@@ -46,7 +46,7 @@ watch(animIsVisible, async (newVal, oldVal) => {
           </div>
         </div>
         <div class="md:w-1/2">
-          <div class="px-24 md:px-12 lg:px-16 lg:pr-32">
+          <div class="px-16 md:px-12 lg:px-16 lg:pr-32">
             <p class="subheading mt-24 md:mt-0">Challenge</p>
             <p>Replace multiple legacy intranets that were used daily by a global team to access critical business tools and announcements. Challenges experienced by users included performance issues, sprawling information architecture, and lack of content management tools. </p>
           </div>

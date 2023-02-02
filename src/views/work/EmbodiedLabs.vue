@@ -26,7 +26,7 @@ useWistia()
           </div>
         </div>
         <div class="md:w-1/2">
-          <div class="px-24 md:px-12 lg:px-16 lg:pr-32">
+          <div class="px-16 md:px-12 lg:px-16 lg:pr-32">
             <p class="subheading mt-24 md:mt-0">Challenge</p>
             <p>The original Embodied Labs product was VR-based. It required trainees to use a VR headset, and was most commonly used on-site at their employer. When the pandemic hit, customers were reticent to bring employees on-site or share headsets, and usage dropped off. Relay was tasked with helping bring the product to the web, enabling users to access the educational content remotely via their browser.</p>
           </div>
