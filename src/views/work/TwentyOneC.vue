@@ -21,7 +21,7 @@ useWistia()
 
     <template #challenge>
       <div class="md:w-full">
-        <div class="px-24 md:px-12 lg:px-32">
+        <div class="px-16 md:px-12 lg:px-32">
           <p class="subheading mt-24 md:mt-0 text-center">Challenge</p>
           <p>Replace an antiquated, manual reporting process with a custom digital product that streamlines reporting, aggregates data from a variety of sources, and is easily accessible by a diverse, distributed team.</p>
         </div>
@@ -30,7 +30,7 @@ useWistia()
 
     <template #images>
 
-      <div class="flex w-full">
+      <div class="flex flex-col md:flex-row w-full">
         <div class="w-full md:w-1/2">
           <div class="wistia_responsive_padding" style="padding:109.38% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/qlhux7lew0?seo=false&videoFoam=true" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe></div></div>
         </div>
@@ -62,7 +62,7 @@ useWistia()
     </template>
 
     <template #images2>
-      <div class="grid grid-cols-2 gap-2">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
         <img src="/21c-collateral.jpg" class="w-full my-10" alt="" />
         <div class="w-full my-10">
           <div class="h-full p-8 flex flex-col justify-center content-center">
