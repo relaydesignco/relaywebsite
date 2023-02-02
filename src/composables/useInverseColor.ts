@@ -4,7 +4,7 @@ export function useInverseColor() {
       case 'black':
         return 'white'
       case 'white':
-        return 'black'
+        return 'blue'
       case 'blue':
         return 'red'
       case 'red':
@@ -12,7 +12,7 @@ export function useInverseColor() {
       case 'pink':
         return 'blue'
       case 'orange':
-        return 'yellow'
+        return 'pink'
       case 'yellow':
         return 'pink'
       case 'green':
