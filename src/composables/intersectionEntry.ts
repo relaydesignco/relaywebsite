@@ -8,14 +8,16 @@ const useIntersectionEntry = (color: string) => {
   const observedElement : Ref<HTMLElement | null> = ref(null)
   const interOptions = {
     root: null,
-    threshold: 0.2,
+    threshold: 0.05,
   }
 
   const interCallback = function (entries?: IntersectionObserverEntry[]) {
     if (entries) {
       const [entry] = entries;
       if (entry.isIntersecting && observedElement.value) {
-        store.setBgColor(bgColor)
+        store.setBgVisible(color)
+      } else if (!entry.isIntersecting && observedElement.value) {
+        store.setBgNotVisible(color)
       }
     }
   }

@@ -67,9 +67,4 @@ const store = useMainStore()
 </template>
 
 <style scoped>
-
-main {
-  transition: background-color 1.2s ease;
-}
-
 </style>

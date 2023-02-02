@@ -10,12 +10,12 @@ const store = useMainStore()
 </script>
 
 <template>
-  <TypeHero />
-
+<div class="body">
 
   <main :class="`bg-${store.bgColor}`">
 
     <ColorSection bg-color="red">
+      <TypeHero />
     </ColorSection>
 
     <ColorSection bg-color="orange">
@@ -29,7 +29,7 @@ const store = useMainStore()
     </ColorSection>
 
     <ColorSection bg-color="blue">
-      <div class="flex flex-col md:flex-row py-24 md:py-56 px-8 md:px-24 items-start md:max-w-7xl md:mx-auto">
+      <div class="flex flex-col md:flex-row py-24 md:py-56 md:pt-24 px-8 md:px-24 items-start md:max-w-7xl md:mx-auto">
         <div class="md:w-1/2">
           <h2 class="h4 md:pr-20 mb-8 text-red leading-none">Build what<br />matters.</h2>
         </div>
@@ -47,12 +47,11 @@ const store = useMainStore()
 
     <Footer />
   </main>
+</div>
 </template>
 
 <style scoped>
-
-main {
-  transition: background-color 1.2s ease;
+.body {
+  @apply bg-red;
 }
-
 </style>

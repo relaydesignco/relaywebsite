@@ -81,11 +81,6 @@ const store = useMainStore()
 </template>
 
 <style scoped>
-
-main {
-  transition: background-color 1.2s ease;
-}
-
 .approach-grid .h5 {
   @apply text-4xl leading-none mb-3
 }

@@ -33,7 +33,7 @@ section {
   position: relative;
 
   @screen lg {
-    min-height: 100.1vh;
+    min-height: 40vh;
   }
 }
 

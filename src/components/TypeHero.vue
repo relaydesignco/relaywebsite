@@ -126,7 +126,6 @@ const refs = useTemplateRefsList<HTMLSpanElement>()
 </script>
 
 <template>
-  <div class="bg-red">
 
     <div class="posDebug">{{ m.x }}, {{ m.y }}</div>
 
@@ -147,8 +146,6 @@ const refs = useTemplateRefsList<HTMLSpanElement>()
         </span>
       </div>
     </div>
-
-  </div>
 </template>
 
 <style scoped>

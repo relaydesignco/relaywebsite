@@ -19,6 +19,10 @@ body {
   min-height: 100vh;
 }
 
+main {
+  transition: background-color .6s ease;
+}
+
 h1, h2, h3, h4, h5, h6 {
   @apply font-sans font-bold;
 }
@@ -115,4 +119,12 @@ h1, h2, h3, h4, h5, h6 {
   a:hover .text-with-bar::after {
     transform: scale(1, 1);
   }
+}
+
+.bg-pink .text-pink {
+  @apply text-blue;
+}
+
+.bg-white .text-white {
+  @apply text-red;
 }

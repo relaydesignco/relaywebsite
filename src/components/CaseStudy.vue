@@ -87,10 +87,6 @@ const props = defineProps<{
 
 <style scoped>
 
-main {
-  transition: background-color 1.2s ease;
-}
-
 @screen lg {
   .page-title {
     font-size: 100px
