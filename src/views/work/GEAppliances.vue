@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
+import { useSeoMeta } from 'unhead'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import animation from "../../assets/gea_logos_v5.json";
 import CaseStudy from '../../components/CaseStudy.vue'
+
+useSeoMeta({
+  title: 'Relay Design Co. – Work – GE Appliances',
+  description: 'Case study of digital experience design and development work for GE Appliances.',
+})
 
 let hasAnimPlayed = false;
 let anim = ref();

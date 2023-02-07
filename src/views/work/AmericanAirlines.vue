@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
+import { useSeoMeta } from 'unhead'
 import animation from "../../assets/psa_logo_animation.json";
 import CaseStudy from '../../components/CaseStudy.vue'
 import { useWistia } from '../../composables/useWistia';
+
+useSeoMeta({
+  title: 'Relay Design Co. – Work – American Airlines',
+  description: 'Case study of digital product design and development work for American Airlines.',
+})
+
 useWistia()
 
 let anim = ref();

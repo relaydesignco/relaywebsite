@@ -1,10 +1,16 @@
 <script setup lang="ts">
+import { useSeoMeta } from 'unhead'
 import ColorSection from '../components/ColorSection.vue'
 import WorkListItem from '../components/WorkListItem.vue'
 import Footer from '../components/Footer.vue'
 import { useMainStore } from "../stores/index"
 
 const store = useMainStore()
+
+useSeoMeta({
+  title: 'Relay Design Co. – Work',
+  description: 'Case studies of our digital product work with start-ups and established brands.'
+})
 
 </script>
 

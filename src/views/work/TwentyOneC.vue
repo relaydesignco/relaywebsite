@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
+import { useSeoMeta } from 'unhead'
 import animation from "../../assets/21c_logos.json";
 import CaseStudy from '../../components/CaseStudy.vue'
 import { useWistia } from '../../composables/useWistia';
+
+useSeoMeta({
+  title: 'Relay Design Co. – Work – 21c Museum Hotels',
+  description: 'Case study of digital product and brand work for 21c Museum Hotels.',
+})
+
 useWistia()
 
 let anim = ref();

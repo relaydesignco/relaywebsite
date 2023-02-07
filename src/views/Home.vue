@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useSeoMeta } from 'unhead'
 import ColorSection from '../components/ColorSection.vue'
 import WorkListItemWide from '../components/WorkListItemWide.vue'
 import Footer from '../components/Footer.vue'
@@ -6,6 +7,11 @@ import TypeHero from '../components/TypeHero.vue'
 import { useMainStore } from "../stores/index"
 
 const store = useMainStore()
+
+useSeoMeta({
+  title: 'Relay Design Co. – Digital Product Studio',
+  description: 'Digital product design and development for start-ups and established brands.',
+})
 
 </script>
 

@@ -1,6 +1,13 @@
 <script setup lang="ts">
+import { useSeoMeta } from 'unhead'
 import CaseStudy from '../../components/CaseStudy.vue'
 import { useWistia } from '../../composables/useWistia';
+
+useSeoMeta({
+  title: 'Relay Design Co. – Work – Odessa Connect',
+  description: 'Case study of digital product design and development work for Odessa Connect.',
+})
+
 useWistia()
 
 </script>

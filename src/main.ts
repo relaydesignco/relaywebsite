@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { createRouter, createWebHistory } from 'vue-router'
+import { createHead } from 'unhead'
 import LottieAnimation from 'lottie-web-vue'
 import './style.css'
 import App from './App.vue'
@@ -38,6 +39,8 @@ const router = createRouter({
 })
 
 const pinia = createPinia()
+
+const head = createHead()
 
 createApp(App)
   .use(LottieAnimation)
