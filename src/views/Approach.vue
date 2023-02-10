@@ -38,8 +38,8 @@ useSeoMeta({
         </div>
         <div class="area3">
           <h2 class="h5 text-pink">Experiment &amp; Iterate</h2>
-          <p>We believe that the most successful products are built around clear, consistent brands – and the strongest brands are built around thoughtful, useful products.</p>
-          <p>That’s why our approach starts with both brand and product strategy. When aligned, they have an exponential effect on your ability to create engaged and loyal customers.</p>
+          <p>We believe in discovery and research to help us make informed bets on what to build. But even more than that, we believe in learning from observing customers using an actual product.</p>
+          <p>That’s why our approach is centered around learning by doing – through design iteration, quick prototyping,  validating ideas through user testing, and shipping often.</p>
         </div>
       </div>
     </ColorSection>
