@@ -13,6 +13,8 @@ const store = useMainStore()
 useSeoMeta({
   title: 'Relay Design Co. – Digital Product Studio',
   description: 'Digital product design and development for start-ups and established brands.',
+  ogImage: 'https://relaydesign.co/relay-banner.png',
+  twitterCard: 'summary_large_image',
 })
 
 onMounted(() => {

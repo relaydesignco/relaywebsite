@@ -12,6 +12,8 @@ const store = useMainStore()
 useSeoMeta({
   title: 'Relay Design Co. – Approach',
   description: 'Our design-led process helps clients build what matters – to their customers, and their businesses.',
+  ogImage: 'https://relaydesign.co/relay-banner.png',
+  twitterCard: 'summary_large_image',
 })
 
 onMounted(() => {

@@ -12,6 +12,8 @@ const store = useMainStore()
 useSeoMeta({
   title: 'Relay Design Co. – About',
   description: 'Relay is a team of designers and developers who build digital products that address meaningful problems.',
+  ogImage: 'https://relaydesign.co/relay-banner.png',
+  twitterCard: 'summary_large_image',
 })
 
 onMounted(() => {
