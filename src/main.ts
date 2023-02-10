@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import VueGtag from 'vue-gtag'
 import { createPinia } from 'pinia'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createHead } from 'unhead'
@@ -47,5 +48,8 @@ createApp(App)
   .use(LottieAnimation)
   .use(router)
   .use(pinia)
+  .use(VueGtag, {
+    config: { id: 'G-45MY3HMWFW' }
+  })
   .mount('#app')
 
