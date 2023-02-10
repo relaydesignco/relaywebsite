@@ -2,7 +2,6 @@
 import { onMounted, ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 import { useSeoMeta } from 'unhead'
-import animation from "../../assets/21c_logos.json";
 import CaseStudy from '../../components/CaseStudy.vue'
 import { useWistia } from '../../composables/useWistia';
 
@@ -96,16 +95,6 @@ watch(animIsVisible, async (newVal, oldVal) => {
             <h2 class="subheading mb-3">Continual Brand Support</h2>
             <p>As part of our ongoing relationship, Relay continues to provide 21c with brand and design services for projects such as new hotel and restaurant launches, marketing campaigns, and environmental and digital experience design.</p>
           </div>
-        </div>
-      </div>
-      <div class="bg-white md:mx-10">
-        <div class="w-full md:w-3/4 lg:w-2/3 mx-auto">
-          <lottie-animation
-            ref="anim"
-            :animationData="animation"
-            :loop="true"
-            :autoPlay="false"
-          />
         </div>
       </div>
     </template>
