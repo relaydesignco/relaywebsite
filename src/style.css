@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply font-serif;
+
+  margin: 0;
+  padding: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+main {
+  transition: background-color .6s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-sans font-bold;
+}
+
+.h1 {
+  @apply text-5xl md:text-6xl lg:text-7xl mb-3 md:mb-5 lg:mb-10;
+}
+
+.h4 {
+  font-size: 64px;
+}
+
+@screen lg {
+  .h4 {
+    font-size: 76px;
+  }
+}
+
+.h5 {
+  @apply text-4xl md:text-5xl;
+}
+
+.h6 {
+  @apply text-4xl font-serif;
+}
+
+.subheading {
+  @apply text-black font-sans font-bold mb-4;
+
+  font-size: 22px;
+}
+
+.large {
+  @apply text-2xl md:text-3xl lg:text-4xl leading-snug;
+}
+
+.medium {
+  @apply text-xl leading-8 mb-7;
+}
+
+.small {
+  @apply text-base mb-7;
+}
+
+.noScroll {
+  /* prevent scrolling on body when menu is open */
+  @apply overflow-hidden h-full;
+
+  touch-action: none;
+}
+
+.bar-link {
+  @apply inline-block relative font-bold
+}
+
+.bar-link span {
+  @apply inline-block relative z-10 font-sans;
+}
+
+.bar-link::after {
+  @apply block bg-red absolute top-0 left-0 z-0 py-3;
+
+  height: 110%;
+  margin-top: -1%;
+  margin-left: -5%;
+  width: 110%;
+  content: "";
+  transform: scale(0, 100%);
+  transform-origin: left center;
+  transition: all .2s ease-in-out;
+}
+
+.bar-link:hover::after {
+  transform: scale(100%, 100%);
+}
+
+@screen md {
+.text-with-bar {
+    @apply relative inline-block z-10 px-4 py-2 pr-9;
+
+    transition: color .5s ease;
+  }
+
+  .text-with-bar::after {
+    @apply absolute top-0 left-0 w-full h-full bg-black inline-block;
+
+    content: "";
+    transform: scale(0, 1);
+    transform-origin: center left;
+    transition: transform .5s ease;
+    z-index: -1;
+  }
+
+  a:hover .text-with-bar::after {
+    transform: scale(1, 1);
+  }
+}
+
+.bg-pink .text-pink {
+  @apply text-blue;
+}
+
+.bg-white .text-white {
+  @apply text-red;
+}
