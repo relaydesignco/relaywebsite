@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import AOS from 'aos'
 import { useSeoMeta } from 'unhead'
 import ColorSection from '../components/ColorSection.vue'
 import HeadlineScroll from '../components/HeadlineScroll.vue'
@@ -10,6 +12,10 @@ const store = useMainStore()
 useSeoMeta({
   title: 'Relay Design Co. – About',
   description: 'Relay is a team of designers and developers who build digital products that address meaningful problems.',
+})
+
+onMounted(() => {
+    AOS.init();
 })
 
 </script>
@@ -28,15 +34,36 @@ useSeoMeta({
       <div class="flex flex-col md:flex-row min-h-screen px-8 md:px-24 py-36 items-start text-white">
         <h2 class="h6 mb-12 text-white md:w-1/2 md:sticky md:top-40">Our beliefs.</h2>
         <div class="md:w-1/2">
-          <div class="mb-14">
+          <div class="mb-28"
+            data-aos="fade-up"
+            data-aos-offset="100"
+            data-aos-delay="50"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+          >
             <h3 class="h5 text-white">People</h3>
             <p class="medium">Everything we do begins and ends with people. You, your customers, and our team. We build trusting, meaningful relationships with our clients – and their customers – by keeping our promises and communicating clearly.</p>
           </div>
-          <div class="mb-14">
+          <div class="mb-28"
+            data-aos="fade-up"
+            data-aos-offset="100"
+            data-aos-delay="50"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+          >
             <h3 class="h5 text-white">Purpose</h3>
             <p class="medium">We don’t build anything until we understand why it will matter, and to whom. That’s how we keep your product aligned with your vision, and ensure that your investment makes a meaningful impact.</p>
           </div>
-          <div class="mb-14">
+          <div class="mb-28"
+            data-aos="fade-up"
+            data-aos-offset="100"
+            data-aos-delay="50"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+          >
             <h3 class="h5 text-white">Progress</h3>
             <p class="medium">We follow a design-led process that prioritizes progress over perfection and continually asks, “What’s the next most important thing?” Because momentum is everything when building digital products for a rapidly changing market.</p>
           </div>
