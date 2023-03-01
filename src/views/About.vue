@@ -83,12 +83,32 @@ onMounted(() => {
         <div class="md:w-1/2">
           <div class="flex flex-col md:flex-row">
             <div class="md:w-1/2">
-              <p class="small"><span class="font-sans font-bold">Drew McChesney</span><br />Managing Director</p>
-              <p class="small"><span class="font-sans font-bold">Brian Johnson</span><br />Creative Director</p>
-              <p class="small"><span class="font-sans font-bold">Ashley Revlett</span><br />Technology Director</p>
+              <p class="small">
+                <span class="font-sans font-bold flex items-center">
+                  Drew McChesney <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/drewmcchesney/"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
+                </span>
+                Managing Director
+              </p>
+              <p class="small">
+                <span class="font-sans font-bold flex items-center">
+                  Brian Johnson <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/brianatmindsalt/"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
+                </span>
+                Creative Director
+              </p>
+              <p class="small">
+                <span class="font-sans font-bold flex items-center">
+                  Ashley Revlett <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/ashleyrevlett"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
+                </span>
+                Technology Director
+              </p>
             </div>
             <div class="md:w-1/2">
-              <p class="small"><span class="font-sans font-bold">Mike Casto</span><br />Senior Designer</p>
+              <p class="small">
+                <span class="font-sans font-bold flex items-center">
+                  Mike Casto <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/mike-casto-7661817/"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
+                </span>
+                Senior Designer
+              </p>
               <p class="small"><span class="font-sans font-bold">Aaron Fautz</span><br />Senior Engineer</p>
               <p class="small"><span class="font-sans font-bold">Lauren Hill</span><br />Brand Designer</p>
             </div>
