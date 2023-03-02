@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import VueGtag from 'vue-gtag'
+import VueGtm from 'vue-gtm'
 import { createPinia } from 'pinia'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createHead } from 'unhead'
@@ -50,8 +50,14 @@ createApp(App)
   .use(LottieAnimation)
   .use(router)
   .use(pinia)
-  .use(VueGtag, {
-    config: { id: 'GTM-P7M45BB' }
+  .use(VueGtm, {
+    id: import.meta.env.VITE_GTM_ID,
+    defer: false,
+    enabled: true,
+    debug: false,
+    loadScript: true,
+    vueRouter: router,
+    trackOnNextTick: false,
   })
   .mount('#app')
 
