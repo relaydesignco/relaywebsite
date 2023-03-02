@@ -51,7 +51,7 @@ createApp(App)
   .use(router)
   .use(pinia)
   .use(VueGtag, {
-    config: { id: 'G-45MY3HMWFW' }
+    config: { id: 'GTM-P7M45BB' }
   })
   .mount('#app')
 
