@@ -108,7 +108,7 @@ onMounted(() => {
                 <span class="font-sans font-bold flex items-center">
                   Mike Casto <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/mike-casto-7661817/"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
                 </span>
-                Senior Designer
+                Motion Designer
               </p>
               <p class="small"><span class="font-sans font-bold">Aaron Fautz</span><br />Senior Engineer</p>
               <p class="small"><span class="font-sans font-bold">Lauren Hill</span><br />Brand Designer</p>
