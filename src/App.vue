@@ -92,11 +92,10 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
           <span class="bar"></span>
           <span class="text">About.</span>
         </router-link>
-
-        <div class="mt-auto font-bold mb-32 md:mb-6">
-          <span class="font-sans text-base" :class="`text-${bgColor}`">Talk to us:</span><br />
-          <a class="font-sans font-base text-base no-underline" :class="`text-${bgColor}`" href="mailto:hello@relaydesign.co">hello@relaydesign.co</a>
-        </div>
+        <router-link class="nav-link" :class="`text-${bgColor}`" to="/contact">
+          <span class="bar"></span>
+          <span class="text">Contact.</span>
+        </router-link>
       </div>
     </div>
   </nav>

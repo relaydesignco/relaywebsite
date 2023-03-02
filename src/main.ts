@@ -10,6 +10,7 @@ import App from './App.vue'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Approach from './views/Approach.vue'
+import Contact from './views/Contact.vue'
 import Work from './views/Work.vue'
 import TwentyOneC from './views/work/TwentyOneC.vue'
 import GEAppliances from './views/work/GEAppliances.vue'
@@ -23,6 +24,7 @@ const router = createRouter({
     { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/approach', component: Approach },
+    { path: '/contact', component: Contact },
     { path: '/work', component: Work },
     { path: '/work/21c', component: TwentyOneC },
     { path: '/work/ge', component: GEAppliances },
