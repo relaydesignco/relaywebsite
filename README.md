@@ -22,7 +22,7 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 Run it:
 ```
-nvm use stable
+nvm use
 npm install
 npm run dev
 ```

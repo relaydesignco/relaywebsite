@@ -2,6 +2,7 @@
 import { onMounted } from 'vue'
 import AOS from 'aos'
 import { useSeoMeta } from 'unhead'
+import WorkCarousel from '../components/WorkCarousel.vue'
 import ColorSection from '../components/ColorSection.vue'
 import HeadlineScroll from '../components/HeadlineScroll.vue'
 import Footer from '../components/Footer.vue'
@@ -117,7 +118,12 @@ onMounted(() => {
       </div>
     </ColorSection>
 
-    <Footer />
+    <ColorSection bg-color="pink">
+      <WorkCarousel />
+
+      <Footer />
+    </ColorSection>
+
   </main>
 </template>
 
