@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@gtm-support/vue-gtm": "^2.0.0",
     "@vueuse/core": "^9.12.0",
     "aos": "^2.3.4",
     "lottie-web-vue": "^2.0.6",
     "vue": "^3.2.41",
-    "vue-gtm": "^3.5.0",
     "vue-router": "^4.1.6",
     "vue3-carousel": "^0.2.9"
   },

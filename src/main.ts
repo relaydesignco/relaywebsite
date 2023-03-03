@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import VueGtm from 'vue-gtm'
+import { createGtm } from '@gtm-support/vue-gtm'
 import { createPinia } from 'pinia'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createHead } from 'unhead'
@@ -50,14 +50,14 @@ createApp(App)
   .use(LottieAnimation)
   .use(router)
   .use(pinia)
-  .use(VueGtm, {
+  .use(createGtm({
     id: import.meta.env.VITE_GTM_ID,
-    defer: false,
-    enabled: true,
-    debug: false,
-    loadScript: true,
-    vueRouter: router,
-    trackOnNextTick: false,
-  })
+    defer: false, // Script can be set to `defer` to speed up page load at the cost of less accurate results (in case visitor leaves before script is loaded, which is unlikely but possible). Defaults to false, so the script is loaded `async` by default
+    compatibility: false, // Will add `async` and `defer` to the script tag to not block requests for old browsers that do not support `async`
+    debug: true, // Whether or not display console logs debugs (optional)
+    loadScript: true, // Whether or not to load the GTM Script (Helpful if you are including GTM manually, but need the dataLayer functionality in your components) (optional)
+    vueRouter: router, // Pass the router instance to automatically sync with router (optional)
+    trackOnNextTick: false, // Whether or not call trackView in Vue.nextTick
+  }),
+  )
   .mount('#app')
-
