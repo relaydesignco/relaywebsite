@@ -86,19 +86,19 @@ onMounted(() => {
             <div class="md:w-1/2">
               <p class="small">
                 <span class="font-sans font-bold flex items-center">
-                  Drew McChesney <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/drewmcchesney/"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
+                  Drew McChesney <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/drewmcchesney/" style="padding:.5rem .5rem .5rem .1rem"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
                 </span>
                 Managing Director
               </p>
               <p class="small">
                 <span class="font-sans font-bold flex items-center">
-                  Brian Johnson <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/brianatmindsalt/"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
+                  Brian Johnson <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/brianatmindsalt/" style="padding:.5rem .5rem .5rem .1rem"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
                 </span>
                 Creative Director
               </p>
               <p class="small">
                 <span class="font-sans font-bold flex items-center">
-                  Ashley Revlett <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/ashleyrevlett"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
+                  Ashley Revlett <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/ashleyrevlett" style="padding:.5rem .5rem .5rem .1rem"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
                 </span>
                 Technology Director
               </p>
@@ -106,7 +106,7 @@ onMounted(() => {
             <div class="md:w-1/2">
               <p class="small">
                 <span class="font-sans font-bold flex items-center">
-                  Mike Casto <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/mike-casto-7661817/"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
+                  Mike Casto <a class="ml-2" target="_blank" href="https://www.linkedin.com/in/mike-casto-7661817/" style="padding:.5rem .5rem .5rem .1rem"><img src="/icon-linkedin.svg" height="14" width="14" alt="LinkedIn" /></a>
                 </span>
                 Motion Designer
               </p>
