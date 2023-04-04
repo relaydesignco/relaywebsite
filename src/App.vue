@@ -1,19 +1,40 @@
 <script setup lang="ts">
 import { ref, watch, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { useInverseColor } from './composables/useInverseColor';
+import { onClickOutside } from '@vueuse/core'
+import { useInverseColor } from './composables/useInverseColor'
 import { useMainStore } from "./stores/index"
 
 const { getInverseColor } = useInverseColor()
 const store = useMainStore()
 
-// close menu when nav link is clicked
+// close open menu when click is outside menu tray
+// hamburger is not part of tray, so we have to ignore it
+const menuTray = ref()
+const hamburger = ref()
+onClickOutside(menuTray, (event) => {
+  if (showMenu.value) {
+    showMenu.value = false
+  }
+}, { ignore: [hamburger] })
+
+
+// close menu when navigation occurs
 const showMenu = ref(false)
 const route = useRoute()
 watch(route, (to) => {
   showMenu.value = false;
   document.body.classList.remove('noScroll')
 }, {flush: 'pre', immediate: true, deep: true})
+
+// route won't change when user clicks nav link to page they're already on
+// so we have to force close the menu when they do.
+// (scroll up functionality happens in the router config)
+function onClickNavLink(event:any) {
+  if (showMenu.value) {
+    showMenu.value = false
+  }
+}
 
 // remove noScroll from body when menu is closed
 watch(showMenu, (newVal) => {
@@ -60,15 +81,15 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
         <rect :class="[`fill-${inverseColor}`, {moved : isScrolled}]" class="bar" x="25" y="60" width="34" height="3" />
       </svg>
     </router-link>
-    <button class="hamburger absolute z-20 right-7 top-7 text-white border-0 p-0" :class="{close : showMenu}" @click.prevent="showMenu = !showMenu">
+    <button ref="hamburger" class="hamburger absolute z-20 right-7 top-7 text-white border-0 p-0" :class="{close : showMenu}" @click.prevent="showMenu = !showMenu">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect :class="showMenu == false ? `fill-${inverseColor}` : `fill-${bgColor}`" class="nav-icon-line line-1" width="32" height="3"/>
         <rect :class="showMenu == false ? `fill-${inverseColor}` : `fill-${bgColor}`" class="nav-icon-line line-2" width="32" height="3" y="10"  />
         <rect :class="showMenu == false ? `fill-${inverseColor}` : `fill-${bgColor}`" class="nav-icon-line line-3" width="32" height="3" y="20"  />
       </svg>
     </button>
-    <div class="menu absolute right-0 top-0 w-full md:w-1/2 lg:w-1/3 h-screen z-10" :class="[{ showMenu: showMenu }, `bg-${inverseColor}`]">
-      <router-link class="nav-link home-link ml-4 mt-1" :class="`text-${bgColor}`" to="/">
+    <div ref="menuTray" class="menu absolute right-0 top-0 w-full md:w-1/2 lg:w-1/3 h-screen z-10" :class="[{ showMenu: showMenu }, `bg-${inverseColor}`]">
+      <router-link @click="onClickNavLink" class="nav-link home-link ml-4 mt-1" :class="`text-${bgColor}`" to="/">
           <svg class="logo" width="115" height="64" viewBox="0 0 115 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path :class="`fill-${bgColor}`" d="M26.172 51.9486H29.354C29.44 51.9486 29.526 51.8626 29.526 51.7766V42.9186C29.526 42.9186 29.526 40.5106 30.3 38.5326C30.902 37.1566 32.45 35.4366 34.428 35.4366C34.944 35.4366 35.46 35.5226 35.976 35.6946C36.492 35.8666 36.922 36.2106 37.266 36.6406C37.438 36.8126 37.61 37.0706 37.696 37.2426C37.782 37.3286 37.868 37.3286 37.868 37.2426L40.448 35.0926C40.534 35.0066 40.534 35.0066 40.448 34.9206C39.846 34.0606 39.072 33.3726 38.126 32.8566C37.18 32.3406 36.148 32.0826 35.03 32.1686C33.912 32.0826 32.794 32.3406 31.762 32.8566C30.73 33.3726 29.87 34.0606 29.268 35.0066L29.096 32.7706C29.096 32.6846 29.01 32.5986 28.924 32.5986H26.172C26.086 32.5986 26 32.6846 26 32.7706V51.6046C26 51.8626 26.086 51.9486 26.172 51.9486Z" />
             <path :class="`fill-${bgColor}`" d="M55.1507 46.0169L54.9787 46.3609C54.7207 46.9629 54.2047 47.5649 53.6887 47.9949C52.7427 48.8549 51.6247 49.1989 50.3347 49.1129C48.9587 49.1129 47.8407 48.6829 46.8947 47.7369C46.2927 47.1349 45.8627 46.4469 45.5187 45.7589C45.1747 44.9849 45.0027 44.2109 45.0027 43.3509H58.7627C58.8487 43.3509 58.9347 43.2649 58.9347 43.1789V42.0609C58.9347 40.5989 58.7627 39.3089 58.2467 37.9329C57.7307 36.6429 57.0427 35.4389 56.0967 34.4069C55.3227 33.6329 54.3767 33.0309 53.3447 32.6869C52.3127 32.2569 51.2807 32.0849 50.1627 32.1709C49.0447 32.1709 47.9267 32.3429 46.8947 32.7729C45.8627 33.2029 44.9167 33.8049 44.0567 34.6649C43.1107 35.6969 42.4227 36.9009 41.9067 38.1909C41.3907 39.4809 41.2188 41.2009 41.2188 42.3189C41.2188 43.4369 41.3907 45.0709 41.9067 46.3609C42.4227 47.6509 43.1107 48.8549 44.0567 49.8009C44.8307 50.5749 45.7767 51.2629 46.8947 51.6929C47.9267 52.1229 49.0447 52.3809 50.1627 52.3809C54.1187 52.3809 57.1287 50.2309 58.2467 46.7909L55.1507 46.0169ZM50.3347 35.1809C51.0227 35.1809 51.6247 35.2669 52.2267 35.5249C52.8287 35.7829 53.3447 36.1269 53.7747 36.6429C54.7207 37.6749 55.2367 38.9649 55.3227 40.3409H45.1747C45.2607 38.1909 46.9807 35.1809 50.3347 35.1809Z" />
@@ -80,19 +101,19 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
           </svg>
         </router-link>
       <div class="nav-menu flex items-start flex-col p-10 pt-32">
-        <router-link class="nav-link" :class="`text-${bgColor}`" to="/work">
+        <router-link @click="onClickNavLink" class="nav-link" :class="`text-${bgColor}`" to="/work">
           <span class="bar"></span>
           <span class="text">Work.</span>
         </router-link>
-        <router-link class="nav-link" :class="`text-${bgColor}`" to="/approach">
+        <router-link @click="onClickNavLink" class="nav-link" :class="`text-${bgColor}`" to="/approach">
           <span class="bar"></span>
           <span class="text">Approach.</span>
         </router-link>
-        <router-link class="nav-link" :class="`text-${bgColor}`" to="/about">
+        <router-link @click="onClickNavLink" class="nav-link" :class="`text-${bgColor}`" to="/about">
           <span class="bar"></span>
           <span class="text">About.</span>
         </router-link>
-        <router-link class="nav-link" :class="`text-${bgColor}`" to="/contact">
+        <router-link @click="onClickNavLink" class="nav-link" :class="`text-${bgColor}`" to="/contact">
           <span class="bar"></span>
           <span class="text">Contact.</span>
         </router-link>
