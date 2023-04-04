@@ -1,11 +1,23 @@
 <script setup lang="ts">
 import { ref, watch, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { useInverseColor } from './composables/useInverseColor';
+import { onClickOutside } from '@vueuse/core'
+import { useInverseColor } from './composables/useInverseColor'
 import { useMainStore } from "./stores/index"
 
 const { getInverseColor } = useInverseColor()
 const store = useMainStore()
+
+// close open menu when click is outside menu tray
+// hamburger is not part of tray, so we have to ignore it
+const menuTray = ref()
+const hamburger = ref()
+onClickOutside(menuTray, (event) => {
+  if (showMenu.value) {
+    showMenu.value = false
+  }
+}, { ignore: [hamburger] })
+
 
 // close menu when nav link is clicked
 const showMenu = ref(false)
@@ -60,14 +72,14 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
         <rect :class="[`fill-${inverseColor}`, {moved : isScrolled}]" class="bar" x="25" y="60" width="34" height="3" />
       </svg>
     </router-link>
-    <button class="hamburger absolute z-20 right-7 top-7 text-white border-0 p-0" :class="{close : showMenu}" @click.prevent="showMenu = !showMenu">
+    <button ref="hamburger" class="hamburger absolute z-20 right-7 top-7 text-white border-0 p-0" :class="{close : showMenu}" @click.prevent="showMenu = !showMenu">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect :class="showMenu == false ? `fill-${inverseColor}` : `fill-${bgColor}`" class="nav-icon-line line-1" width="32" height="3"/>
         <rect :class="showMenu == false ? `fill-${inverseColor}` : `fill-${bgColor}`" class="nav-icon-line line-2" width="32" height="3" y="10"  />
         <rect :class="showMenu == false ? `fill-${inverseColor}` : `fill-${bgColor}`" class="nav-icon-line line-3" width="32" height="3" y="20"  />
       </svg>
     </button>
-    <div class="menu absolute right-0 top-0 w-full md:w-1/2 lg:w-1/3 h-screen z-10" :class="[{ showMenu: showMenu }, `bg-${inverseColor}`]">
+    <div ref="menuTray" class="menu absolute right-0 top-0 w-full md:w-1/2 lg:w-1/3 h-screen z-10" :class="[{ showMenu: showMenu }, `bg-${inverseColor}`]">
       <router-link class="nav-link home-link ml-4 mt-1" :class="`text-${bgColor}`" to="/">
           <svg class="logo" width="115" height="64" viewBox="0 0 115 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path :class="`fill-${bgColor}`" d="M26.172 51.9486H29.354C29.44 51.9486 29.526 51.8626 29.526 51.7766V42.9186C29.526 42.9186 29.526 40.5106 30.3 38.5326C30.902 37.1566 32.45 35.4366 34.428 35.4366C34.944 35.4366 35.46 35.5226 35.976 35.6946C36.492 35.8666 36.922 36.2106 37.266 36.6406C37.438 36.8126 37.61 37.0706 37.696 37.2426C37.782 37.3286 37.868 37.3286 37.868 37.2426L40.448 35.0926C40.534 35.0066 40.534 35.0066 40.448 34.9206C39.846 34.0606 39.072 33.3726 38.126 32.8566C37.18 32.3406 36.148 32.0826 35.03 32.1686C33.912 32.0826 32.794 32.3406 31.762 32.8566C30.73 33.3726 29.87 34.0606 29.268 35.0066L29.096 32.7706C29.096 32.6846 29.01 32.5986 28.924 32.5986H26.172C26.086 32.5986 26 32.6846 26 32.7706V51.6046C26 51.8626 26.086 51.9486 26.172 51.9486Z" />
