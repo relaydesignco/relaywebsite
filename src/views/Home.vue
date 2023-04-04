@@ -33,14 +33,15 @@ onMounted(() => {
     </ColorSection>
 
     <ColorSection bg-color="orange">
-      <WorkListItemWide title="American Airlines" description="An online home for a global workforce" img-src="/aa-header.jpg" route-url="/work/american-airlines" />
-    </ColorSection>
-    <ColorSection bg-color="green">
-      <WorkListItemWide title="GE Appliances" description="A virtual experience as sales tool" img-src="/ge-header-2.jpg" route-url="/work/ge" />
+      <WorkListItemWide title="American Airlines" description="An online home for a global workforce" img-src="/aa-thumb.jpg" route-url="/work/american-airlines" />
     </ColorSection>
     <ColorSection bg-color="yellow">
       <WorkListItemWide title="Embodied Labs" description="Immersive online training platform" img-src="/el-header.jpg" route-url="/work/embodied-labs" />
     </ColorSection>
+    <ColorSection bg-color="green">
+      <WorkListItemWide title="GE Appliances" description="A virtual experience as sales tool" img-src="/gea-thumb.jpg" route-url="/work/ge" />
+    </ColorSection>
+
 
     <ColorSection bg-color="blue">
       <div class="flex flex-col md:flex-row py-24 md:py-56 md:pt-24 px-8 md:px-24 items-start md:max-w-7xl md:mx-auto">
