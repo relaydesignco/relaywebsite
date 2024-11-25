@@ -37,9 +37,9 @@ onMounted(() => {
           img-src="/el-header.jpg" route-url="/work/embodied-labs" />
       </ColorSection>
       <ColorSection bg-color="orange">
-        <WorkListItemWide title="OdessaConnect"
+        <WorkListItemWide title="Odessa Connect"
           description="A television-based app for seniors, their communities, and their loved ones."
-          img-src=" /odessa-header.jpg" route-url="/work/odessa-connect" />
+          img-src=" /odessa-header.jpg" route-url="/work/odessa" />
       </ColorSection>
       <ColorSection bg-color="green">
         <WorkListItemWide title="GE Appliances" description="A virtual experience as sales tool"
