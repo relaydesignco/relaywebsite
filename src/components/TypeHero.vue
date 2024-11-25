@@ -114,7 +114,7 @@ watch(
 )
 
 // create dynamic refs for each letter
-const headline1 =  reactive("Digital products ".split(""))
+const headline1 =  reactive("Software products ".split(""))
 const headline2 = reactive("that delight users ".split(""))
 const headline3 = reactive("and grow brands".split(""))
 const refs = useTemplateRefsList<HTMLSpanElement>()
